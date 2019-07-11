@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/ladder/grandmaster/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"_links\\":{\\"self\\":{\\"href\\":\\"sample grandmaster leaderboard link\\"}}}}"`;
+
+exports[`/ladder/grandmaster/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{}}"`;

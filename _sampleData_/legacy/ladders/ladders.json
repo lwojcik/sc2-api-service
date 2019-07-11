@@ -1,0 +1,461 @@
+{
+  "status": 200,
+  "data": {
+    "currentSeason": [{
+      "ladder": [],
+      "characters": [{
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [{
+        "ladderName": "Zer'atai Romeo",
+        "ladderId": "278560",
+        "division": 10,
+        "rank": 6,
+        "league": "DIAMOND",
+        "matchMakingQueue": "LOTV_SOLO",
+        "wins": 59,
+        "losses": 57,
+        "showcase": true
+      }],
+      "characters": [{
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": []
+    }],
+    "previousSeason": [{
+      "ladder": [],
+      "characters": [{
+        "id": "4777309",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Aecium",
+        "clanName": "Killer Rooster",
+        "clanTag": "KillR",
+        "profilePath": "/profile/1/1/4777309"
+      }, {
+        "id": "7736300",
+        "realm": 1,
+        "region": 1,
+        "displayName": "PetitJoe",
+        "clanName": "The Lamest Clan EVER",
+        "clanTag": "TLCE",
+        "profilePath": "/profile/1/1/7736300"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 4
+      }]
+    }, {
+      "ladder": [{
+        "ladderName": "Nagglfar Pi",
+        "ladderId": "276285",
+        "division": 17,
+        "rank": 12,
+        "league": "PLATINUM",
+        "matchMakingQueue": "LOTV_TWOS",
+        "wins": 12,
+        "losses": 13,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "4777309",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Aecium",
+        "clanName": "Killer Rooster",
+        "clanTag": "KillR",
+        "profilePath": "/profile/1/1/4777309"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "1853402",
+        "realm": 1,
+        "region": 1,
+        "displayName": "bahuntome",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/1853402"
+      }, {
+        "id": "4441491",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Koshkii",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/4441491"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 4
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "4441491",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Koshkii",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/4441491"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_TWOS",
+        "gamesPlayed": 1
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "4168182",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Ninjette",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/4168182"
+      }, {
+        "id": "4777309",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Aecium",
+        "clanName": "Killer Rooster",
+        "clanTag": "KillR",
+        "profilePath": "/profile/1/1/4777309"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 2
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "928682",
+        "realm": 1,
+        "region": 1,
+        "displayName": "NET",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/928682"
+      }, {
+        "id": "4777309",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Aecium",
+        "clanName": "Killer Rooster",
+        "clanTag": "KillR",
+        "profilePath": "/profile/1/1/4777309"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 1
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "928682",
+        "realm": 1,
+        "region": 1,
+        "displayName": "NET",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/928682"
+      }, {
+        "id": "4168182",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Ninjette",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/4168182"
+      }, {
+        "id": "4777309",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Aecium",
+        "clanName": "Killer Rooster",
+        "clanTag": "KillR",
+        "profilePath": "/profile/1/1/4777309"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_FOURS",
+        "gamesPlayed": 3
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "3645501",
+        "realm": 1,
+        "region": 1,
+        "displayName": "VThePrince",
+        "clanName": "PSISTORM Community",
+        "clanTag": "PSlSTC",
+        "profilePath": "/profile/1/1/3645501"
+      }, {
+        "id": "4425603",
+        "realm": 1,
+        "region": 1,
+        "displayName": "ArtyK",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/1/4425603"
+      }, {
+        "id": "4441491",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Koshkii",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/4441491"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_FOURS",
+        "gamesPlayed": 1
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "4425603",
+        "realm": 1,
+        "region": 1,
+        "displayName": "ArtyK",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/1/4425603"
+      }, {
+        "id": "4441491",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Koshkii",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/4441491"
+      }, {
+        "id": "4777309",
+        "realm": 1,
+        "region": 1,
+        "displayName": "Aecium",
+        "clanName": "Killer Rooster",
+        "clanTag": "KillR",
+        "profilePath": "/profile/1/1/4777309"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_FOURS",
+        "gamesPlayed": 1
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "1853402",
+        "realm": 1,
+        "region": 1,
+        "displayName": "bahuntome",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/1/1/1853402"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_TWOS",
+        "gamesPlayed": 1
+      }]
+    }, {
+      "ladder": [{
+        "ladderName": "Meinhoff Gravity",
+        "ladderId": "276074",
+        "division": 5,
+        "rank": 16,
+        "league": "SILVER",
+        "matchMakingQueue": "LOTV_THREES",
+        "wins": 6,
+        "losses": 3,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "7736300",
+        "realm": 1,
+        "region": 1,
+        "displayName": "PetitJoe",
+        "clanName": "The Lamest Clan EVER",
+        "clanTag": "TLCE",
+        "profilePath": "/profile/1/1/7736300"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }, {
+        "id": "463320",
+        "realm": 2,
+        "region": 1,
+        "displayName": "Kche",
+        "clanName": "Endless Gaming",
+        "clanTag": "EndPro",
+        "profilePath": "/profile/1/2/463320"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [{
+        "ladderName": "Shelak Foxtrot",
+        "ladderId": "276233",
+        "division": 11,
+        "rank": 78,
+        "league": "DIAMOND",
+        "matchMakingQueue": "LOTV_TWOS",
+        "wins": 3,
+        "losses": 13,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "7736300",
+        "realm": 1,
+        "region": 1,
+        "displayName": "PetitJoe",
+        "clanName": "The Lamest Clan EVER",
+        "clanTag": "TLCE",
+        "profilePath": "/profile/1/1/7736300"
+      }, {
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [{
+        "ladderName": "Arbiter Oscar",
+        "ladderId": "275669",
+        "division": 13,
+        "rank": 5,
+        "league": "DIAMOND",
+        "matchMakingQueue": "LOTV_SOLO",
+        "wins": 253,
+        "losses": 257,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "242838",
+        "realm": 2,
+        "region": 1,
+        "displayName": "TOGrizzly",
+        "clanName": "Blue Shell",
+        "clanTag": "BluS",
+        "profilePath": "/profile/1/2/242838"
+      }],
+      "nonRanked": []
+    }],
+    "showcasePlacement": []
+  }
+}

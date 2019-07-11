@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "data": {
+    "_links": {
+      "self": {
+        "href": "https://us.api.blizzard.com/data/sc2/league/40/201/0/6?namespace=prod"
+      }
+    },
+    "key": {
+      "league_id": 6,
+      "season_id": 40,
+      "queue_id": 201,
+      "team_type": 0
+    },
+    "tier": [{
+      "id": 0,
+      "division": [{
+        "id": 1,
+        "ladder_id": 279193,
+        "member_count": 199
+      }]
+    }]
+  }
+}

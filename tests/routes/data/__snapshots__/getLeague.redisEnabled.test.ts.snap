@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"message\\":\\"Test passed\\"}}"`;
+
+exports[`/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{}}"`;

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/profile/static/:regionId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"categoryId\\":\\"\\",\\"description\\":\\"sample static profile data object\\",\\"flags\\":\\"\\",\\"id\\":\\"\\",\\"imageUrl\\":\\"\\",\\"points\\":\\"\\",\\"title\\":\\"\\",\\"uiOrderHing\\":\\"\\"}]}}"`;

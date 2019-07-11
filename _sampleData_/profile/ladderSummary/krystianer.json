@@ -1,0 +1,89 @@
+{
+  "status": 200,
+  "data": {
+    "showCaseEntries": [{
+      "ladderId": "215950",
+      "team": {
+        "localizedGameMode": "Archon",
+        "members": [{
+          "favoriteRace": "protoss",
+          "name": "Ziomek",
+          "playerId": "4370293",
+          "region": 2
+        }, {
+          "favoriteRace": "protoss",
+          "name": "Krystianer",
+          "playerId": "5550729",
+          "region": 2
+        }]
+      },
+      "leagueName": "MASTER",
+      "localizedDivisionName": "Agria Gamma",
+      "rank": 7,
+      "wins": 2,
+      "losses": 0
+    }, {
+      "ladderId": "216616",
+      "team": {
+        "localizedGameMode": "1v1",
+        "members": [{
+          "favoriteRace": "protoss",
+          "name": "Krystianer",
+          "playerId": "5550729",
+          "region": 2
+        }]
+      },
+      "leagueName": "GRANDMASTER",
+      "localizedDivisionName": "Zekrath Sierra",
+      "rank": 56,
+      "wins": 252,
+      "losses": 218
+    }, {
+      "ladderId": "217226",
+      "team": {
+        "localizedGameMode": "1v1",
+        "members": [{
+          "favoriteRace": "zerg",
+          "name": "Krystianer",
+          "playerId": "5550729",
+          "region": 2
+        }]
+      },
+      "leagueName": "MASTER",
+      "localizedDivisionName": "Prelate Theta",
+      "rank": 49,
+      "wins": 8,
+      "losses": 7
+    }],
+    "placementMatches": [{
+      "localizedGameMode": "2v2",
+      "members": [{
+        "name": "ZiNo",
+        "playerId": "4656611",
+        "region": 2
+      }, {
+        "name": "Krystianer",
+        "playerId": "5550729",
+        "region": 2
+      }],
+      "gamesRemaining": 2
+    }],
+    "allLadderMemberships": [{
+      "ladderId": "216616",
+      "localizedGameMode": "1v1 Grandmaster",
+      "rank": 56
+    }, {
+      "ladderId": "217226",
+      "localizedGameMode": "1v1 Master",
+      "rank": 49
+    }, {
+      "ladderId": "215950",
+      "localizedGameMode": "Archon",
+      "rank": 7
+    }, {
+      "ladderId": "216269",
+      "localizedGameMode": "2v2 Platinum",
+      "rank": 64
+    }]
+  }
+}

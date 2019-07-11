@@ -1,0 +1,11 @@
+{
+  "status": 200,
+  "data": {
+    "name": "TOGrizzly",
+    "profileUrl": "https://www.starcraft2.com/profile/1/2/242838",
+    "avatarUrl": "https://static.starcraft2.com/starport/5eff9f83-6f5d-4fd0-ba8b-a9e84b977c94/portraits/1-15.jpg",
+    "profileId": "242838",
+    "regionId": 1,
+    "realmId": 2
+  }
+}

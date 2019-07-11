@@ -1,0 +1,312 @@
+{
+  "status": 200,
+  "data": {
+    "currentSeason": [{
+      "ladder": [{
+        "ladderName": "Valerian Dixie",
+        "ladderId": "216298",
+        "division": 5,
+        "rank": 61,
+        "league": "MASTER",
+        "matchMakingQueue": "LOTV_TWOS",
+        "wins": 1,
+        "losses": 1,
+        "showcase": true
+      }],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 3
+      }]
+    }, {
+      "ladder": [{
+        "ladderName": "Zekrath Sierra",
+        "ladderId": "216616",
+        "division": 1,
+        "rank": 116,
+        "league": "GRANDMASTER",
+        "matchMakingQueue": "LOTV_SOLO",
+        "wins": 11,
+        "losses": 3,
+        "showcase": true
+      }],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [{
+        "ladderName": "Scion Tango",
+        "ladderId": "215940",
+        "division": 2,
+        "rank": 59,
+        "league": "GOLD",
+        "matchMakingQueue": "LOTV_TWOS_COMP",
+        "wins": 6,
+        "losses": 0,
+        "showcase": true
+      }],
+      "characters": [{
+        "id": "2312080",
+        "realm": 1,
+        "region": 2,
+        "displayName": "Magico",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/2312080"
+      }, {
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "2536854",
+        "realm": 1,
+        "region": 2,
+        "displayName": "Ghazi",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/2/1/2536854"
+      }, {
+        "id": "2704251",
+        "realm": 1,
+        "region": 2,
+        "displayName": "LandaNog",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/2/1/2704251"
+      }, {
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 4
+      }]
+    }],
+    "previousSeason": [{
+      "ladder": [{
+        "ladderName": "Artika Zeta",
+        "ladderId": "214030",
+        "division": 91,
+        "rank": 76,
+        "league": "MASTER",
+        "matchMakingQueue": "LOTV_TWOS",
+        "wins": 3,
+        "losses": 4,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 2
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }, {
+        "id": "5321314",
+        "realm": 1,
+        "region": 2,
+        "displayName": "Mayhem",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/2/1/5321314"
+      }, {
+        "id": "7819585",
+        "realm": 1,
+        "region": 2,
+        "displayName": "Aptwyvern",
+        "clanName": "Plat Heroes",
+        "clanTag": "Heroes",
+        "profilePath": "/profile/2/1/7819585"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 2
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_SOLO",
+        "gamesPlayed": 4
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": []
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }, {
+        "id": "8647719",
+        "realm": 1,
+        "region": 2,
+        "displayName": "ZergyStardst",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/8647719"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_TWOS_COMP",
+        "gamesPlayed": 1
+      }]
+    }, {
+      "ladder": [{
+        "ladderName": "Raven Echo",
+        "ladderId": "213145",
+        "division": 1,
+        "rank": 105,
+        "league": "GRANDMASTER",
+        "matchMakingQueue": "LOTV_SOLO",
+        "wins": 84,
+        "losses": 60,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": []
+    }],
+    "showcasePlacement": [{
+      "ladder": [{
+        "ladderName": "Valerian Dixie",
+        "ladderId": "216298",
+        "division": 5,
+        "rank": 61,
+        "league": "MASTER",
+        "matchMakingQueue": "LOTV_TWOS",
+        "wins": 1,
+        "losses": 1,
+        "showcase": false
+      }],
+      "characters": [{
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 3
+      }]
+    }, {
+      "ladder": [],
+      "characters": [{
+        "id": "2536854",
+        "realm": 1,
+        "region": 2,
+        "displayName": "Ghazi",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/2/1/2536854"
+      }, {
+        "id": "2704251",
+        "realm": 1,
+        "region": 2,
+        "displayName": "LandaNog",
+        "clanName": "",
+        "clanTag": "",
+        "profilePath": "/profile/2/1/2704251"
+      }, {
+        "id": "3047941",
+        "realm": 1,
+        "region": 2,
+        "displayName": "GamerRichy",
+        "clanName": "Forged Force Gaming",
+        "clanTag": "FoFoG",
+        "profilePath": "/profile/2/1/3047941"
+      }],
+      "nonRanked": [{
+        "mmq": "LOTV_THREES",
+        "gamesPlayed": 4
+      }]
+    }]
+  }
+}

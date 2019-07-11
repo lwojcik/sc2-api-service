@@ -1,0 +1,136 @@
+{
+  "status": 200,
+  "data": {
+    "showCaseEntries": [{
+      "ladderId": "217328",
+      "team": {
+        "localizedGameMode": "1v1",
+        "members": [{
+          "favoriteRace": "zerg",
+          "name": "RlSky",
+          "playerId": "1654675",
+          "region": 2
+        }]
+      },
+      "leagueName": "MASTER",
+      "localizedDivisionName": "Scarab Kappa",
+      "rank": 70,
+      "wins": 1,
+      "losses": 3
+    }, {
+      "ladderId": "216740",
+      "team": {
+        "localizedGameMode": "3v3",
+        "members": [{
+          "favoriteRace": "random",
+          "name": "RlSky",
+          "playerId": "1654675",
+          "region": 2
+        }, {
+          "favoriteRace": "random",
+          "name": "FIGARO",
+          "playerId": "2624094",
+          "region": 2
+        }, {
+          "favoriteRace": "random",
+          "name": "JustinJoper",
+          "playerId": "2993617",
+          "region": 2
+        }]
+      },
+      "leagueName": "GOLD",
+      "localizedDivisionName": "Swann Sierra",
+      "rank": 92,
+      "wins": 5,
+      "losses": 0
+    }, {
+      "ladderId": "215849",
+      "team": {
+        "localizedGameMode": "3v3",
+        "members": [{
+          "favoriteRace": "random",
+          "name": "RlSky",
+          "playerId": "1654675",
+          "region": 2
+        }, {
+          "favoriteRace": "random",
+          "name": "FIGARO",
+          "playerId": "2624094",
+          "region": 2
+        }, {
+          "favoriteRace": "random",
+          "name": "RiSky",
+          "playerId": "3518557",
+          "region": 2
+        }]
+      },
+      "leagueName": "DIAMOND",
+      "localizedDivisionName": "Valerian Xi",
+      "rank": 18,
+      "wins": 4,
+      "losses": 1
+    }],
+    "placementMatches": [{
+      "localizedGameMode": "4v4",
+      "members": [{
+        "name": "RlSky",
+        "playerId": "1654675",
+        "region": 2
+      }, {
+        "name": "FIGARO",
+        "playerId": "2624094",
+        "region": 2
+      }, {
+        "name": "yunghurn",
+        "playerId": "2678659",
+        "region": 2
+      }, {
+        "name": "JustinJoper",
+        "playerId": "2993617",
+        "region": 2
+      }],
+      "gamesRemaining": 1
+    }, {
+      "localizedGameMode": "4v4",
+      "members": [{
+        "name": "RlSky",
+        "playerId": "1654675",
+        "region": 2
+      }, {
+        "name": "FIGARO",
+        "playerId": "2624094",
+        "region": 2
+      }, {
+        "name": "JustinJoper",
+        "playerId": "2993617",
+        "region": 2
+      }, {
+        "name": "MASKEN",
+        "playerId": "6935085",
+        "region": 2
+      }],
+      "gamesRemaining": 3
+    }, {
+      "localizedGameMode": "4v4 Random",
+      "members": [{
+        "name": "RlSky",
+        "playerId": "1654675",
+        "region": 2
+      }],
+      "gamesRemaining": 4
+    }],
+    "allLadderMemberships": [{
+      "ladderId": "217328",
+      "localizedGameMode": "1v1 Master",
+      "rank": 70
+    }, {
+      "ladderId": "216740",
+      "localizedGameMode": "3v3 Gold",
+      "rank": 92
+    }, {
+      "ladderId": "215849",
+      "localizedGameMode": "3v3 Diamond",
+      "rank": 18
+    }]
+  }
+}
