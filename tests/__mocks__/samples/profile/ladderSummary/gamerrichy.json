@@ -1,0 +1,97 @@
+{
+  "status": 200,
+  "data": {
+    "showCaseEntries": [{
+      "ladderId": "216616",
+      "team": {
+        "localizedGameMode": "1v1",
+        "members": [{
+          "favoriteRace": "terran",
+          "name": "GamerRichy",
+          "playerId": "3047941",
+          "region": 2
+        }]
+      },
+      "leagueName": "GRANDMASTER",
+      "localizedDivisionName": "Zekrath Sierra",
+      "rank": 118,
+      "wins": 10,
+      "losses": 2
+    }, {
+      "ladderId": "216298",
+      "team": {
+        "localizedGameMode": "2v2 Random",
+        "members": [{
+          "favoriteRace": "terran",
+          "name": "GamerRichy",
+          "playerId": "3047941",
+          "region": 2
+        }]
+      },
+      "leagueName": "MASTER",
+      "localizedDivisionName": "Valerian Dixie",
+      "rank": 61,
+      "wins": 1,
+      "losses": 1
+    }, {
+      "ladderId": "215940",
+      "team": {
+        "localizedGameMode": "Archon",
+        "members": [{
+          "favoriteRace": "terran",
+          "name": "Magico",
+          "playerId": "2312080",
+          "region": 2
+        }, {
+          "favoriteRace": "terran",
+          "name": "GamerRichy",
+          "playerId": "3047941",
+          "region": 2
+        }]
+      },
+      "leagueName": "GOLD",
+      "localizedDivisionName": "Scion Tango",
+      "rank": 59,
+      "wins": 6,
+      "losses": 0
+    }],
+    "placementMatches": [{
+      "localizedGameMode": "3v3",
+      "members": [{
+        "name": "Ghazi",
+        "playerId": "2536854",
+        "region": 2
+      }, {
+        "name": "LandaNog",
+        "playerId": "2704251",
+        "region": 2
+      }, {
+        "name": "GamerRichy",
+        "playerId": "3047941",
+        "region": 2
+      }],
+      "gamesRemaining": 1
+    }, {
+      "localizedGameMode": "3v3 Random",
+      "members": [{
+        "name": "GamerRichy",
+        "playerId": "3047941",
+        "region": 2
+      }],
+      "gamesRemaining": 2
+    }],
+    "allLadderMemberships": [{
+      "ladderId": "216616",
+      "localizedGameMode": "1v1 Grandmaster",
+      "rank": 118
+    }, {
+      "ladderId": "216298",
+      "localizedGameMode": "2v2 Random Master",
+      "rank": 61
+    }, {
+      "ladderId": "215940",
+      "localizedGameMode": "Archon",
+      "rank": 59
+    }]
+  }
+}

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/profile/ladder/:regionId/:realmId/:profileId/:ladderId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderTeams\\":[{\\"displayName\\":\\"sample ladder object\\"}]}}"`;
+
+exports[`/profile/ladder/:regionId/:realmId/:profileId/:ladderId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderTeams\\":[{\\"previousRank\\":\\"\\",\\"points\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\",\\"mmr\\":\\"\\",\\"joinTimestamp\\":\\"\\"}],\\"localizedDivision\\":\\"\\"}}"`;

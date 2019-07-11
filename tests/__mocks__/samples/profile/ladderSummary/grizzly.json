@@ -1,0 +1,28 @@
+{
+  "status": 200,
+  "data": {
+    "showCaseEntries": [{
+      "ladderId": "278560",
+      "team": {
+        "localizedGameMode": "1v1",
+        "members": [{
+          "favoriteRace": "terran",
+          "name": "TOGrizzly",
+          "playerId": "242838",
+          "region": 1
+        }]
+      },
+      "leagueName": "DIAMOND",
+      "localizedDivisionName": "Zer'atai Romeo",
+      "rank": 15,
+      "wins": 51,
+      "losses": 48
+    }],
+    "placementMatches": [],
+    "allLadderMemberships": [{
+      "ladderId": "278560",
+      "localizedGameMode": "1v1 Diamond",
+      "rank": 15
+    }]
+  }
+}

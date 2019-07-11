@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/legacy/matches/:regionId/:realmId/:profileId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"matches\\":[{\\"ladder\\":\\"sample legacy match history object\\"}]}}"`;
+
+exports[`/legacy/matches/:regionId/:realmId/:profileId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"matches\\":[{\\"map\\":\\"\\",\\"date\\":\\"\\"}]}}"`;

@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/legacy/rewards/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"rewards\\":[{\\"title\\":\\"sample legacy reward\\"}]}}"`;
+
+exports[`/legacy/rewards/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{}}"`;

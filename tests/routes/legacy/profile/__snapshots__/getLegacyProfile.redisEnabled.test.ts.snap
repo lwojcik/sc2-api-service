@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/legacy/profile/:regionId/:realmId/:profileId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"displayName\\":\\"sample legacy profile object\\"}}"`;
+
+exports[`/legacy/profile/:regionId/:realmId/:profileId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"id\\":\\"\\",\\"displayName\\":\\"sample legacy profile object\\",\\"clanName\\":\\"\\",\\"clanTag\\":\\"\\",\\"profilePath\\":\\"\\"}}"`;
