@@ -8,7 +8,11 @@ export default fp((server, {}, next) => {
     url: '/data/league/:seasonId/:queueId/:teamType/:leagueId',
     method: 'GET',
     handler: async (request, reply) => {
-      const data = await server.sc2api.getLeague(request.params as LeagueObject);
+      const { refresh } = request.query;
+      const data = await server.sc2api.getLeague(
+        request.params as LeagueObject,
+        refresh,
+      );
       reply.code(data.status).send(data);
     },
   });

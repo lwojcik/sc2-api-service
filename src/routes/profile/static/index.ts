@@ -7,7 +7,9 @@ export default fp((server, {}, next) => {
     url: '/profile/static/:regionId',
     method: 'GET',
     handler: async (request, reply) => {
-      const data = await server.sc2api.getStaticProfileData(request.params.regionId);
+      const data = await server.sc2api.getStaticProfileData(
+        request.params.regionId,
+      );
       reply.code(data.status).send(data);
     },
   });

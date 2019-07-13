@@ -62,20 +62,57 @@ declare module 'fastify' {
       refreshAccessToken: () => Promise<string>;
     };
     sc2api: {
-      getProfile: (object: PlayerObject) => Promise<ApiResponse>;
-      getStaticProfileData: (regionId) => Promise<ApiResponse>;
-      getProfileMetadata: (object: PlayerObject) => Promise<ApiResponse>;
-      getLadderSummary: (object: PlayerObject) => Promise<ApiResponse>;
-      getLadder: (object: PlayerLadder) => Promise<ApiResponse>;
-      getLeague: (object: LeagueObject) => Promise<ApiResponse>;
-      getGrandmasterLeaderboard: (regionId) => Promise<ApiResponse>;
-      getSeason: (regionId) => Promise<ApiResponse>;
-      getLegacyProfile: (object: PlayerObject) => Promise<ApiResponse>;
-      getLegacyLadders: (object: PlayerObject) => Promise<ApiResponse>;
-      getLegacyLadder: (regionId, ladderId) => Promise<ApiResponse>;
-      getLegacyMatchHistory: (object: PlayerObject) => Promise<ApiResponse>;
-      getLegacyAchievements: (regionId) => Promise<ApiResponse>;
-      getLegacyRewards: (regionId) => Promise<ApiResponse>;
+      getProfile: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getStaticProfileData: (
+        regionId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getProfileMetadata: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLadderSummary: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLadder: (
+        object: PlayerLadder,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLeague: (
+        object: LeagueObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getGrandmasterLeaderboard: (
+        regionId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getSeason: (regionId, refresh?: boolean) => Promise<ApiResponse>;
+      getLegacyProfile: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyLadders: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyLadder: (
+        regionId,
+        ladderId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyMatchHistory: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyAchievements: (
+        regionId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyRewards: (regionId, refresh?: boolean) => Promise<ApiResponse>;
     };
   }
 }

@@ -8,7 +8,9 @@ export default fp((server, {}, next) => {
     url: '/profile/ladderSummary/:regionId/:realmId/:profileId',
     method: 'GET',
     handler: async (request, reply) => {
-      const data = await server.sc2api.getLadderSummary(request.params as PlayerObject);
+      const data = await server.sc2api.getLadderSummary(
+        request.params as PlayerObject,
+      );
       reply.code(data.status).send(data);
     },
   });

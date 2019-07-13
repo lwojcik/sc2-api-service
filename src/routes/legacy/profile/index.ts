@@ -8,7 +8,9 @@ export default fp((server, {}, next) => {
     url: '/legacy/profile/:regionId/:realmId/:profileId',
     method: 'GET',
     handler: async (request, reply) => {
-      const data = await server.sc2api.getLegacyProfile(request.params as PlayerObject);
+      const data = await server.sc2api.getLegacyProfile(
+        request.params as PlayerObject,
+      );
       reply.code(data.status).send(data);
     },
   });
