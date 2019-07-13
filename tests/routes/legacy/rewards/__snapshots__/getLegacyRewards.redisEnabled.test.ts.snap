@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`/legacy/rewards/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"rewards\\":[{\\"title\\":\\"sample legacy reward\\"}]}}"`;
+exports[`/legacy/rewards/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"portraits\\":[{\\"title\\":\\"sample legacy reward\\"}]}}"`;
 
-exports[`/legacy/rewards/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{}}"`;
+exports[`/legacy/rewards/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"portraits\\":[{\\"title\\":\\"sample legacy reward\\",\\"id\\":\\"\\",\\"achievementId\\":\\"\\"}]}}"`;
+
+exports[`/legacy/rewards/:regionId (Redis enabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"portraits\\":[{\\"title\\":\\"sample legacy reward\\",\\"id\\":\\"\\",\\"achievementId\\":\\"\\"}]}}"`;

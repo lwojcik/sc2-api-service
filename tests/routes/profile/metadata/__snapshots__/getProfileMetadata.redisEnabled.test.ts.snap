@@ -3,3 +3,5 @@
 exports[`/profile/metadata/:regionId/:realmId/:profileId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"name\\":\\"sample profile metadata object\\"}}"`;
 
 exports[`/profile/metadata/:regionId/:realmId/:profileId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"name\\":\\"sample profile metadata object\\",\\"profileUrl\\":\\"\\",\\"avatarUrl\\":\\"\\",\\"profileId\\":\\"\\",\\"regionId\\":\\"\\",\\"realmId\\":\\"\\"}}"`;
+
+exports[`/profile/metadata/:regionId/:realmId/:profileId (Redis enabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"name\\":\\"sample profile metadata object\\",\\"profileUrl\\":\\"\\",\\"avatarUrl\\":\\"\\",\\"profileId\\":\\"\\",\\"regionId\\":\\"\\",\\"realmId\\":\\"\\"}}"`;

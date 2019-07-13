@@ -8,8 +8,10 @@ export default fp((server, {}, next) => {
     url: '/legacy/ladders/:regionId/:realmId/:profileId',
     method: 'GET',
     handler: async (request, reply) => {
+      const { refresh } = request.query;
       const data = await server.sc2api.getLegacyLadders(
         request.params as PlayerObject,
+        refresh,
       );
       reply.code(data.status).send(data);
     },

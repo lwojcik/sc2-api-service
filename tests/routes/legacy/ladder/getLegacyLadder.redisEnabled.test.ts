@@ -9,7 +9,7 @@ describe('/legacy/ladder/:regionId/:ladderId (Redis enabled)', () => {
   const cacheSegment = 'legacyLadder-1-1';
   const expectedTTL = getConfig(true).redis.ttl.legacy.ladder;
  
-  beforeAll(async () => {
+  beforeAll(() => {
     fastifyServer.register(fastifyRedis, {
       host: '127.0.0.1',
       port: '6379',
@@ -20,9 +20,7 @@ describe('/legacy/ladder/:regionId/:ladderId (Redis enabled)', () => {
     fastifyServer.register(server, getConfig(true));
   });
 
-  afterEach(() => {
-    fastifyServer.close();
-  });
+  afterAll(() => fastifyServer.close());
 
   it('returns 200', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url });
@@ -44,5 +42,11 @@ describe('/legacy/ladder/:regionId/:ladderId (Redis enabled)', () => {
     await fastifyServer.inject({ method: 'GET', url });
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
     expect(ttl).toEqual(expectedTTL);
+  });
+
+  it('returns correct response when refresh is set to true', async () => {
+    const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
+    expect(res.statusCode).toBe(200);
+    expect(res.payload).toMatchSnapshot();
   });
 });
