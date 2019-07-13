@@ -3,6 +3,7 @@ import { FastifyInstance } from 'fastify';
 import { StarCraft2API } from 'starcraft2-api';
 import { BlizzAPI } from 'blizzapi';
 import { PassThrough } from 'stream';
+import { PlayerObject, LeagueObject, PlayerLadder } from '../@types/fastify';
 
 export interface BnetConfig {
   [key: string]: string | number | boolean;
@@ -96,11 +97,11 @@ export default fp(
       return JSON.parse(await getCachedObject(segment));
     };
 
-    const getProfile = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
-    ) => {
+    const getProfile = async ({
+      regionId,
+      realmId,
+      profileId,
+    }: PlayerObject) => {
       const segment = `profile-${regionId}-${realmId}-${profileId}`;
       const sc2ApiInstance = await getSc2ApiInstance();
       return getDataObject(
@@ -120,10 +121,11 @@ export default fp(
       );
     };
 
-    const getProfileMetadata = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
+    const getProfileMetadata = async ({
+        regionId,
+        realmId,
+        profileId,
+      }: PlayerObject,
     ) => {
       const segment = `metadata-${regionId}-${realmId}-${profileId}`;
       const sc2ApiInstance = await getSc2ApiInstance();
@@ -134,10 +136,11 @@ export default fp(
       );
     };
 
-    const getLadderSummary = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
+    const getLadderSummary = async ({
+      regionId,
+      realmId,
+      profileId,
+    }: PlayerObject,
     ) => {
       const segment = `ladderSummary-${regionId}-${realmId}-${profileId}`;
       const sc2ApiInstance = await getSc2ApiInstance();
@@ -148,11 +151,12 @@ export default fp(
       );
     };
 
-    const getLadder = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
-      ladderId: string,
+    const getLadder = async ({
+      regionId,
+      realmId,
+      profileId,
+      ladderId,
+    }: PlayerLadder,
     ) => {
       const segment = `ladder-${regionId}-${realmId}-${profileId}-${ladderId}`;
       const sc2ApiInstance = await getSc2ApiInstance();
@@ -168,11 +172,12 @@ export default fp(
       );
     };
 
-    const getLeague = async (
-      seasonId: number,
-      queueId: number,
-      teamType: string,
-      leagueId: string,
+    const getLeague = async ({
+      seasonId,
+      queueId,
+      teamType,
+      leagueId,
+    }: LeagueObject,
     ) => {
       const segment = `league-${seasonId}-${queueId}-${teamType}-${leagueId}`;
       const accessToken = await server.bas.getAccessToken();
@@ -211,11 +216,11 @@ export default fp(
       );
     };
 
-    const getLegacyProfile = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
-    ) => {
+    const getLegacyProfile = async ({
+      regionId,
+      realmId,
+      profileId,
+    }: PlayerObject) => {
       const segment = `legacyProfile-${regionId}-${realmId}-${profileId}`;
       const sc2ApiInstance = await getSc2ApiInstance();
       return getDataObject(
@@ -225,11 +230,11 @@ export default fp(
       );
     };
 
-    const getLegacyLadders = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
-    ) => {
+    const getLegacyLadders = async ({
+      regionId,
+      realmId,
+      profileId,
+    }: PlayerObject) => {
       const segment = `legacyLadders-${regionId}-${realmId}-${profileId}`;
       const sc2ApiInstance = await getSc2ApiInstance();
       return getDataObject(
@@ -249,10 +254,11 @@ export default fp(
       );
     };
 
-    const getLegacyMatchHistory = async (
-      regionId: number,
-      realmId: number,
-      profileId: string,
+    const getLegacyMatchHistory = async ({
+      regionId,
+      realmId,
+      profileId,
+    }: PlayerObject,
     ) => {
       const segment = `legacyMatchHistory-${regionId}-${realmId}-${profileId}`;
       const sc2ApiInstance = await getSc2ApiInstance();

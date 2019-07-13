@@ -1,9 +1,27 @@
 import * as fastify from 'fastify';
 import * as http from 'http';
+import profile from '../routes/profile/profile';
 
 interface ApiResponse {
   status: number;
   data: object;
+}
+
+export interface PlayerObject {
+  regionId: number;
+  realmId: number;
+  profileId: string;
+}
+
+export interface PlayerLadder extends PlayerObject {
+  ladderId: number;
+}
+
+export interface LeagueObject {
+  seasonId: number;
+  queueId: number;
+  teamType: string;
+  leagueId: string;
 }
 
 declare module 'fastify' {
@@ -44,36 +62,18 @@ declare module 'fastify' {
       refreshAccessToken: () => Promise<string>;
     };
     sc2api: {
-      getProfile: (regionId, realmId, profileId) => Promise<ApiResponse>;
+      getProfile: (object: PlayerObject) => Promise<ApiResponse>;
       getStaticProfileData: (regionId) => Promise<ApiResponse>;
-      getProfileMetadata: (
-        regionId,
-        realmId,
-        profileId,
-      ) => Promise<ApiResponse>;
-      getLadderSummary: (regionId, realmId, profileId) => Promise<ApiResponse>;
-      getLadder: (
-        regionId,
-        realmId,
-        profileId,
-        ladderId,
-      ) => Promise<ApiResponse>;
-      getLeague: (
-        seasonId,
-        queueId,
-        teamType,
-        leagueId,
-      ) => Promise<ApiResponse>;
+      getProfileMetadata: (object: PlayerObject) => Promise<ApiResponse>;
+      getLadderSummary: (object: PlayerObject) => Promise<ApiResponse>;
+      getLadder: (object: PlayerLadder) => Promise<ApiResponse>;
+      getLeague: (object: LeagueObject) => Promise<ApiResponse>;
       getGrandmasterLeaderboard: (regionId) => Promise<ApiResponse>;
       getSeason: (regionId) => Promise<ApiResponse>;
-      getLegacyProfile: (regionId, realmId, profileId) => Promise<ApiResponse>;
-      getLegacyLadders: (regionId, realmId, profileId) => Promise<ApiResponse>;
+      getLegacyProfile: (object: PlayerObject) => Promise<ApiResponse>;
+      getLegacyLadders: (object: PlayerObject) => Promise<ApiResponse>;
       getLegacyLadder: (regionId, ladderId) => Promise<ApiResponse>;
-      getLegacyMatchHistory: (
-        regionId,
-        realmId,
-        profileId,
-      ) => Promise<ApiResponse>;
+      getLegacyMatchHistory: (object: PlayerObject) => Promise<ApiResponse>;
       getLegacyAchievements: (regionId) => Promise<ApiResponse>;
       getLegacyRewards: (regionId) => Promise<ApiResponse>;
     };

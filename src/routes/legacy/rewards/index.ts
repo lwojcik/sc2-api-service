@@ -7,8 +7,7 @@ export default fp((server, {}, next) => {
     url: '/legacy/rewards/:regionId',
     method: 'GET',
     handler: async (request, reply) => {
-      const { regionId } = request.params;
-      const data = await server.sc2api.getLegacyRewards(regionId);
+      const data = await server.sc2api.getLegacyRewards(request.params.regionId);
       reply.code(data.status).send(data);
     },
   });

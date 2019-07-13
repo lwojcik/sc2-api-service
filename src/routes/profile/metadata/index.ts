@@ -1,5 +1,6 @@
 import fp from 'fastify-plugin';
 import schema from './schema';
+import { PlayerObject } from '../../../@types/fastify';
 
 export default fp((server, {}, next) => {
   server.route({
@@ -7,12 +8,7 @@ export default fp((server, {}, next) => {
     url: '/profile/metadata/:regionId/:realmId/:profileId',
     method: 'GET',
     handler: async (request, reply) => {
-      const { regionId, realmId, profileId } = request.params;
-      const data = await server.sc2api.getProfileMetadata(
-        regionId,
-        realmId,
-        profileId,
-      );
+      const data = await server.sc2api.getProfileMetadata(request.params as PlayerObject);
       reply.code(data.status).send(data);
     },
   });
