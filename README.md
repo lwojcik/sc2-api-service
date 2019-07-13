@@ -12,8 +12,8 @@ All API endpoints except Player endpoint from Account API (`/sc2/player/:account
 
 * This service is not meant to be exposed to the internet as-is. It lacks essential security features such as authentication. It is designed to run locally or as a part of a bigger, more secure API architecture.
 * The service assumes Battle.net always returns complete and correct data. However, StarCraft II API is notorious for [returning incomplete / outdated data](https://us.battle.net/forums/en/bnet/topic/20771177224). You are responsible for validating data objects on your end.
-* You are responsible for keeping endpoints in sync if you use Redis cache.
- 
+* You are responsible for keeping endpoints in sync if you use Redis cache (use `refresh=true` to force cache refresh).
+
 ## Requirements
 
 * Node.js (LTS preferred)
@@ -71,6 +71,8 @@ All endpoints return data in a following format:
   }
 }
 ```
+
+Adding `refresh=true` to endpoint URL (example: `/profile/static/?refresh=true`) forces the service to query and cache new data from Battle.net API regardless of cache state.
 
 ### `GET /status`
 
