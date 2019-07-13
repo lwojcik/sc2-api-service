@@ -77,12 +77,10 @@ export default fp(
 
     const getCachedObject = (segment: string) => server.redis.get(segment);
 
-    const getDataObject = async ({
-      segment,
-      dataFn,
-      ttl,
-    }: DataObjectToCache,
-    refresh? : boolean) => {
+    const getDataObject = async (
+      { segment, dataFn, ttl }: DataObjectToCache,
+      refresh?: boolean,
+    ) => {
       const isItCached = refresh ? false : await isDataCached(segment);
       if (!isItCached) {
         const response = await dataFn;
@@ -106,83 +104,89 @@ export default fp(
       return JSON.parse(await getCachedObject(segment));
     };
 
-    const getProfile = async ({ regionId, realmId, profileId }: PlayerObject, refresh?: boolean) =>
-      getDataObject({
-        segment: `profile-${regionId}-${realmId}-${profileId}`,
-        dataFn: (await sc2Api()).queryProfile(regionId, realmId, profileId),
-        ttl: ttl.profile,
-      },
-      refresh);
+    const getProfile = async (
+      { regionId, realmId, profileId }: PlayerObject,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `profile-${regionId}-${realmId}-${profileId}`,
+          dataFn: (await sc2Api()).queryProfile(regionId, realmId, profileId),
+          ttl: ttl.profile,
+        },
+        refresh,
+      );
 
-    const getStaticProfileData = async (regionId: number, refresh?: boolean) => {
-      return getDataObject({
-        segment: `staticProfileData-${regionId}`,
-        dataFn: (await sc2Api()).queryStaticProfileData(regionId),
-        ttl: ttl.static,
-      },
-      refresh);
+    const getStaticProfileData = async (
+      regionId: number,
+      refresh?: boolean,
+    ) => {
+      return getDataObject(
+        {
+          segment: `staticProfileData-${regionId}`,
+          dataFn: (await sc2Api()).queryStaticProfileData(regionId),
+          ttl: ttl.static,
+        },
+        refresh,
+      );
     };
 
-    const getProfileMetadata = async ({
-      regionId,
-      realmId,
-      profileId,
-    }: PlayerObject,
-    refresh?: boolean) =>
-      getDataObject({
-        segment: `metadata-${regionId}-${realmId}-${profileId}`,
-        dataFn: (await sc2Api()).queryProfileMetadata(
-          regionId,
-          realmId,
-          profileId,
-        ),
-        ttl: ttl.metadata,
-      },
-      refresh);
+    const getProfileMetadata = async (
+      { regionId, realmId, profileId }: PlayerObject,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `metadata-${regionId}-${realmId}-${profileId}`,
+          dataFn: (await sc2Api()).queryProfileMetadata(
+            regionId,
+            realmId,
+            profileId,
+          ),
+          ttl: ttl.metadata,
+        },
+        refresh,
+      );
 
-    const getLadderSummary = async ({
-      regionId,
-      realmId,
-      profileId,
-    }: PlayerObject,
-    refresh?: boolean) =>
-      getDataObject({
-        segment: `ladderSummary-${regionId}-${realmId}-${profileId}`,
-        dataFn: (await sc2Api()).queryLadderSummary(
-          regionId,
-          realmId,
-          profileId,
-        ),
-        ttl: ttl.ladderSummary,
-      },
-      refresh);
+    const getLadderSummary = async (
+      { regionId, realmId, profileId }: PlayerObject,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `ladderSummary-${regionId}-${realmId}-${profileId}`,
+          dataFn: (await sc2Api()).queryLadderSummary(
+            regionId,
+            realmId,
+            profileId,
+          ),
+          ttl: ttl.ladderSummary,
+        },
+        refresh,
+      );
 
-    const getLadder = async ({
-      regionId,
-      realmId,
-      profileId,
-      ladderId,
-    }: PlayerLadder,
-    refresh?: boolean) =>
-      getDataObject({
-        segment: `ladder-${regionId}-${realmId}-${profileId}-${ladderId}`,
-        dataFn: (await sc2Api()).queryPlayerLadder(
-          regionId,
-          realmId,
-          profileId,
-          ladderId,
-        ),
-        ttl: ttl.ladder,
-      },
-      refresh);
+    const getLadder = async (
+      { regionId, realmId, profileId, ladderId }: PlayerLadder,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `ladder-${regionId}-${realmId}-${profileId}-${ladderId}`,
+          dataFn: (await sc2Api()).queryPlayerLadder(
+            regionId,
+            realmId,
+            profileId,
+            ladderId,
+          ),
+          ttl: ttl.ladder,
+        },
+        refresh,
+      );
 
-    const getLeague = async ({
-      seasonId,
-      queueId,
-      teamType,
-      leagueId,
-    }: LeagueObject,
-    refresh?: boolean) => {
+    const getLeague = async (
+      { seasonId, queueId, teamType, leagueId }: LeagueObject,
+      refresh?: boolean,
+    ) => {
       const accessToken = await server.bas.getAccessToken();
       const blizzapiInstance = new BlizzAPI(
         parseInt(opts.bnet.region, 10),
@@ -190,106 +194,125 @@ export default fp(
         '',
         accessToken,
       );
-      return getDataObject({
-        segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
-        dataFn: blizzapiInstance.query(
-          `/data/sc2/league/${seasonId}/${queueId}/${teamType}/${leagueId}`,
-        ),
-        ttl: ttl.league,
-      },
-      refresh);
+      return getDataObject(
+        {
+          segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
+          dataFn: blizzapiInstance.query(
+            `/data/sc2/league/${seasonId}/${queueId}/${teamType}/${leagueId}`,
+          ),
+          ttl: ttl.league,
+        },
+        refresh,
+      );
     };
 
     const getSeason = async (regionId: number, refresh?: boolean) =>
-      getDataObject({
-        segment: `season-${regionId}`,
-        dataFn: (await sc2Api()).querySeason(regionId),
-        ttl: ttl.season,
-      },
-      refresh);
+      getDataObject(
+        {
+          segment: `season-${regionId}`,
+          dataFn: (await sc2Api()).querySeason(regionId),
+          ttl: ttl.season,
+        },
+        refresh,
+      );
 
-    const getGrandmasterLeaderboard = async (regionId: number, refresh?: boolean) =>
-      getDataObject({
-        segment: `grandmaster-${regionId}`,
-        dataFn: (await sc2Api()).queryGrandmasterLeaderboard(regionId),
-        ttl: ttl.grandmaster,
-      },
-      refresh);
+    const getGrandmasterLeaderboard = async (
+      regionId: number,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `grandmaster-${regionId}`,
+          dataFn: (await sc2Api()).queryGrandmasterLeaderboard(regionId),
+          ttl: ttl.grandmaster,
+        },
+        refresh,
+      );
 
-    const getLegacyProfile = async ({
-      regionId,
-      realmId,
-      profileId,
-    }: PlayerObject,
-    refresh?: boolean) =>
-      getDataObject({
-        segment: `legacyProfile-${regionId}-${realmId}-${profileId}`,
-        dataFn: (await sc2Api()).queryLegacyProfile(
-          regionId,
-          realmId,
-          profileId,
-        ),
-        ttl: ttl.legacy.profile,
-      },
-      refresh);
+    const getLegacyProfile = async (
+      { regionId, realmId, profileId }: PlayerObject,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `legacyProfile-${regionId}-${realmId}-${profileId}`,
+          dataFn: (await sc2Api()).queryLegacyProfile(
+            regionId,
+            realmId,
+            profileId,
+          ),
+          ttl: ttl.legacy.profile,
+        },
+        refresh,
+      );
 
-    const getLegacyLadders = async ({
-      regionId,
-      realmId,
-      profileId,
-    }: PlayerObject,
-    refresh?: boolean) =>
-      getDataObject({
-        segment: `legacyLadders-${regionId}-${realmId}-${profileId}`,
-        dataFn: (await sc2Api()).queryLegacyLadders(
-          regionId,
-          realmId,
-          profileId,
-        ),
-        ttl: ttl.legacy.ladders,
-      },
-      refresh);
+    const getLegacyLadders = async (
+      { regionId, realmId, profileId }: PlayerObject,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `legacyLadders-${regionId}-${realmId}-${profileId}`,
+          dataFn: (await sc2Api()).queryLegacyLadders(
+            regionId,
+            realmId,
+            profileId,
+          ),
+          ttl: ttl.legacy.ladders,
+        },
+        refresh,
+      );
 
-    const getLegacyLadder = async (regionId: number, ladderId: string, refresh?: boolean) =>
-      getDataObject({
-        segment: `legacyLadder-${regionId}-${ladderId}`,
-        dataFn: (await sc2Api()).queryLegacyLadder(regionId, ladderId),
-        ttl: ttl.legacy.ladder,
-      },
-      refresh);
+    const getLegacyLadder = async (
+      regionId: number,
+      ladderId: string,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `legacyLadder-${regionId}-${ladderId}`,
+          dataFn: (await sc2Api()).queryLegacyLadder(regionId, ladderId),
+          ttl: ttl.legacy.ladder,
+        },
+        refresh,
+      );
 
-    const getLegacyMatchHistory = async ({
-      regionId,
-      realmId,
-      profileId,
-    }: PlayerObject,
-    refresh?: boolean) =>
-      getDataObject({
-        segment: `legacyMatchHistory-${regionId}-${realmId}-${profileId}`,
-        dataFn: (await sc2Api()).queryLegacyMatchHistory(
-          regionId,
-          realmId,
-          profileId,
-        ),
-        ttl: ttl.legacy.matchHistory,
-      },
-      refresh);
+    const getLegacyMatchHistory = async (
+      { regionId, realmId, profileId }: PlayerObject,
+      refresh?: boolean,
+    ) =>
+      getDataObject(
+        {
+          segment: `legacyMatchHistory-${regionId}-${realmId}-${profileId}`,
+          dataFn: (await sc2Api()).queryLegacyMatchHistory(
+            regionId,
+            realmId,
+            profileId,
+          ),
+          ttl: ttl.legacy.matchHistory,
+        },
+        refresh,
+      );
 
     const getLegacyAchievements = async (regionId: number, refresh?: boolean) =>
-      getDataObject({
-        segment: `legacyAchievements-${regionId}`,
-        dataFn: (await sc2Api()).queryLegacyAchievements(regionId),
-        ttl: ttl.legacy.achievements,
-      },
-      refresh);
+      getDataObject(
+        {
+          segment: `legacyAchievements-${regionId}`,
+          dataFn: (await sc2Api()).queryLegacyAchievements(regionId),
+          ttl: ttl.legacy.achievements,
+        },
+        refresh,
+      );
 
     const getLegacyRewards = async (regionId: number, refresh?: boolean) =>
-      getDataObject({
-        segment: `legacyRewards-${regionId}`,
-        dataFn: (await sc2Api()).queryLegacyRewards(regionId),
-        ttl: ttl.legacy.rewards,
-      },
-      refresh);
+      getDataObject(
+        {
+          segment: `legacyRewards-${regionId}`,
+          dataFn: (await sc2Api()).queryLegacyRewards(regionId),
+          ttl: ttl.legacy.rewards,
+        },
+        refresh,
+      );
 
     server.decorate('sc2api', {
       getProfile,
