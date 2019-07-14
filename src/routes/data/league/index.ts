@@ -1,5 +1,6 @@
 import fp from 'fastify-plugin';
 import schema from './schema';
+import { LeagueObject } from '../../../@types/fastify';
 
 export default fp((server, {}, next) => {
   server.route({
@@ -7,12 +8,10 @@ export default fp((server, {}, next) => {
     url: '/data/league/:seasonId/:queueId/:teamType/:leagueId',
     method: 'GET',
     handler: async (request, reply) => {
-      const { seasonId, queueId, teamType, leagueId } = request.params;
+      const { refresh } = request.query;
       const data = await server.sc2api.getLeague(
-        seasonId,
-        queueId,
-        teamType,
-        leagueId,
+        request.params as LeagueObject,
+        refresh,
       );
       reply.code(data.status).send(data);
     },

@@ -1,9 +1,27 @@
 import * as fastify from 'fastify';
 import * as http from 'http';
+import profile from '../routes/profile/profile';
 
 interface ApiResponse {
   status: number;
   data: object;
+}
+
+export interface PlayerObject {
+  regionId: number;
+  realmId: number;
+  profileId: string;
+}
+
+export interface PlayerLadder extends PlayerObject {
+  ladderId: number;
+}
+
+export interface LeagueObject {
+  seasonId: number;
+  queueId: number;
+  teamType: string;
+  leagueId: string;
 }
 
 declare module 'fastify' {
@@ -44,38 +62,57 @@ declare module 'fastify' {
       refreshAccessToken: () => Promise<string>;
     };
     sc2api: {
-      getProfile: (regionId, realmId, profileId) => Promise<ApiResponse>;
-      getStaticProfileData: (regionId) => Promise<ApiResponse>;
-      getProfileMetadata: (
-        regionId,
-        realmId,
-        profileId,
+      getProfile: (
+        object: PlayerObject,
+        refresh?: boolean,
       ) => Promise<ApiResponse>;
-      getLadderSummary: (regionId, realmId, profileId) => Promise<ApiResponse>;
-      getLadder: (
+      getStaticProfileData: (
         regionId,
-        realmId,
-        profileId,
-        ladderId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getProfileMetadata: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLadderSummary: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLadder: (
+        object: PlayerLadder,
+        refresh?: boolean,
       ) => Promise<ApiResponse>;
       getLeague: (
-        seasonId,
-        queueId,
-        teamType,
-        leagueId,
+        object: LeagueObject,
+        refresh?: boolean,
       ) => Promise<ApiResponse>;
-      getGrandmasterLeaderboard: (regionId) => Promise<ApiResponse>;
-      getSeason: (regionId) => Promise<ApiResponse>;
-      getLegacyProfile: (regionId, realmId, profileId) => Promise<ApiResponse>;
-      getLegacyLadders: (regionId, realmId, profileId) => Promise<ApiResponse>;
-      getLegacyLadder: (regionId, ladderId) => Promise<ApiResponse>;
-      getLegacyMatchHistory: (
+      getGrandmasterLeaderboard: (
         regionId,
-        realmId,
-        profileId,
+        refresh?: boolean,
       ) => Promise<ApiResponse>;
-      getLegacyAchievements: (regionId) => Promise<ApiResponse>;
-      getLegacyRewards: (regionId) => Promise<ApiResponse>;
+      getSeason: (regionId, refresh?: boolean) => Promise<ApiResponse>;
+      getLegacyProfile: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyLadders: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyLadder: (
+        regionId,
+        ladderId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyMatchHistory: (
+        object: PlayerObject,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyAchievements: (
+        regionId,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
+      getLegacyRewards: (regionId, refresh?: boolean) => Promise<ApiResponse>;
     };
   }
 }

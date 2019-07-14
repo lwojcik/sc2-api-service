@@ -6,13 +6,9 @@ describe('/profile/static/:regionId (Redis disabled)', () => {
   const fastifyServer = fastify() as any;
   const url = '/profile/static/1';
 
-  beforeAll(async () => {
-    await fastifyServer.register(server, getConfig(false));
-  });
+  beforeAll(() => fastifyServer.register(server, getConfig(false)));
 
-  afterEach(() => {
-    fastifyServer.close();
-  });
+  afterAll(() => fastifyServer.close());
 
   it('returns 200', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url });
@@ -21,6 +17,12 @@ describe('/profile/static/:regionId (Redis disabled)', () => {
 
   it('returns correct response', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url });
+    expect(res.payload).toMatchSnapshot();
+  });
+
+  it('returns correct response when refresh is set to true', async () => {
+    const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
+    expect(res.statusCode).toBe(200);
     expect(res.payload).toMatchSnapshot();
   });
 });

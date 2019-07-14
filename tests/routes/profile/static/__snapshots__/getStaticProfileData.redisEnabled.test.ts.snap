@@ -3,3 +3,5 @@
 exports[`/profile/static/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"description\\":\\"sample static profile data object\\"}]}}"`;
 
 exports[`/profile/static/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"categoryId\\":\\"\\",\\"description\\":\\"sample static profile data object\\",\\"flags\\":\\"\\",\\"id\\":\\"\\",\\"imageUrl\\":\\"\\",\\"points\\":\\"\\",\\"title\\":\\"\\",\\"uiOrderHing\\":\\"\\"}]}}"`;
+
+exports[`/profile/static/:regionId (Redis enabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"categoryId\\":\\"\\",\\"description\\":\\"sample static profile data object\\",\\"flags\\":\\"\\",\\"id\\":\\"\\",\\"imageUrl\\":\\"\\",\\"points\\":\\"\\",\\"title\\":\\"\\",\\"uiOrderHing\\":\\"\\"}]}}"`;

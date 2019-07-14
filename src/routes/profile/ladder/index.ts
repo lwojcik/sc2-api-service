@@ -1,5 +1,6 @@
 import fp from 'fastify-plugin';
 import schema from './schema';
+import { PlayerLadder } from '../../../@types/fastify';
 
 export default fp((server, {}, next) => {
   server.route({
@@ -7,12 +8,8 @@ export default fp((server, {}, next) => {
     url: '/profile/ladder/:regionId/:realmId/:profileId/:ladderId',
     method: 'GET',
     handler: async (request, reply) => {
-      const { regionId, realmId, profileId, ladderId } = request.params;
       const data = await server.sc2api.getLadder(
-        regionId,
-        realmId,
-        profileId,
-        ladderId,
+        request.params as PlayerLadder,
       );
       reply.code(data.status).send(data);
     },

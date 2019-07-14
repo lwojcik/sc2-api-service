@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`/ladder/grandmaster/:regionId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{}}"`;
+exports[`/ladder/grandmaster/:regionId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderTeams\\":[{\\"teamMembers\\":[{\\"id\\":\\"\\",\\"displayName\\":\\"sample grandmaster leaderboard object\\",\\"clanTag\\":\\"\\"}],\\"previousRank\\":\\"\\",\\"points\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\",\\"mmr\\":\\"\\",\\"joinTimestamp\\":\\"\\"}]}}"`;
+
+exports[`/ladder/grandmaster/:regionId (Redis disabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderTeams\\":[{\\"teamMembers\\":[{\\"id\\":\\"\\",\\"displayName\\":\\"sample grandmaster leaderboard object\\",\\"clanTag\\":\\"\\"}],\\"previousRank\\":\\"\\",\\"points\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\",\\"mmr\\":\\"\\",\\"joinTimestamp\\":\\"\\"}]}}"`;

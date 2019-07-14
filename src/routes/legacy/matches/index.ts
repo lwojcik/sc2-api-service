@@ -1,5 +1,6 @@
 import fp from 'fastify-plugin';
 import schema from './schema';
+import { PlayerObject } from '../../../@types/fastify';
 
 export default fp((server, {}, next) => {
   server.route({
@@ -7,11 +8,8 @@ export default fp((server, {}, next) => {
     url: '/legacy/matches/:regionId/:realmId/:profileId',
     method: 'GET',
     handler: async (request, reply) => {
-      const { regionId, realmId, profileId } = request.params;
       const data = await server.sc2api.getLegacyMatchHistory(
-        regionId,
-        realmId,
-        profileId,
+        request.params as PlayerObject,
       );
       reply.code(data.status).send(data);
     },

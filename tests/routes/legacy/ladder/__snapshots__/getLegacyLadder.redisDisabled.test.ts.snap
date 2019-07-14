@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`/legacy/ladder/:regionId/:ladderId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderMembers\\":[{\\"character\\":{\\"id\\":\\"\\",\\"displayName\\":\\"\\",\\"clanName\\":\\"\\",\\"clanTag\\":\\"\\",\\"profilePath\\":\\"\\"},\\"joinTimestamp\\":\\"\\",\\"points\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\",\\"highestRank\\":\\"\\",\\"previousRank\\":\\"\\"}]}}"`;
+exports[`/legacy/ladder/:regionId/:ladderId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderMembers\\":[{\\"character\\":{\\"id\\":\\"\\",\\"displayName\\":\\"sample legacy ladder object\\",\\"clanName\\":\\"\\",\\"clanTag\\":\\"\\",\\"profilePath\\":\\"\\"},\\"joinTimestamp\\":\\"\\",\\"points\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\",\\"highestRank\\":\\"\\",\\"previousRank\\":\\"\\"}]}}"`;
+
+exports[`/legacy/ladder/:regionId/:ladderId (Redis disabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"ladderMembers\\":[{\\"character\\":{\\"id\\":\\"\\",\\"displayName\\":\\"sample legacy ladder object\\",\\"clanName\\":\\"\\",\\"clanTag\\":\\"\\",\\"profilePath\\":\\"\\"},\\"joinTimestamp\\":\\"\\",\\"points\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\",\\"highestRank\\":\\"\\",\\"previousRank\\":\\"\\"}]}}"`;

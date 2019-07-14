@@ -7,8 +7,7 @@ export default fp((server, {}, next) => {
     url: '/ladder/season/:regionId',
     method: 'GET',
     handler: async (request, reply) => {
-      const { regionId } = request.params;
-      const data = await server.sc2api.getSeason(regionId);
+      const data = await server.sc2api.getSeason(request.params.regionId);
       reply.code(data.status).send(data);
     },
   });

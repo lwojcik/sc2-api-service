@@ -3,11 +3,15 @@ class StarCraft2API {
 
   queryGrandmasterLeaderboard(): Promise<object> {
     return Promise.resolve({
-      _links: {
-        self: {
-          href: 'sample grandmaster leaderboard link',
+      ladderTeams: [
+        {
+          teamMembers: [
+            {
+              displayName: "sample grandmaster leaderboard object",
+            },
+          ],
         },
-      },
+      ],
     });
   }
 
@@ -29,7 +33,7 @@ class StarCraft2API {
 
   queryLegacyRewards(): Promise<object> {
     return Promise.resolve({
-      rewards: [
+      portraits: [
         {
           title: 'sample legacy reward',
         },
@@ -41,7 +45,9 @@ class StarCraft2API {
     return Promise.resolve({
       ladderMembers: [
         {
-          character: 'sample legacy ladder object',
+          character: {
+            displayName: 'sample legacy ladder object',
+          },
         },
       ],
     });
@@ -51,7 +57,11 @@ class StarCraft2API {
     return Promise.resolve({
       currentSeason: [
         {
-          ladder: 'sample legacy ladders object',
+          ladder: [
+            {
+              ladderName: 'sample legacy ladders object',
+            },
+          ],
         },
       ],
     });
@@ -61,7 +71,7 @@ class StarCraft2API {
     return Promise.resolve({
       matches: [
         {
-          ladder: 'sample legacy match history object',
+          map: 'sample legacy match history object',
         },
       ],
     });
@@ -77,7 +87,11 @@ class StarCraft2API {
     return Promise.resolve({
       ladderTeams: [
         {
-          displayName: "sample ladder object",
+          teamMembers: [
+            {
+              displayName: "sample ladder object",
+            },
+          ],
         },
       ],
     });
