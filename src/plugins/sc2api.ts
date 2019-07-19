@@ -1,7 +1,7 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
 import { StarCraft2API } from 'starcraft2-api';
-import { BlizzAPI } from 'blizzapi';
+import BlizzAPI from 'blizzapi';
 import { PassThrough } from 'stream';
 import { PlayerObject, LeagueObject, PlayerLadder } from '../@types/fastify';
 
@@ -188,12 +188,12 @@ export default fp(
       refresh?: boolean,
     ) => {
       const accessToken = await server.bas.getAccessToken();
-      const blizzapiInstance = new BlizzAPI(
-        parseInt(opts.bnet.region, 10),
-        '',
-        '',
+      const blizzapiInstance = new BlizzAPI({
+        region: parseInt(opts.bnet.region, 10),
+        clientId: '',
+        clientSecret: '',
         accessToken,
-      );
+      });
       return getDataObject(
         {
           segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
