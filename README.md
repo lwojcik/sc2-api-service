@@ -43,7 +43,7 @@ When in development mode, the API can load environment variables from `.env` fil
 
 ## Build and install
 
-Install and configure `[bnet-auth-service](https://github.com/lukemnet/bnet-auth-service) first`. `sc2-api-service` checks if `bnet-auth-service` is running on startup.
+Install and configure [`bnet-auth-service`](https://github.com/lukemnet/bnet-auth-service) first. `sc2-api-service` checks if `bnet-auth-service` is running on startup.
 
 ```
 git clone https://github.com/lukemnet/sc2-api-service.git
