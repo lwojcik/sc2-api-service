@@ -3,8 +3,9 @@ import fastifyRedis from 'fastify-redis-mock';
 import server from '../../../../src/index';
 import getConfig from '../../../helper';
 
+
 describe('/ladder/season/:regionId (Redis enabled)', () => {
-  const fastifyServer = fastify() as any;
+  const fastifyServer = fastify({ return503OnClosing: true } as any) as any;
   const url = '/ladder/season/1';
   const cacheSegment = 'season-1';
   const expectedTTL = getConfig(true).redis.ttl.season;
@@ -18,6 +19,7 @@ describe('/ladder/season/:regionId (Redis enabled)', () => {
       dropBufferSupport: false,
     });
     fastifyServer.register(server, getConfig(true));
+    await fastifyServer.ready();
   });
 
   afterEach(() => {
@@ -35,13 +37,11 @@ describe('/ladder/season/:regionId (Redis enabled)', () => {
   });
 
   it('response is cached correctly', async () => {
-    await fastifyServer.inject({ method: 'GET', url });
     const cachedResponse = await fastifyServer.redis.get(cacheSegment);
     expect(cachedResponse).toMatchSnapshot();
   });
 
   it('cached response has correct TTL', async () => {
-    await fastifyServer.inject({ method: 'GET', url });
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
     expect(ttl).toEqual(expectedTTL);
   });
