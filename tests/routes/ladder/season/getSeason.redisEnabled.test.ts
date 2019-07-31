@@ -37,13 +37,11 @@ describe('/ladder/season/:regionId (Redis enabled)', () => {
   });
 
   it('response is cached correctly', async () => {
-    await fastifyServer.inject({ method: 'GET', url });
     const cachedResponse = await fastifyServer.redis.get(cacheSegment);
     expect(cachedResponse).toMatchSnapshot();
   });
 
   it('cached response has correct TTL', async () => {
-    await fastifyServer.inject({ method: 'GET', url });
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
     expect(ttl).toEqual(expectedTTL);
   });
