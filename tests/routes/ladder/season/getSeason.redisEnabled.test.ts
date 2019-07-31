@@ -3,8 +3,9 @@ import fastifyRedis from 'fastify-redis-mock';
 import server from '../../../../src/index';
 import getConfig from '../../../helper';
 
+
 describe('/ladder/season/:regionId (Redis enabled)', () => {
-  const fastifyServer = fastify({ return503OnClosing: false } as any) as any;
+  const fastifyServer = fastify({ return503OnClosing: true } as any) as any;
   const url = '/ladder/season/1';
   const cacheSegment = 'season-1';
   const expectedTTL = getConfig(true).redis.ttl.season;
