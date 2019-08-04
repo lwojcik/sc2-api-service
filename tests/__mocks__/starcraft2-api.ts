@@ -132,6 +132,4 @@ class StarCraft2API {
   }
 }
 
-export {
-  StarCraft2API,
-}
+export default StarCraft2API;

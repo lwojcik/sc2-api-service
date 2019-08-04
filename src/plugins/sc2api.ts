@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
-import { StarCraft2API } from 'starcraft2-api';
+import StarCraft2API from 'starcraft2-api';
 import BlizzAPI from 'blizzapi';
 import { PassThrough } from 'stream';
 import { PlayerObject, LeagueObject, PlayerLadder } from '../@types/fastify';
@@ -65,8 +65,12 @@ export default fp(
       return Promise.resolve(false);
     };
 
-    const sc2Api = async () =>
-      new StarCraft2API(region, '', '', await server.bas.getAccessToken(false));
+    const sc2Api = async () => new StarCraft2API({
+        region,
+        clientId: '',
+        clientSecret: '',
+        accessToken: await server.bas.getAccessToken(false),
+      });
 
     const cacheObject = async ({ segment, data, ttl }: DataObject) => {
       if (!enable) return 'Object not cached (Cache disabled)';
@@ -111,7 +115,7 @@ export default fp(
       getDataObject(
         {
           segment: `profile-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryProfile(regionId, realmId, profileId),
+          dataFn: (await sc2Api()).queryProfile({ regionId, realmId, profileId }),
           ttl: ttl.profile,
         },
         refresh,
@@ -138,11 +142,11 @@ export default fp(
       getDataObject(
         {
           segment: `metadata-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryProfileMetadata(
+          dataFn: (await sc2Api()).queryProfileMetadata({
             regionId,
             realmId,
             profileId,
-          ),
+          }),
           ttl: ttl.metadata,
         },
         refresh,
@@ -155,11 +159,11 @@ export default fp(
       getDataObject(
         {
           segment: `ladderSummary-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryLadderSummary(
+          dataFn: (await sc2Api()).queryLadderSummary({
             regionId,
             realmId,
             profileId,
-          ),
+          }),
           ttl: ttl.ladderSummary,
         },
         refresh,
@@ -172,12 +176,12 @@ export default fp(
       getDataObject(
         {
           segment: `ladder-${regionId}-${realmId}-${profileId}-${ladderId}`,
-          dataFn: (await sc2Api()).queryPlayerLadder(
+          dataFn: (await sc2Api()).queryPlayerLadder({
             regionId,
             realmId,
             profileId,
-            ladderId,
-          ),
+          },
+          ladderId),
           ttl: ttl.ladder,
         },
         refresh,
@@ -236,11 +240,11 @@ export default fp(
       getDataObject(
         {
           segment: `legacyProfile-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryLegacyProfile(
+          dataFn: (await sc2Api()).queryLegacyProfile({
             regionId,
             realmId,
             profileId,
-          ),
+          }),
           ttl: ttl.legacy.profile,
         },
         refresh,
@@ -253,11 +257,11 @@ export default fp(
       getDataObject(
         {
           segment: `legacyLadders-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryLegacyLadders(
+          dataFn: (await sc2Api()).queryLegacyLadders({
             regionId,
             realmId,
             profileId,
-          ),
+          }),
           ttl: ttl.legacy.ladders,
         },
         refresh,
@@ -284,11 +288,11 @@ export default fp(
       getDataObject(
         {
           segment: `legacyMatchHistory-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryLegacyMatchHistory(
+          dataFn: (await sc2Api()).queryLegacyMatchHistory({
             regionId,
             realmId,
             profileId,
-          ),
+          }),
           ttl: ttl.legacy.matchHistory,
         },
         refresh,
