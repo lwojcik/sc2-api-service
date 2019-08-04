@@ -130,6 +130,16 @@ class StarCraft2API {
       },
     });
   }
+
+  queryLeagueData(): Promise<object> {
+    return Promise.resolve({
+      _links: {
+        self: {
+          href: "sample league object",
+        },
+      },
+    });
+  }
 }
 
 export default StarCraft2API;

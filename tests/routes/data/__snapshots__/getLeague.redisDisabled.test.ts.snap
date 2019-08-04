@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"_links\\":{\\"self\\":{\\"href\\":\\"Test passed\\"}}}}"`;
+exports[`/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"_links\\":{\\"self\\":{\\"href\\":\\"sample league object\\"}}}}"`;
 
-exports[`/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis disabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"_links\\":{\\"self\\":{\\"href\\":\\"Test passed\\"}}}}"`;
+exports[`/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis disabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"_links\\":{\\"self\\":{\\"href\\":\\"sample league object\\"}}}}"`;

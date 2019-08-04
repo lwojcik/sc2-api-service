@@ -1,7 +1,6 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
 import StarCraft2API from 'starcraft2-api';
-import BlizzAPI from 'blizzapi';
 import { PassThrough } from 'stream';
 import { PlayerObject, LeagueObject, PlayerLadder } from '../@types/fastify';
 
@@ -190,25 +189,19 @@ export default fp(
     const getLeague = async (
       { seasonId, queueId, teamType, leagueId }: LeagueObject,
       refresh?: boolean,
-    ) => {
-      const accessToken = await server.bas.getAccessToken();
-      const blizzapiInstance = new BlizzAPI({
-        region: parseInt(opts.bnet.region, 10),
-        clientId: '',
-        clientSecret: '',
-        accessToken,
-      });
-      return getDataObject(
-        {
-          segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
-          dataFn: blizzapiInstance.query(
-            `/data/sc2/league/${seasonId}/${queueId}/${teamType}/${leagueId}`,
-          ),
-          ttl: ttl.league,
-        },
-        refresh,
-      );
-    };
+    ) => getDataObject(
+      {
+        segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
+        dataFn: (await sc2Api()).queryLeagueData({
+          seasonId,
+          queueId,
+          teamType,
+          leagueId,
+        }),
+        ttl: ttl.league,
+      },
+      refresh,
+    );
 
     const getSeason = async (regionId: number, refresh?: boolean) =>
       getDataObject(
