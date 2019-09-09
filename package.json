@@ -44,7 +44,7 @@
     "fastify-log": "1.0.3",
     "fastify-plugin": "1.6.0",
     "fastify-redis": "3.1.1",
-    "starcraft2-api": "1.2.0"
+    "starcraft2-api": "1.2.1"
   },
   "devDependencies": {
     "@types/jest": "24.0.18",
