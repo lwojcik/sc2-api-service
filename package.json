@@ -47,7 +47,7 @@
     "starcraft2-api": "1.2.3"
   },
   "devDependencies": {
-    "@types/jest": "24.0.20",
+    "@types/jest": "24.0.21",
     "@types/node": "12.11.7",
     "fastify-redis-mock": "1.0.0",
     "jest": "24.8.0",
