@@ -44,11 +44,11 @@
     "fastify-log": "1.2.0",
     "fastify-plugin": "1.6.0",
     "fastify-redis": "3.1.1",
-    "starcraft2-api": "1.2.3"
+    "starcraft2-api": "1.3.1"
   },
   "devDependencies": {
     "@types/jest": "24.0.22",
-    "@types/node": "12.12.6",
+    "@types/node": "12.12.7",
     "fastify-redis-mock": "1.0.0",
     "jest": "24.8.0",
     "npm-parallel": "2.0.1",
