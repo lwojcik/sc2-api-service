@@ -53,7 +53,7 @@
     "jest": "24.8.0",
     "npm-parallel": "2.0.1",
     "parallelshell": "3.0.2",
-    "pino-pretty": "3.4.0",
+    "pino-pretty": "3.5.0",
     "prettier": "1.19.1",
     "rimraf": "3.0.0",
     "ts-jest": "24.2.0",
