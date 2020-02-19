@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@types/jest": "25.1.2",
-    "@types/node": "13.7.2",
+    "@types/node": "13.7.3",
     "fastify-redis-mock": "1.0.0",
     "jest": "24.8.0",
     "npm-parallel": "2.0.1",
