@@ -1,6 +1,5 @@
 # sc2-api-service
 [![Travis CI Build Status](https://travis-ci.org/lukemnet/sc2-api-service.svg?branch=master)](https://travis-ci.org/lukemnet/sc2-api-service)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/o13le854ajki48kt?svg=true)](https://ci.appveyor.com/project/lwojcik/sc2-api-service)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/maintainability)](https://codeclimate.com/github/lukemnet/sc2-api-service/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/test_coverage)](https://codeclimate.com/github/lukemnet/sc2-api-service/test_coverage)
 
