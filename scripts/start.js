@@ -47,11 +47,11 @@ const envSchema = {
     },
     SAS_NODE_PORT: {
       type: 'string',
-      default: '8080',
+      default: '8081',
     },
     SAS_BAS_URL: {
       type: 'string',
-      default: 'http://localhost:8081',
+      default: 'http://localhost:8082',
     },
     SAS_BAS_STATUS_ENDPOINT: {
       type: 'string',
@@ -150,10 +150,10 @@ const envSchema = {
 const opts = {
   app: {
     nodeEnv: process.env.NODE_ENV || 'development',
-    port: process.env.SAS_NODE_PORT || '8080',
+    port: process.env.SAS_NODE_PORT || '8081',
   },
   bas: {
-    url: process.env.SAS_BAS_URL || 'http://localhost:8081',
+    url: process.env.SAS_BAS_URL || 'http://localhost:8082',
     statusEndpoint: process.env.SAS_BAS_STATUS_ENDPOINT || 'status',
     accessTokenEndpoint: process.env.SAS_BAS_ACCESS_TOKEN_ENDPOINT || 'accessToken/get',
     accessTokenRefreshEndpoint: process.env.SAS_BAS_ACCESS_TOKEN_FRESH_ENDPOINT || 'accessToken/get?refresh=true',
