@@ -14,6 +14,7 @@ dist: bionic
 node_js:
   - '10'
   - '12'
+  - '14'
 
 install:
   - npm install
@@ -30,4 +31,4 @@ script:
   - codecov
 
 after_script:
-  - if [[ "$TRAVIS_OS_NAME" != "linux" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+  - if [[ "$TRAVIS_OS_NAME" != "windows" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi

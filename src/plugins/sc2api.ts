@@ -65,11 +65,11 @@ export default fp(
     };
 
     const sc2Api = async () => new StarCraft2API({
-        region,
-        clientId: '',
-        clientSecret: '',
-        accessToken: await server.bas.getAccessToken(false),
-      });
+      region,
+      clientId: '',
+      clientSecret: '',
+      accessToken: await server.bas.getAccessToken(false),
+    });
 
     const cacheObject = async ({ segment, data, ttl }: DataObject) => {
       if (!enable) return 'Object not cached (Cache disabled)';
@@ -175,12 +175,14 @@ export default fp(
       getDataObject(
         {
           segment: `ladder-${regionId}-${realmId}-${profileId}-${ladderId}`,
-          dataFn: (await sc2Api()).queryPlayerLadder({
-            regionId,
-            realmId,
-            profileId,
-          },
-          ladderId),
+          dataFn: (await sc2Api()).queryPlayerLadder(
+            {
+              regionId,
+              realmId,
+              profileId,
+            },
+            ladderId,
+          ),
           ttl: ttl.ladder,
         },
         refresh,
