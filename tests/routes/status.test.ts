@@ -13,7 +13,6 @@ describe('/status (Redis enabled)', () => {
     fastifyServer.close();
   });
 
-  
   it('returns 200', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     expect(res.statusCode).toBe(200);
@@ -21,7 +20,11 @@ describe('/status (Redis enabled)', () => {
 
   it('returns correct response', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
-    expect(res.payload).toMatchSnapshot();
+    const response = JSON.parse(res.payload);
+
+    expect(response.status).toEqual(200);
+    expect(response.message).toEqual('ok');
+    expect(response.timestamp.length).toEqual(24);
   });
 });
 
@@ -36,7 +39,6 @@ describe('/status (Redis disabled)', () => {
     fastifyServer.close();
   });
 
-  
   it('returns 200', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     expect(res.statusCode).toBe(200);
@@ -44,6 +46,10 @@ describe('/status (Redis disabled)', () => {
 
   it('returns correct response', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
-    expect(res.payload).toMatchSnapshot();
+    const response = JSON.parse(res.payload);
+
+    expect(response.status).toEqual(200);
+    expect(response.message).toEqual('ok');
+    expect(response.timestamp.length).toEqual(24);
   });
 });

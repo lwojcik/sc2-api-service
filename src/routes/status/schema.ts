@@ -8,6 +8,7 @@ const schema = {
       properties: {
         status: num,
         message: str,
+        timestamp: str,
       },
     },
     400: error,

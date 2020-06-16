@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/status (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"message\\":\\"ok\\"}"`;
-
-exports[`/status (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"message\\":\\"ok\\"}"`;
