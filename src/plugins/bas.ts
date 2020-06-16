@@ -37,7 +37,7 @@ const bas = fp(
     const get = (url: string): object =>
       new Promise((resolve, reject) => {
         http
-          .get(url, res => {
+          .get(url, (res) => {
             res.setEncoding('utf8');
             let body = '';
             res.on('data', chunk => (body += chunk));
@@ -62,8 +62,8 @@ const bas = fp(
       const isBASup = await checkIfHostIsUp(statusUrl);
       isUp = isBASup;
       isBASup
-        ? fastify.log.info(`Bnet-auth-service status: running`)
-        : fastify.log.error(`Bnet-auth-service is down!`);
+        ? fastify.log.info('Bnet-auth-service status: running')
+        : fastify.log.error('Bnet-auth-service is down!');
     };
 
     /* istanbul ignore next */
