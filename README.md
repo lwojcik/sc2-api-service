@@ -94,7 +94,7 @@ Returns data about an individual SC2 profile.
 
 Returns a ladder summary for an individual SC2 profile.
 
-### `GET /profile/ladderSummary/:regionId/:realmId/:profileId/:ladderId`
+### `GET /profile/ladder/:regionId/:realmId/:profileId/:ladderId`
 
 Returns data about an individual profile's ladder.
 
