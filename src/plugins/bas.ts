@@ -63,7 +63,7 @@ const bas = fp(
       isUp = isBASup;
       isBASup
         ? fastify.log.info('Bnet-auth-service status: running')
-        : fastify.log.error('Bnet-auth-service is down!');
+        : fastify.log.error('Bnet-auth-service status: down or starting');
     };
 
     /* istanbul ignore next */
