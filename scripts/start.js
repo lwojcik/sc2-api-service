@@ -10,8 +10,6 @@ const envSchema = {
   type: 'object',
   required: [
     'NODE_ENV',
-    'SAS_NODE_HOST',
-    'SAS_NODE_PORT',
     'SAS_BAS_URL',
     'SAS_BAS_STATUS_ENDPOINT',
     'SAS_BAS_ACCESS_TOKEN_ENDPOINT',
@@ -40,14 +38,6 @@ const envSchema = {
     NODE_ENV: {
       type: 'string',
       default: 'development',
-    },
-    SAS_NODE_HOST: {
-      type: 'string',
-      default: 'localhost',
-    },
-    SAS_NODE_PORT: {
-      type: 'string',
-      default: '8081',
     },
     SAS_BAS_URL: {
       type: 'string',
