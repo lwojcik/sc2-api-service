@@ -1,7 +1,7 @@
 # sc2-api-service
-[![Travis CI Build Status](https://travis-ci.org/lukemnet/sc2-api-service.svg?branch=master)](https://travis-ci.org/lukemnet/sc2-api-service)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/maintainability)](https://codeclimate.com/github/lukemnet/sc2-api-service/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/test_coverage)](https://codeclimate.com/github/lukemnet/sc2-api-service/test_coverage)
+[![Travis CI Build Status](https://travis-ci.org/sc2pte/sc2-api-service.svg?branch=master)](https://travis-ci.org/sc2pte/sc2-api-service)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/maintainability)](https://codeclimate.com/github/sc2pte/sc2-api-service/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/test_coverage)](https://codeclimate.com/github/sc2pte/sc2-api-service/test_coverage)
 
 
 REST API service retrieving and caching data objects from [StarCraft II Community API](https://develop.battle.net/documentation/api-reference/starcraft-2-community-api/).
@@ -94,7 +94,7 @@ Returns data about an individual SC2 profile.
 
 Returns a ladder summary for an individual SC2 profile.
 
-### `GET /profile/ladderSummary/:regionId/:realmId/:profileId/:ladderId`
+### `GET /profile/ladder/:regionId/:realmId/:profileId/:ladderId`
 
 Returns data about an individual profile's ladder.
 
