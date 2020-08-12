@@ -6,6 +6,7 @@ pull_request_rules:
       - "status-success=continuous-integration/travis-ci/pr"
       - "status-success=continuous-integration/travis-ci/push"
       - "status-success=security/snyk (lukemnet)"
+      - "status-success=Summary"
     actions:
       merge:
         method: squash
