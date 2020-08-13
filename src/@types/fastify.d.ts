@@ -67,7 +67,7 @@ declare module 'fastify' {
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getStaticProfileData: (
-        regionId,
+        regionId: number | string,
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getProfileMetadata: (
@@ -87,10 +87,10 @@ declare module 'fastify' {
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getGrandmasterLeaderboard: (
-        regionId,
+        regionId: string | number,
         refresh?: boolean,
       ) => Promise<ApiResponse>;
-      getSeason: (regionId, refresh?: boolean) => Promise<ApiResponse>;
+      getSeason: (regionId: string | number, refresh?: boolean) => Promise<ApiResponse>;
       getLegacyProfile: (
         object: PlayerObject,
         refresh?: boolean,
@@ -100,8 +100,8 @@ declare module 'fastify' {
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getLegacyLadder: (
-        regionId,
-        ladderId,
+        regionId: string | number,
+        ladderId: string | number,
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getLegacyMatchHistory: (
@@ -109,7 +109,7 @@ declare module 'fastify' {
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getLegacyAchievements: (
-        regionId,
+        regionId: string | number,
         refresh?: boolean,
       ) => Promise<ApiResponse>;
       getLegacyRewards: (regionId, refresh?: boolean) => Promise<ApiResponse>;

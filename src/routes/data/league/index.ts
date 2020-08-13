@@ -2,8 +2,14 @@ import fp from 'fastify-plugin';
 import schema from './schema';
 import { LeagueObject } from '../../../@types/fastify';
 
+interface RouteQueryString {
+  refresh: boolean;
+}
+
 export default fp((server, {}, next) => {
-  server.route({
+  server.route<{
+    Querystring: RouteQueryString,
+  }>({
     schema,
     url: '/data/league/:seasonId/:queueId/:teamType/:leagueId',
     method: 'GET',

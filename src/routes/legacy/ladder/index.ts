@@ -1,8 +1,15 @@
 import fp from 'fastify-plugin';
 import schema from './schema';
 
+interface RouteParams {
+  regionId: string;
+  ladderId: string;
+}
+
 export default fp((server, {}, next) => {
-  server.route({
+  server.route<{
+    Params: RouteParams,
+  }>({
     schema,
     url: '/legacy/ladder/:regionId/:ladderId',
     method: 'GET',
