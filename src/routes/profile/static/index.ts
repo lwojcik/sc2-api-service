@@ -1,8 +1,14 @@
 import fp from 'fastify-plugin';
 import schema from './schema';
 
+interface RouteParams {
+  regionId: number;
+}
+
 export default fp((server, {}, next) => {
-  server.route({
+  server.route<{
+    Params: RouteParams,
+  }>({
     schema,
     url: '/profile/static/:regionId',
     method: 'GET',
