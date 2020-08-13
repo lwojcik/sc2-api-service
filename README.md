@@ -11,7 +11,7 @@ All API endpoints except Player endpoint from Account API (`/sc2/player/:account
 ## Important notes
 
 * This service is not meant to be exposed to the internet as-is. It lacks essential security features such as authentication. It is designed to run locally or as a part of a bigger, more secure API architecture.
-* The service assumes Battle.net always returns complete and correct data. However, StarCraft II API is notorious for returning incomplete or outdated data as well as random periods of being down. You are responsible for validating data objects on your end.
+* The service assumes Battle.net always returns complete and correct data. However, StarCraft II API is notorious for returning incomplete or outdated data as well as random periods of downtime. You are responsible for validating data objects on your end.
 * You are responsible for keeping endpoints in sync if you use Redis cache (use `refresh=true` to force cache refresh).
 
 ## Requirements
