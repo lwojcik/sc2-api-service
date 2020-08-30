@@ -154,7 +154,7 @@ const opts = {
     port: process.env.SAS_REDIS_PORT || '6379',
     password: process.env.SAS_REDIS_PASSWORD || '',
     db: process.env.SAS_REDIS_DB || '0',
-    replyCachePeriod: process.env.SAS_REDIS_CACHE_PERIOD || 1000 * 60 * 5,
+    replyCachePeriod: process.env.SAS_REDIS_CACHE_PERIOD || 1000 * 60 * 10,
     cacheSegment: process.env.SAS_REDIS_CACHE_SEGMENT || 'bas',
     ttl: {
       static: process.env.SAS_REDIS_STATIC_TTL || '2000',
