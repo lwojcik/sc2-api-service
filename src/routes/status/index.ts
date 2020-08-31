@@ -1,7 +1,8 @@
+import { FastifyPlugin } from 'fastify';
 import fp from 'fastify-plugin';
 import schema from './schema';
 
-export default fp((server, {}, next) => {
+const route: FastifyPlugin = (server, {}, next) => {
   server.route({
     schema,
     url: '/status',
@@ -15,4 +16,6 @@ export default fp((server, {}, next) => {
     },
   });
   next();
-});
+};
+
+export default fp(route);

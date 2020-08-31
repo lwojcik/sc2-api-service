@@ -8,7 +8,7 @@ describe('/profile/ladder/:regionId/:realmId/:profileId/:ladderId (Redis enabled
   const url = '/profile/ladder/1/1/1/1';
   const cacheSegment = 'ladder-1-1-1-1';
   const expectedTTL = getConfig(true).redis.ttl.ladder;
- 
+
   beforeAll(() => {
     fastifyServer.register(fastifyRedis, {
       host: '127.0.0.1',

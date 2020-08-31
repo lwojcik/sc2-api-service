@@ -3,7 +3,6 @@ import fastifyRedis from 'fastify-redis-mock';
 import server from '../../../../src/index';
 import getConfig from '../../../helper';
 
-
 describe('/ladder/season/:regionId (Redis enabled)', () => {
   const fastifyServer = fastify({ return503OnClosing: true } as any) as any;
   const url = '/ladder/season/1';
@@ -22,9 +21,7 @@ describe('/ladder/season/:regionId (Redis enabled)', () => {
     await fastifyServer.ready();
   });
 
-  afterEach(() => {
-    fastifyServer.close();
-  });
+  afterAll(() => fastifyServer.close());
 
   it('returns 200', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url });
@@ -44,5 +41,11 @@ describe('/ladder/season/:regionId (Redis enabled)', () => {
   it('cached response has correct TTL', async () => {
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
     expect(ttl).toEqual(expectedTTL);
+  });
+
+  it('returns correct response when refresh is set to true', async () => {
+    const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
+    expect(res.statusCode).toBe(200);
+    expect(res.payload).toMatchSnapshot();
   });
 });

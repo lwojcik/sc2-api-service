@@ -1,9 +1,13 @@
+import { FastifyPlugin } from 'fastify';
 import fp from 'fastify-plugin';
 import schema from './schema';
-import { PlayerObject } from '../../../@types/fastify';
+import { PlayerObject, RouteQueryString } from '../../../@types/fastify';
 
-export default fp((server, {}, next) => {
-  server.route({
+const route: FastifyPlugin = (server, {}, next) => {
+  server.route<{
+    Params: PlayerObject,
+    Querystring: RouteQueryString,
+  }>({
     schema,
     url: '/legacy/matches/:regionId/:realmId/:profileId',
     method: 'GET',
@@ -15,4 +19,6 @@ export default fp((server, {}, next) => {
     },
   });
   next();
-});
+};
+
+export default fp(route);

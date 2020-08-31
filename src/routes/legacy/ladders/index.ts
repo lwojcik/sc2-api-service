@@ -1,12 +1,12 @@
+import { FastifyPlugin } from 'fastify';
 import fp from 'fastify-plugin';
 import schema from './schema';
-import { PlayerObject } from '../../../@types/fastify';
+import {
+  PlayerObject,
+  RouteQueryString,
+} from '../../../@types/fastify';
 
-interface RouteQueryString {
-  refresh: boolean;
-}
-
-export default fp((server, {}, next) => {
+const route: FastifyPlugin = (server, {}, next) => {
   server.route<{
     Querystring: RouteQueryString,
   }>({
@@ -23,4 +23,6 @@ export default fp((server, {}, next) => {
     },
   });
   next();
-});
+};
+
+export default fp(route);

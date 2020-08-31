@@ -84,7 +84,7 @@ export default fp(
       { segment, dataFn, ttl }: DataObjectToCache,
       refresh?: boolean,
     ) => {
-      const isItCached = refresh ? false : await isDataCached(segment);
+      const isItCached = Boolean(refresh) ? false : await isDataCached(segment);
       if (!isItCached) {
         const response = await dataFn;
 

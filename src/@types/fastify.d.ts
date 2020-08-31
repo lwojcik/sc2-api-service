@@ -24,6 +24,11 @@ export interface LeagueObject {
   leagueId: string;
 }
 
+export interface RouteQueryString {
+  refresh?: boolean;
+}
+
+
 declare module 'fastify' {
   export interface FastifyInstance<
     HttpServer = http.Server,
