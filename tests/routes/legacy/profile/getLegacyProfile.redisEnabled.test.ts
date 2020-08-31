@@ -8,7 +8,7 @@ describe('/legacy/profile/:regionId/:realmId/:profileId (Redis enabled)', () => 
   const url = '/legacy/profile/1/1/1';
   const cacheSegment = 'legacyProfile-1-1-1';
   const expectedTTL = getConfig(true).redis.ttl.legacy.profile;
- 
+
   beforeAll(() => {
     fastifyServer.register(fastifyRedis, {
       host: '127.0.0.1',
@@ -43,7 +43,6 @@ describe('/legacy/profile/:regionId/:realmId/:profileId (Redis enabled)', () => 
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
     expect(ttl).toEqual(expectedTTL);
   });
-
 
   it('returns correct response when refresh is set to true', async () => {
     const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });

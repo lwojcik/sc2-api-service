@@ -3,3 +3,5 @@
 exports[`/ladder/season/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"seasonId\\":9999}}"`;
 
 exports[`/ladder/season/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"seasonId\\":9999,\\"number\\":\\"\\",\\"year\\":\\"\\",\\"startDate\\":\\"\\",\\"endDate\\":\\"\\"}}"`;
+
+exports[`/ladder/season/:regionId (Redis enabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"seasonId\\":9999,\\"number\\":\\"\\",\\"year\\":\\"\\",\\"startDate\\":\\"\\",\\"endDate\\":\\"\\"}}"`;

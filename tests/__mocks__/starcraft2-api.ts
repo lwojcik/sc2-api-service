@@ -7,7 +7,7 @@ class StarCraft2API {
         {
           teamMembers: [
             {
-              displayName: "sample grandmaster leaderboard object",
+              displayName: 'sample grandmaster leaderboard object',
             },
           ],
         },
@@ -79,7 +79,7 @@ class StarCraft2API {
 
   queryLegacyProfile(): Promise<object> {
     return Promise.resolve({
-      displayName: "sample legacy profile object",
+      displayName: 'sample legacy profile object',
     });
   }
 
@@ -89,7 +89,7 @@ class StarCraft2API {
         {
           teamMembers: [
             {
-              displayName: "sample ladder object",
+              displayName: 'sample ladder object',
             },
           ],
         },
@@ -99,7 +99,7 @@ class StarCraft2API {
 
   queryProfileMetadata(): Promise<object> {
     return Promise.resolve({
-      name: "sample profile metadata object",
+      name: 'sample profile metadata object',
     });
   }
 
@@ -107,7 +107,7 @@ class StarCraft2API {
     return Promise.resolve({
       showCaseEntries: [
         {
-          ladderId: "sample ladder summary object",
+          ladderId: 'sample ladder summary object',
         },
       ],
     });
@@ -117,7 +117,7 @@ class StarCraft2API {
     return Promise.resolve({
       achievements: [
         {
-          description: "sample static profile data object",
+          description: 'sample static profile data object',
         },
       ],
     });
@@ -126,7 +126,7 @@ class StarCraft2API {
   queryProfile(): Promise<object> {
     return Promise.resolve({
       summary: {
-        displayName: "sample profile object",
+        displayName: 'sample profile object',
       },
     });
   }
@@ -135,7 +135,7 @@ class StarCraft2API {
     return Promise.resolve({
       _links: {
         self: {
-          href: "sample league object",
+          href: 'sample league object',
         },
       },
     });

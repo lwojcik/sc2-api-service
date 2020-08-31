@@ -11,14 +11,14 @@ describe('BAS plugin', () => {
   });
 
   it('is registered', async () => {
-    expect(typeof fastifyServer.bas).toBe("object");
+    expect(typeof fastifyServer.bas).toBe('object');
   });
 
   it('exposes getAccessToken() method', async () => {
-    expect(typeof fastifyServer.bas.getAccessToken).toBe("function");
+    expect(typeof fastifyServer.bas.getAccessToken).toBe('function');
   });
 
   it('exposes refreshAccessToken() method', async () => {
-    expect(typeof fastifyServer.bas.refreshAccessToken).toBe("function");
+    expect(typeof fastifyServer.bas.refreshAccessToken).toBe('function');
   });
 });

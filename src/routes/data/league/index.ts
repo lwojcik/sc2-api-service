@@ -1,12 +1,13 @@
+import { FastifyPlugin } from 'fastify';
 import fp from 'fastify-plugin';
 import schema from './schema';
 import { LeagueObject } from '../../../@types/fastify';
 
 interface RouteQueryString {
-  refresh: boolean;
+  refresh?: boolean;
 }
 
-export default fp((server, {}, next) => {
+const route: FastifyPlugin = (server, {}, next) => {
   server.route<{
     Querystring: RouteQueryString,
   }>({
@@ -23,4 +24,6 @@ export default fp((server, {}, next) => {
     },
   });
   next();
-});
+};
+
+export default fp(route);

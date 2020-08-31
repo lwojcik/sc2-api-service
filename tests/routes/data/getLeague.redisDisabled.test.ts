@@ -19,10 +19,4 @@ describe('/data/league/:seasonId/:queueId/:teamType/:leagueId (Redis disabled)',
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.payload).toMatchSnapshot();
   });
-
-  it('returns correct response when refresh is set to true', async () => {
-    const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
-    expect(res.statusCode).toBe(200);
-    expect(res.payload).toMatchSnapshot();
-  });
 });
