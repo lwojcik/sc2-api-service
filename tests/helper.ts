@@ -5,7 +5,7 @@ const getConfig = (enableRedis: boolean) => {
       port: '8123',
     },
     bas: {
-      url: 'http://localhost:888881',
+      url: 'http://localhost:7890',
       statusEndpoint: 'status',
       accessTokenEndpoint: 'accessToken/get',
       accessTokenRefreshEndpoint: 'accessToken/get?refresh=true',
