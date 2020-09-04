@@ -32,7 +32,7 @@ The following environment variables must be set up:
 * `SAS_REDIS_PORT` - Redis port (default: `'6379'`)
 * `SAS_REDIS_PASSWORD` - Redis password (optional)
 * `SAS_REDIS_DB` - Redis database index to use
-* `SAS_REDIS_[endpoint name]_TTL` - all keys matching that pattern refer to cache TTL of different endpoints (Time To Live, time for which objects will be cached). See `.env.sample` for a complete example.
+* `SAS_REDIS_[endpoint name]_TTL_SECS` - all keys matching that pattern refer to cache TTL of different endpoints (Time To Live in seconds, time for which objects will be cached). See `.env.sample` for a complete example.
 
 To obtain Battle.net API credentials (key and secret) visit [Blizzard Battle.net Developer Portal](https://develop.battle.net/access/).
 
