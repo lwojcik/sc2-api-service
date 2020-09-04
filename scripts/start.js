@@ -19,19 +19,19 @@ const envSchema = {
     'SAS_REDIS_PORT',
     'SAS_REDIS_PASSWORD',
     'SAS_REDIS_DB',
-    'SAS_REDIS_STATIC_TTL',
-    'SAS_REDIS_METADATA_TTL',
-    'SAS_REDIS_PROFILE_TTL',
-    'SAS_REDIS_LADDER_SUMMARY_TTL',
-    'SAS_REDIS_LADDER_TTL',
-    'SAS_REDIS_GRANDMASTER_LEADERBOARD_TTL',
-    'SAS_REDIS_SEASON_TTL',
-    'SAS_REDIS_LEGACY_PROFILE_TTL',
-    'SAS_REDIS_LEGACY_LADDERS_TTL',
-    'SAS_REDIS_LEGACY_MATCH_HISTORY_TTL',
-    'SAS_REDIS_LEGACY_LADDER_TTL',
-    'SAS_REDIS_LEGACY_ACHIEVEMENTS_TTL',
-    'SAS_REDIS_LEGACY_REWARDS_TTL',
+    'SAS_REDIS_STATIC_TTL_SECS',
+    'SAS_REDIS_METADATA_TTL_SECS',
+    'SAS_REDIS_PROFILE_TTL_SECS',
+    'SAS_REDIS_LADDER_SUMMARY_TTL_SECS',
+    'SAS_REDIS_LADDER_TTL_SECS',
+    'SAS_REDIS_GRANDMASTER_LEADERBOARD_TTL_SECS',
+    'SAS_REDIS_SEASON_TTL_SECS',
+    'SAS_REDIS_LEGACY_PROFILE_TTL_SECS',
+    'SAS_REDIS_LEGACY_LADDERS_TTL_SECS',
+    'SAS_REDIS_LEGACY_MATCH_HISTORY_TTL_SECS',
+    'SAS_REDIS_LEGACY_LADDER_TTL_SECS',
+    'SAS_REDIS_LEGACY_ACHIEVEMENTS_TTL_SECS',
+    'SAS_REDIS_LEGACY_REWARDS_TTL_SECS',
     'SAS_BATTLENET_REGION',
   ],
   properties: {
@@ -71,55 +71,55 @@ const envSchema = {
       type: 'string',
       default: '',
     },
-    SAS_REDIS_STATIC_TTL: {
+    SAS_REDIS_STATIC_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_METADATA_TTL: {
+    SAS_REDIS_METADATA_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_PROFILE_TTL: {
+    SAS_REDIS_PROFILE_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LADDER_SUMMARY_TTL: {
+    SAS_REDIS_LADDER_SUMMARY_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LADDER_TTL: {
+    SAS_REDIS_LADDER_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_GRANDMASTER_LEADERBOARD_TTL: {
+    SAS_REDIS_GRANDMASTER_LEADERBOARD_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_SEASON_TTL: {
+    SAS_REDIS_SEASON_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LEGACY_PROFILE_TTL: {
+    SAS_REDIS_LEGACY_PROFILE_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LEGACY_LADDERS_TTL: {
+    SAS_REDIS_LEGACY_LADDERS_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LEGACY_MATCH_HISTORY_TTL: {
+    SAS_REDIS_LEGACY_MATCH_HISTORY_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LEGACY_LADDER_TTL: {
+    SAS_REDIS_LEGACY_LADDER_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LEGACY_ACHIEVEMENTS_TTL: {
+    SAS_REDIS_LEGACY_ACHIEVEMENTS_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
-    SAS_REDIS_LEGACY_REWARDS_TTL: {
+    SAS_REDIS_LEGACY_REWARDS_TTL_SECS: {
       type: 'string',
       default: '2000',
     },
@@ -157,21 +157,21 @@ const opts = {
     replyCachePeriod: process.env.SAS_REDIS_CACHE_PERIOD || 1000 * 60 * 10,
     cacheSegment: process.env.SAS_REDIS_CACHE_SEGMENT || 'bas',
     ttl: {
-      static: process.env.SAS_REDIS_STATIC_TTL || '2000',
-      metadata: process.env.SAS_REDIS_METADATA_TTL || '2000',
-      profile: process.env.SAS_REDIS_PROFILE_TTL || '2000',
-      ladderSummary: process.env.SAS_REDIS_LADDER_SUMMARY_TTL || '2000',
-      ladder: process.env.SAS_REDIS_LADDER_TTL || '2000',
-      grandmaster: process.env.SAS_REDIS_GRANDMASTER_LEADERBOARD_TTL || '2000',
-      season: process.env.SAS_REDIS_SEASON_TTL || '2000',
-      league: process.env.SAS_REDIS_LEAGUE_TTL || '2000',
+      static: process.env.SAS_REDIS_STATIC_TTL_SECS || '2000',
+      metadata: process.env.SAS_REDIS_METADATA_TTL_SECS || '2000',
+      profile: process.env.SAS_REDIS_PROFILE_TTL_SECS || '2000',
+      ladderSummary: process.env.SAS_REDIS_LADDER_SUMMARY_TTL_SECS || '2000',
+      ladder: process.env.SAS_REDIS_LADDER_TTL_SECS || '2000',
+      grandmaster: process.env.SAS_REDIS_GRANDMASTER_LEADERBOARD_TTL_SECS || '2000',
+      season: process.env.SAS_REDIS_SEASON_TTL_SECS || '2000',
+      league: process.env.SAS_REDIS_LEAGUE_TTL_SECS || '2000',
       legacy: {
-        profile: process.env.SAS_REDIS_LEGACY_PROFILE_TTL || '2000',
-        ladders: process.env.SAS_REDIS_LEGACY_LADDERS_TTL || '2000',
-        matchHistory: process.env.SAS_REDIS_LEGACY_MATCH_HISTORY_TTL || '2000',
-        ladder: process.env.SAS_REDIS_LEGACY_LADDER_TTL || '2000',
-        achievements: process.env.SAS_REDIS_LEGACY_ACHIEVEMENTS_TTL || '2000',
-        rewards: process.env.SAS_REDIS_LEGACY_REWARDS_TTL || '2000',
+        profile: process.env.SAS_REDIS_LEGACY_PROFILE_TTL_SECS || '2000',
+        ladders: process.env.SAS_REDIS_LEGACY_LADDERS_TTL_SECS || '2000',
+        matchHistory: process.env.SAS_REDIS_LEGACY_MATCH_HISTORY_TTL_SECS || '2000',
+        ladder: process.env.SAS_REDIS_LEGACY_LADDER_TTL_SECS|| '2000',
+        achievements: process.env.SAS_REDIS_LEGACY_ACHIEVEMENTS_TTL_SECS || '2000',
+        rewards: process.env.SAS_REDIS_LEGACY_REWARDS_TTL_SECS || '2000',
       },
     },
   },
