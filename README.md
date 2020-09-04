@@ -1,7 +1,7 @@
 # sc2-api-service
 [![Travis CI Build Status](https://travis-ci.org/sc2pte/sc2-api-service.svg?branch=master)](https://travis-ci.org/sc2pte/sc2-api-service)
-[![Maintainability](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/maintainability)](https://codeclimate.com/github/sc2pte/sc2-api-service/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/f362d1d1b96e39f1b2b3/test_coverage)](https://codeclimate.com/github/sc2pte/sc2-api-service/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fca0937b995d5c21c5c1/maintainability)](https://codeclimate.com/github/sc2pte/sc2-api-service/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/fca0937b995d5c21c5c1/test_coverage)](https://codeclimate.com/github/sc2pte/sc2-api-service/test_coverage)
 
 
 REST API service retrieving and caching data objects from [StarCraft II Community API](https://develop.battle.net/documentation/api-reference/starcraft-2-community-api/).
