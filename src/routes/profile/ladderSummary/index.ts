@@ -1,12 +1,13 @@
-import { FastifyPlugin } from 'fastify';
+import { FastifyPluginCallback } from 'fastify';
 import fp from 'fastify-plugin';
 import schema from './schema';
 import {
   PlayerObject,
   RouteQueryString,
-} from '../../../@types/fastify';
+} from '../../../@types/fastify.d';
 
-const route: FastifyPlugin = (server, {}, next) => {
+// eslint-disable-next-line no-empty-pattern
+const route: FastifyPluginCallback = (server, {}, next) => {
   server.route<{
     Params: PlayerObject,
     Querystring: RouteQueryString,

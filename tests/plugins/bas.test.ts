@@ -10,15 +10,15 @@ describe('BAS plugin', () => {
     await fastifyServer.ready();
   });
 
-  it('is registered', async () => {
+  it('is registered', () => {
     expect(typeof fastifyServer.bas).toBe('object');
   });
 
-  it('exposes getAccessToken() method', async () => {
+  it('exposes getAccessToken() method', () => {
     expect(typeof fastifyServer.bas.getAccessToken).toBe('function');
   });
 
-  it('exposes refreshAccessToken() method', async () => {
+  it('exposes refreshAccessToken() method', () => {
     expect(typeof fastifyServer.bas.refreshAccessToken).toBe('function');
   });
 });

@@ -15,11 +15,13 @@ describe('/profile/ladder/:regionId/:realmId/:profileId/:ladderId (Redis disable
   });
 
   it('returns 200', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.statusCode).toBe(200);
   });
 
   it('returns correct response', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.payload).toMatchSnapshot();
   });

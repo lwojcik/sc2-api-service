@@ -1,5 +1,11 @@
 import responseSchema from '../../../schemas/response/index';
-import { arr, obj, str, num, oneOfStr } from '../../../helpers/schema';
+import {
+  arr,
+  obj,
+  str,
+  num,
+  oneOfStr,
+} from '../../../helpers/schema';
 
 const types = ['Custom', '1v1', '2v2', '3v3', '4v4'];
 

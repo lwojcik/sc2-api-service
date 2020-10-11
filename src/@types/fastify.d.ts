@@ -1,7 +1,3 @@
-import * as fastify from 'fastify';
-import * as http from 'http';
-import profile from '../routes/profile/profile';
-
 interface ApiResponse {
   status: number;
   data: object;
@@ -28,13 +24,8 @@ export interface RouteQueryString {
   refresh?: boolean;
 }
 
-
 declare module 'fastify' {
-  export interface FastifyInstance<
-    HttpServer = http.Server,
-    HttpRequest = http.IncomingMessage,
-    HttpResponse = http.ServerResponse
-  > {
+  export interface FastifyInstance {
     blipp(): void;
     cache: {
       has: (key) => boolean;

@@ -1,5 +1,10 @@
 import responseSchema from '../../../schemas/response/index';
-import { arr, obj, str, num } from '../../../helpers/schema';
+import {
+  arr,
+  obj,
+  str,
+  num,
+} from '../../../helpers/schema';
 
 const icon = {
   ...obj,

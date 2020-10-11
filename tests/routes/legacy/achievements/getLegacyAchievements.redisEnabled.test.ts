@@ -23,26 +23,31 @@ describe('/legacy/achievements/:regionId (Redis enabled)', () => {
   afterAll(() => fastifyServer.close());
 
   it('returns 200', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.statusCode).toBe(200);
   });
 
   it('returns correct response', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.payload).toMatchSnapshot();
   });
 
   it('response is cached correctly', async () => {
+    expect.assertions(1);
     const cachedResponse = await fastifyServer.redis.get(cacheSegment);
     expect(cachedResponse).toMatchSnapshot();
   });
 
   it('cached response has correct TTL', async () => {
+    expect.assertions(1);
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
-    expect(ttl).toEqual(expectedTTL);
+    expect(ttl).toStrictEqual(expectedTTL);
   });
 
   it('returns correct response when refresh is set to true', async () => {
+    expect.assertions(2);
     const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
     expect(res.statusCode).toBe(200);
     expect(res.payload).toMatchSnapshot();

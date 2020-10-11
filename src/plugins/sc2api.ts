@@ -2,7 +2,11 @@ import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
 import StarCraft2API from 'starcraft2-api';
 import { PassThrough } from 'stream';
-import { PlayerObject, LeagueObject, PlayerLadder } from '../@types/fastify';
+import {
+  PlayerObject,
+  LeagueObject,
+  PlayerLadder,
+} from '../@types/fastify.d';
 
 export interface BnetConfig {
   [key: string]: string | number | boolean;
@@ -41,13 +45,13 @@ export interface Sc2ApiOptions {
 interface DataObjectToCache {
   segment: string;
   dataFn: Promise<any>;
-  ttl: number;
+  ttlTime: number;
 }
 
 interface DataObject {
   segment: string;
   data: object;
-  ttl: number;
+  ttlTime: number;
 }
 
 export default fp(
@@ -59,7 +63,7 @@ export default fp(
 
     const isDataCached = async (segment: string) => {
       if (server.redis && enable) {
-        return (await server.redis.get(segment)) ? true : false;
+        return Boolean(await server.redis.get(segment));
       }
       return Promise.resolve(false);
     };
@@ -71,20 +75,20 @@ export default fp(
       accessToken: await server.bas.getAccessToken(false),
     });
 
-    const cacheObject = async ({ segment, data, ttl }: DataObject) => {
+    const cacheObject = async ({ segment, data, ttlTime }: DataObject) => {
       if (!enable) return 'Object not cached (Cache disabled)';
       await cache.set(segment, JSON.stringify(data));
-      await cache.expire(segment, ttl);
+      await cache.expire(segment, ttlTime);
       return 'Object cached successfully';
     };
 
     const getCachedObject = (segment: string) => server.redis.get(segment);
 
     const getDataObject = async (
-      { segment, dataFn, ttl }: DataObjectToCache,
+      { segment, dataFn, ttlTime }: DataObjectToCache,
       refresh?: boolean,
     ) => {
-      const isItCached = Boolean(refresh) ? false : await isDataCached(segment);
+      const isItCached = refresh ? false : await isDataCached(segment);
       if (!isItCached) {
         const response = await dataFn;
 
@@ -101,7 +105,7 @@ export default fp(
           status: 200,
           data: response,
         };
-        await cacheObject({ segment, data, ttl } as DataObject);
+        await cacheObject({ segment, data, ttlTime } as DataObject);
         return data;
       }
       return JSON.parse(await getCachedObject(segment));
@@ -115,7 +119,7 @@ export default fp(
         {
           segment: `profile-${regionId}-${realmId}-${profileId}`,
           dataFn: (await sc2Api()).queryProfile({ regionId, realmId, profileId }),
-          ttl: ttl.profile,
+          ttlTime: ttl.profile,
         },
         refresh,
       );
@@ -123,16 +127,14 @@ export default fp(
     const getStaticProfileData = async (
       regionId: number,
       refresh?: boolean,
-    ) => {
-      return getDataObject(
-        {
-          segment: `staticProfileData-${regionId}`,
-          dataFn: (await sc2Api()).queryStaticProfileData(regionId),
-          ttl: ttl.static,
-        },
-        refresh,
-      );
-    };
+    ) => getDataObject(
+      {
+        segment: `staticProfileData-${regionId}`,
+        dataFn: (await sc2Api()).queryStaticProfileData(regionId),
+        ttlTime: ttl.static,
+      },
+      refresh,
+    );
 
     const getProfileMetadata = async (
       { regionId, realmId, profileId }: PlayerObject,
@@ -146,7 +148,7 @@ export default fp(
             realmId,
             profileId,
           }),
-          ttl: ttl.metadata,
+          ttlTime: ttl.metadata,
         },
         refresh,
       );
@@ -163,13 +165,18 @@ export default fp(
             realmId,
             profileId,
           }),
-          ttl: ttl.ladderSummary,
+          ttlTime: ttl.ladderSummary,
         },
         refresh,
       );
 
     const getLadder = async (
-      { regionId, realmId, profileId, ladderId }: PlayerLadder,
+      {
+        regionId,
+        realmId,
+        profileId,
+        ladderId,
+      }: PlayerLadder,
       refresh?: boolean,
     ) =>
       getDataObject(
@@ -183,13 +190,18 @@ export default fp(
             },
             ladderId,
           ),
-          ttl: ttl.ladder,
+          ttlTime: ttl.ladder,
         },
         refresh,
       );
 
     const getLeague = async (
-      { seasonId, queueId, teamType, leagueId }: LeagueObject,
+      {
+        seasonId,
+        queueId,
+        teamType,
+        leagueId,
+      }: LeagueObject,
       refresh?: boolean,
     ) => getDataObject(
       {
@@ -200,7 +212,7 @@ export default fp(
           teamType,
           leagueId,
         }),
-        ttl: ttl.league,
+        ttlTime: ttl.league,
       },
       refresh,
     );
@@ -210,7 +222,7 @@ export default fp(
         {
           segment: `season-${regionId}`,
           dataFn: (await sc2Api()).querySeason(regionId),
-          ttl: ttl.season,
+          ttlTime: ttl.season,
         },
         refresh,
       );
@@ -223,7 +235,7 @@ export default fp(
         {
           segment: `grandmaster-${regionId}`,
           dataFn: (await sc2Api()).queryGrandmasterLeaderboard(regionId),
-          ttl: ttl.grandmaster,
+          ttlTime: ttl.grandmaster,
         },
         refresh,
       );
@@ -240,7 +252,7 @@ export default fp(
             realmId,
             profileId,
           }),
-          ttl: ttl.legacy.profile,
+          ttlTime: ttl.legacy.profile,
         },
         refresh,
       );
@@ -257,7 +269,7 @@ export default fp(
             realmId,
             profileId,
           }),
-          ttl: ttl.legacy.ladders,
+          ttlTime: ttl.legacy.ladders,
         },
         refresh,
       );
@@ -271,7 +283,7 @@ export default fp(
         {
           segment: `legacyLadder-${regionId}-${ladderId}`,
           dataFn: (await sc2Api()).queryLegacyLadder(regionId, ladderId),
-          ttl: ttl.legacy.ladder,
+          ttlTime: ttl.legacy.ladder,
         },
         refresh,
       );
@@ -288,7 +300,7 @@ export default fp(
             realmId,
             profileId,
           }),
-          ttl: ttl.legacy.matchHistory,
+          ttlTime: ttl.legacy.matchHistory,
         },
         refresh,
       );
@@ -298,7 +310,7 @@ export default fp(
         {
           segment: `legacyAchievements-${regionId}`,
           dataFn: (await sc2Api()).queryLegacyAchievements(regionId),
-          ttl: ttl.legacy.achievements,
+          ttlTime: ttl.legacy.achievements,
         },
         refresh,
       );
@@ -308,7 +320,7 @@ export default fp(
         {
           segment: `legacyRewards-${regionId}`,
           dataFn: (await sc2Api()).queryLegacyRewards(regionId),
-          ttl: ttl.legacy.rewards,
+          ttlTime: ttl.legacy.rewards,
         },
         refresh,
       );

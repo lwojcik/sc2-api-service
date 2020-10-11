@@ -40,7 +40,8 @@ const bas = fp(
           .get(url, (res) => {
             res.setEncoding('utf8');
             let body = '';
-            res.on('data', chunk => (body += chunk));
+            // eslint-disable-next-line no-return-assign
+            res.on('data', (chunk) => (body += chunk));
             res.on('end', () => resolve(JSON.parse(body)));
           })
           .on('error', reject);
@@ -61,9 +62,11 @@ const bas = fp(
     const checkOnStartup = async () => {
       const isBASup = await checkIfHostIsUp(statusUrl);
       isUp = isBASup;
-      isBASup
-        ? fastify.log.info('Bnet-auth-service status: running')
-        : fastify.log.error('Bnet-auth-service status: down or starting');
+      if (isBASup) {
+        fastify.log.info('Bnet-auth-service status: running');
+      } else {
+        fastify.log.error('Bnet-auth-service status: down or starting');
+      }
     };
 
     /* istanbul ignore next */
@@ -72,7 +75,7 @@ const bas = fp(
       const basData = !refresh
         ? ((await get(accessTokenUrl)) as BASReply)
         : ((await get(accessTokenRefreshUrl)) as BASReply);
-      const accessToken = basData.data.accessToken;
+      const { accessToken } = basData.data;
       return accessToken;
     };
 

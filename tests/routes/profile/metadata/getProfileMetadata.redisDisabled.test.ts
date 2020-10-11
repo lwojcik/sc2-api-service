@@ -11,16 +11,19 @@ describe('/profile/metadata/:regionId/:realmId/:profileId (Redis disabled)', () 
   afterAll(() => fastifyServer.close());
 
   it('returns 200', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.statusCode).toBe(200);
   });
 
   it('returns correct response', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url });
     expect(res.payload).toMatchSnapshot();
   });
 
   it('returns correct response when refresh is set to true', async () => {
+    expect.assertions(2);
     const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
     expect(res.statusCode).toBe(200);
     expect(res.payload).toMatchSnapshot();

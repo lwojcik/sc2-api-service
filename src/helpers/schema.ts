@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-shadow
 const type = (type: string) => ({
   type,
 });
@@ -34,4 +35,14 @@ const oneOfNum = numWithEnum;
 const str = strOrNull();
 const num = numOrNull();
 
-export { obj, arr, str, bool, oneOfStr, oneOfNum, strOnly, numOnly, num };
+export {
+  obj,
+  arr,
+  str,
+  bool,
+  oneOfStr,
+  oneOfNum,
+  strOnly,
+  numOnly,
+  num,
+};
