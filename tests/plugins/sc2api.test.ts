@@ -14,63 +14,63 @@ describe('sc2api plugin', () => {
     jest.resetAllMocks();
   });
 
-  it('is registered', async () => {
+  it('is registered', () => {
     expect(typeof fastifyServer.sc2api).toBe('object');
   });
 
-  it('exposes getProfile() method', async () => {
+  it('exposes getProfile() method', () => {
     expect(typeof fastifyServer.sc2api.getProfile).toBe('function');
   });
 
-  it('exposes getStaticProfileData() method', async () => {
+  it('exposes getStaticProfileData() method', () => {
     expect(typeof fastifyServer.sc2api.getStaticProfileData).toBe('function');
   });
 
-  it('exposes getProfileMetadata() method', async () => {
+  it('exposes getProfileMetadata() method', () => {
     expect(typeof fastifyServer.sc2api.getProfileMetadata).toBe('function');
   });
 
-  it('exposes getLadderSummary() method', async () => {
+  it('exposes getLadderSummary() method', () => {
     expect(typeof fastifyServer.sc2api.getLadderSummary).toBe('function');
   });
 
-  it('exposes getLadder() method', async () => {
+  it('exposes getLadder() method', () => {
     expect(typeof fastifyServer.sc2api.getLadder).toBe('function');
   });
 
-  it('exposes getLegacyProfile() method', async () => {
+  it('exposes getLegacyProfile() method', () => {
     expect(typeof fastifyServer.sc2api.getLegacyProfile).toBe('function');
   });
 
-  it('exposes getLegacyLadders() method', async () => {
+  it('exposes getLegacyLadders() method', () => {
     expect(typeof fastifyServer.sc2api.getLegacyLadders).toBe('function');
   });
 
-  it('exposes getLegacyLadder() method', async () => {
+  it('exposes getLegacyLadder() method', () => {
     expect(typeof fastifyServer.sc2api.getLegacyLadder).toBe('function');
   });
 
-  it('exposes getLeague() method', async () => {
+  it('exposes getLeague() method', () => {
     expect(typeof fastifyServer.sc2api.getLeague).toBe('function');
   });
 
-  it('exposes getGrandmasterLeaderboard() method', async () => {
+  it('exposes getGrandmasterLeaderboard() method', () => {
     expect(typeof fastifyServer.sc2api.getGrandmasterLeaderboard).toBe('function');
   });
 
-  it('exposes getSeason() method', async () => {
+  it('exposes getSeason() method', () => {
     expect(typeof fastifyServer.sc2api.getSeason).toBe('function');
   });
 
-  it('exposes getLegacyMatchHistory() method', async () => {
+  it('exposes getLegacyMatchHistory() method', () => {
     expect(typeof fastifyServer.sc2api.getLegacyMatchHistory).toBe('function');
   });
 
-  it('exposes getLegacyAchievements() method', async () => {
+  it('exposes getLegacyAchievements() method', () => {
     expect(typeof fastifyServer.sc2api.getLegacyAchievements).toBe('function');
   });
 
-  it('exposes getLegacyRewards() method', async () => {
+  it('exposes getLegacyRewards() method', () => {
     expect(typeof fastifyServer.sc2api.getLegacyRewards).toBe('function');
   });
 });

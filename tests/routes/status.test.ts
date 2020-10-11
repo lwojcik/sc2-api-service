@@ -14,17 +14,19 @@ describe('/status (Redis enabled)', () => {
   });
 
   it('returns 200', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     expect(res.statusCode).toBe(200);
   });
 
   it('returns correct response', async () => {
+    expect.assertions(3);
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     const response = JSON.parse(res.payload);
 
-    expect(response.status).toEqual(200);
-    expect(response.message).toEqual('ok');
-    expect(response.timestamp.length).toEqual(24);
+    expect(response.status).toStrictEqual(200);
+    expect(response.message).toStrictEqual('ok');
+    expect(response.timestamp).toHaveLength(24);
   });
 });
 
@@ -40,16 +42,18 @@ describe('/status (Redis disabled)', () => {
   });
 
   it('returns 200', async () => {
+    expect.assertions(1);
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     expect(res.statusCode).toBe(200);
   });
 
   it('returns correct response', async () => {
+    expect.assertions(3);
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     const response = JSON.parse(res.payload);
 
-    expect(response.status).toEqual(200);
-    expect(response.message).toEqual('ok');
-    expect(response.timestamp.length).toEqual(24);
+    expect(response.status).toStrictEqual(200);
+    expect(response.message).toStrictEqual('ok');
+    expect(response.timestamp).toHaveLength(24);
   });
 });

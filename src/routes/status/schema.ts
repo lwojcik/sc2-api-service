@@ -1,4 +1,8 @@
-import { obj, num, str } from '../../helpers/schema';
+import {
+  obj,
+  num,
+  str,
+} from '../../helpers/schema';
 import error from '../../schemas/response/error';
 
 const schema = {
