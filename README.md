@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/sc2pte/sc2-api-service/branch/master/graph/badge.svg?token=FQQXJknrB4)](https://codecov.io/gh/sc2pte/sc2-api-service)
 
 
-REST API service retrieving and caching data objects from [StarCraft II Community API](https://develop.battle.net/documentation/api-reference/starcraft-2-community-api/).
+REST API service retrieving and caching data objects from [StarCraft II Community APIs](https://develop.battle.net/documentation/starcraft-2/community-apis) and [StarCraft II Game Data APIs](https://develop.battle.net/documentation/starcraft-2/game-data-apis).
 
 All API endpoints except Player endpoint from Account API (`/sc2/player/:accountId`) are supported.
 
