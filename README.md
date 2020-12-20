@@ -1,10 +1,9 @@
 # sc2-api-service
-[![Travis CI Build Status](https://travis-ci.com/sc2pte/sc2-api-service.svg?branch=master)](https://travis-ci.com/sc2pte/sc2-api-service)
-[![Maintainability](https://api.codeclimate.com/v1/badges/fca0937b995d5c21c5c1/maintainability)](https://codeclimate.com/github/sc2pte/sc2-api-service/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/fca0937b995d5c21c5c1/test_coverage)](https://codeclimate.com/github/sc2pte/sc2-api-service/test_coverage)
+[![Build status](https://ci.appveyor.com/api/projects/status/k83g3ny4b96qpeo5/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/sc2-api-service/branch/master)
+[![codecov](https://codecov.io/gh/sc2pte/sc2-api-service/branch/master/graph/badge.svg?token=FQQXJknrB4)](https://codecov.io/gh/sc2pte/sc2-api-service)
 
 
-REST API service retrieving and caching data objects from [StarCraft II Community API](https://develop.battle.net/documentation/api-reference/starcraft-2-community-api/).
+REST API service retrieving and caching data objects from [StarCraft II Community APIs](https://develop.battle.net/documentation/starcraft-2/community-apis) and [StarCraft II Game Data APIs](https://develop.battle.net/documentation/starcraft-2/game-data-apis).
 
 All API endpoints except Player endpoint from Account API (`/sc2/player/:accountId`) are supported.
 
