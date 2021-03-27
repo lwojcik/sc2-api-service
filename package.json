@@ -57,7 +57,7 @@
     "starcraft2-api": "1.5.1",
     "jest": "26.6.3",
     "npm-parallel": "2.0.1",
-    "pino-pretty": "4.6.0",
+    "pino-pretty": "4.7.0",
     "rimraf": "3.0.2",
     "ts-jest": "26.5.3",
     "tsc-watch": "4.2.9",
