@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
-import StarCraft2API from 'starcraft2-api';
+import { StarCraft2API } from 'starcraft2-api';
 import { PassThrough } from 'stream';
 import {
   PlayerObject,
