@@ -24,8 +24,8 @@ describe('/status (Redis enabled)', () => {
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     const response = JSON.parse(res.payload);
 
-    expect(response.status).toStrictEqual(200);
-    expect(response.message).toStrictEqual('ok');
+    expect(response.status).toBe(200);
+    expect(response.message).toBe('ok');
     expect(response.timestamp).toHaveLength(24);
   });
 });
@@ -52,8 +52,8 @@ describe('/status (Redis disabled)', () => {
     const res = await fastifyServer.inject({ method: 'GET', url: '/status' });
     const response = JSON.parse(res.payload);
 
-    expect(response.status).toStrictEqual(200);
-    expect(response.message).toStrictEqual('ok');
+    expect(response.status).toBe(200);
+    expect(response.message).toBe('ok');
     expect(response.timestamp).toHaveLength(24);
   });
 });
