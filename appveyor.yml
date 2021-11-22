@@ -40,8 +40,9 @@ after_build:
 
 
 deploy:
-  release: $(APPVEYOR_BUILD_VERSION)
-  description: 'v$(APPVEYOR_BUILD_VERSION)'
+  tag: $(APPVEYOR_REPO_TAG_NAME)
+  release: ${APPVEYOR_BUILD_VERSION}
+  description: '${APPVEYOR_BUILD_VERSION}'
   provider: GitHub
   auth_token:
     secure: LZivqelZnFmrHH+iuzgusfnKcf0TpgR9aa4JAhkfD4M4i1+1ABtPnUAL2CtlpzCT
