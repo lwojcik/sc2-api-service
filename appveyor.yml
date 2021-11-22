@@ -7,6 +7,8 @@ services:
 environment:
   IMAGE_STABLE_TAG: 1
 
+skip_tags: true
+
 install:
   - npm install
 
@@ -40,7 +42,6 @@ after_build:
 
 
 deploy:
-  tag: $(APPVEYOR_REPO_TAG_NAME)
   release: ${APPVEYOR_BUILD_VERSION}
   description: '${APPVEYOR_BUILD_VERSION}'
   provider: GitHub
@@ -50,4 +51,3 @@ deploy:
   prerelease: false
   on:
     branch: master
-    APPVEYOR_REPO_TAG: true
