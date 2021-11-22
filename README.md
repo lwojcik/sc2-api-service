@@ -41,10 +41,10 @@ When in development mode, the API can load environment variables from `.env` fil
 
 ## Build and install
 
-Install and configure [`bnet-auth-service`](https://github.com/lukemnet/bnet-auth-service) first. `sc2-api-service` checks if `bnet-auth-service` is running on startup.
+Install and configure [`bnet-auth-service`](https://github.com/sc2pte/bnet-auth-service) first. `sc2-api-service` checks if `bnet-auth-service` is running on startup.
 
 ```
-git clone https://github.com/lukemnet/sc2-api-service.git
+git clone https://github.com/sc2pte/sc2-api-service.git
 cd sc2-api-service
 npm install
 npm run build
@@ -57,6 +57,31 @@ npm start
 ```
 
 If you are running the service locally, you can also use `npm run dev` to start both `bnet-auth-service` and `sc2-api-service` with a single command.
+
+# Via Docker
+
+Build and run a Docker image locally in development mode:
+
+```
+git clone https://github.com/sc2pte/sc2-api-service.git
+cd sc2-api-service
+docker build -t sc2-api-service .
+docker run -e NODE_ENV=development -p 8083:8083 sc2-api-service
+```
+
+Pull a pre-built image from [GitHub Container Registry](https://github.com/orgs/sc2pte/packages/container/package/sc2-api-service):
+
+```
+docker pull ghcr.io/sc2pte/sc2-api-service:latest
+```
+
+Pull a pre-built image from [Docker Hub](https://hub.docker.com/r/sc2pte/sc2-api-service/tags):
+
+```
+docker pull sc2pte/sc2-api-service:latest
+```
+
+Images tagged as `1` and `latest` are built from the master branch and they are considered production-ready.
 
 ## Available endpoints
 
@@ -131,4 +156,4 @@ Returns data about the rewards available in SC2 (legacy).
 
 ## License
 
-Code is available under MIT license. See [LICENSE](https://raw.githubusercontent.com/lukemnet/sc2-api-service/master/LICENSE) for more information.
+Code is available under MIT license. See [LICENSE](https://raw.githubusercontent.com/sc2pte/sc2-api-service/master/LICENSE) for more information.
