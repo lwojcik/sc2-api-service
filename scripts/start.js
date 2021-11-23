@@ -229,7 +229,7 @@ process.on('SIGTERM', closeGracefully);
 fastifyInstance.register(server, opts);
 fastifyInstance.register(fastifyBlipp);
 
-const start = () => fastifyInstance.listen(process.env.SAS_NODE_PORT, (err) => {
+const start = () => fastifyInstance.listen(process.env.SAS_NODE_PORT, '0.0.0.0', (err) => {
   if (err) throw err;
   fastifyInstance.blipp();
   fastifyInstance.log.info(`Redis cache enabled: ${!!opts.redis.enable}`);
