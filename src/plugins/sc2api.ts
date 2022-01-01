@@ -1,12 +1,13 @@
 import fp from 'fastify-plugin';
 import { FastifyInstance } from 'fastify';
-import { StarCraft2API } from 'starcraft2-api';
-import { PassThrough } from 'stream';
 import {
+  StarCraft2API,
+  RegionIdOrName,
   PlayerObject,
-  LeagueObject,
-  PlayerLadder,
-} from '../@types/fastify.d';
+  League,
+} from 'starcraft2-api';
+import { PassThrough } from 'stream';
+import { PlayerLadder } from '../@types/fastify.d';
 
 export interface BnetConfig {
   [key: string]: string | number | boolean;
@@ -68,12 +69,13 @@ export default fp(
       return Promise.resolve(false);
     };
 
-    const sc2Api = async () => new StarCraft2API({
-      region,
-      clientId: '',
-      clientSecret: '',
-      accessToken: await server.bas.getAccessToken(false),
-    });
+    const sc2Api = async () =>
+      new StarCraft2API({
+        region: region as RegionIdOrName,
+        clientId: '',
+        clientSecret: '',
+        accessToken: await server.bas.getAccessToken(false),
+      });
 
     const cacheObject = async ({ segment, data, ttlTime }: DataObject) => {
       if (!enable) return 'Object not cached (Cache disabled)';
@@ -118,23 +120,25 @@ export default fp(
       getDataObject(
         {
           segment: `profile-${regionId}-${realmId}-${profileId}`,
-          dataFn: (await sc2Api()).queryProfile({ regionId, realmId, profileId }),
+          dataFn: (await sc2Api()).queryProfile({
+            regionId,
+            realmId,
+            profileId,
+          }),
           ttlTime: ttl.profile,
         },
         refresh,
       );
 
-    const getStaticProfileData = async (
-      regionId: number,
-      refresh?: boolean,
-    ) => getDataObject(
-      {
-        segment: `staticProfileData-${regionId}`,
-        dataFn: (await sc2Api()).queryStaticProfileData(regionId),
-        ttlTime: ttl.static,
-      },
-      refresh,
-    );
+    const getStaticProfileData = async (regionId: number, refresh?: boolean) =>
+      getDataObject(
+        {
+          segment: `staticProfileData-${regionId}`,
+          dataFn: (await sc2Api()).queryStaticProfileData(regionId),
+          ttlTime: ttl.static,
+        },
+        refresh,
+      );
 
     const getProfileMetadata = async (
       { regionId, realmId, profileId }: PlayerObject,
@@ -171,12 +175,7 @@ export default fp(
       );
 
     const getLadder = async (
-      {
-        regionId,
-        realmId,
-        profileId,
-        ladderId,
-      }: PlayerLadder,
+      { regionId, realmId, profileId, ladderId }: PlayerLadder,
       refresh?: boolean,
     ) =>
       getDataObject(
@@ -196,26 +195,22 @@ export default fp(
       );
 
     const getLeague = async (
-      {
-        seasonId,
-        queueId,
-        teamType,
-        leagueId,
-      }: LeagueObject,
+      { seasonId, queueId, teamType, leagueId }: League,
       refresh?: boolean,
-    ) => getDataObject(
-      {
-        segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
-        dataFn: (await sc2Api()).queryLeagueData({
-          seasonId,
-          queueId,
-          teamType,
-          leagueId,
-        }),
-        ttlTime: ttl.league,
-      },
-      refresh,
-    );
+    ) =>
+      getDataObject(
+        {
+          segment: `league-${seasonId}-${queueId}-${teamType}-${leagueId}`,
+          dataFn: (await sc2Api()).queryLeagueData({
+            seasonId,
+            queueId,
+            teamType,
+            leagueId,
+          }),
+          ttlTime: ttl.league,
+        },
+        refresh,
+      );
 
     const getSeason = async (regionId: number, refresh?: boolean) =>
       getDataObject(
