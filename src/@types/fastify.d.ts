@@ -1,23 +1,11 @@
+import { PlayerObject, League } from 'starcraft2-api';
 interface ApiResponse {
   status: number;
   data: object;
 }
 
-export interface PlayerObject {
-  regionId: number;
-  realmId: number;
-  profileId: string;
-}
-
 export interface PlayerLadder extends PlayerObject {
   ladderId: number;
-}
-
-export interface LeagueObject {
-  seasonId: number;
-  queueId: number;
-  teamType: string;
-  leagueId: string;
 }
 
 export interface RouteQueryString {
@@ -30,9 +18,7 @@ declare module 'fastify' {
     cache: {
       has: (key) => boolean;
       set: (key, value, cachePeriod) => any;
-      get: (
-        key,
-      ) => Promise<{
+      get: (key) => Promise<{
         item: string;
         stored: number;
         ttl: number;
@@ -78,15 +64,15 @@ declare module 'fastify' {
         object: PlayerLadder,
         refresh?: boolean,
       ) => Promise<ApiResponse>;
-      getLeague: (
-        object: LeagueObject,
-        refresh?: boolean,
-      ) => Promise<ApiResponse>;
+      getLeague: (object: League, refresh?: boolean) => Promise<ApiResponse>;
       getGrandmasterLeaderboard: (
         regionId: string | number,
         refresh?: boolean,
       ) => Promise<ApiResponse>;
-      getSeason: (regionId: string | number, refresh?: boolean) => Promise<ApiResponse>;
+      getSeason: (
+        regionId: string | number,
+        refresh?: boolean,
+      ) => Promise<ApiResponse>;
       getLegacyProfile: (
         object: PlayerObject,
         refresh?: boolean,

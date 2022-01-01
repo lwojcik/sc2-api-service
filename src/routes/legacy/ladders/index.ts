@@ -1,15 +1,13 @@
 import { FastifyPluginCallback } from 'fastify';
 import fp from 'fastify-plugin';
 import schema from './schema';
-import {
-  PlayerObject,
-  RouteQueryString,
-} from '../../../@types/fastify.d';
+import { PlayerObject } from 'starcraft2-api';
+import { RouteQueryString } from '../../../@types/fastify.d';
 
 // eslint-disable-next-line no-empty-pattern
 const route: FastifyPluginCallback = (server, {}, next) => {
   server.route<{
-    Querystring: RouteQueryString,
+    Querystring: RouteQueryString;
   }>({
     schema,
     url: '/legacy/ladders/:regionId/:realmId/:profileId',
