@@ -1,13 +1,13 @@
-import fp from 'fastify-plugin';
-import { FastifyInstance } from 'fastify';
+import fp from "fastify-plugin";
+import { FastifyInstance } from "fastify";
 import {
   StarCraft2API,
   RegionIdOrName,
   PlayerObject,
   League,
-} from 'starcraft2-api';
-import { PassThrough } from 'stream';
-import { PlayerLadder } from '../@types/fastify.d';
+} from "starcraft2-api";
+import { PassThrough } from "stream";
+import { PlayerLadder } from "../@types/fastify.d";
 
 export interface BnetConfig {
   [key: string]: string | number | boolean;
@@ -45,6 +45,7 @@ export interface Sc2ApiOptions {
 
 interface DataObjectToCache {
   segment: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dataFn: Promise<any>;
   ttlTime: number;
 }
@@ -56,6 +57,7 @@ interface DataObject {
 }
 
 export default fp(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   (server: FastifyInstance, opts: Sc2ApiOptions, next: Function) => {
     const { bnet, redis } = opts;
     const { region } = bnet;
@@ -72,23 +74,23 @@ export default fp(
     const sc2Api = async () =>
       new StarCraft2API({
         region: region as RegionIdOrName,
-        clientId: '',
-        clientSecret: '',
+        clientId: "",
+        clientSecret: "",
         accessToken: await server.bas.getAccessToken(false),
       });
 
     const cacheObject = async ({ segment, data, ttlTime }: DataObject) => {
-      if (!enable) return 'Object not cached (Cache disabled)';
+      if (!enable) return "Object not cached (Cache disabled)";
       await cache.set(segment, JSON.stringify(data));
       await cache.expire(segment, ttlTime);
-      return 'Object cached successfully';
+      return "Object cached successfully";
     };
 
     const getCachedObject = (segment: string) => server.redis.get(segment);
 
     const getDataObject = async (
       { segment, dataFn, ttlTime }: DataObjectToCache,
-      refresh?: boolean,
+      refresh?: boolean
     ) => {
       const isItCached = refresh ? false : await isDataCached(segment);
       if (!isItCached) {
@@ -99,7 +101,7 @@ export default fp(
           await server.accessToken.getAccessToken(true);
           return {
             status: 400,
-            data: 'No data returned from Battle.net API',
+            data: "No data returned from Battle.net API",
           };
         }
 
@@ -115,7 +117,7 @@ export default fp(
 
     const getProfile = async (
       { regionId, realmId, profileId }: PlayerObject,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -127,7 +129,7 @@ export default fp(
           }),
           ttlTime: ttl.profile,
         },
-        refresh,
+        refresh
       );
 
     const getStaticProfileData = async (regionId: number, refresh?: boolean) =>
@@ -137,12 +139,12 @@ export default fp(
           dataFn: (await sc2Api()).queryStaticProfileData(regionId),
           ttlTime: ttl.static,
         },
-        refresh,
+        refresh
       );
 
     const getProfileMetadata = async (
       { regionId, realmId, profileId }: PlayerObject,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -154,12 +156,12 @@ export default fp(
           }),
           ttlTime: ttl.metadata,
         },
-        refresh,
+        refresh
       );
 
     const getLadderSummary = async (
       { regionId, realmId, profileId }: PlayerObject,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -171,12 +173,12 @@ export default fp(
           }),
           ttlTime: ttl.ladderSummary,
         },
-        refresh,
+        refresh
       );
 
     const getLadder = async (
       { regionId, realmId, profileId, ladderId }: PlayerLadder,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -187,16 +189,16 @@ export default fp(
               realmId,
               profileId,
             },
-            ladderId,
+            ladderId
           ),
           ttlTime: ttl.ladder,
         },
-        refresh,
+        refresh
       );
 
     const getLeague = async (
       { seasonId, queueId, teamType, leagueId }: League,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -209,7 +211,7 @@ export default fp(
           }),
           ttlTime: ttl.league,
         },
-        refresh,
+        refresh
       );
 
     const getSeason = async (regionId: number, refresh?: boolean) =>
@@ -219,12 +221,12 @@ export default fp(
           dataFn: (await sc2Api()).querySeason(regionId),
           ttlTime: ttl.season,
         },
-        refresh,
+        refresh
       );
 
     const getGrandmasterLeaderboard = async (
       regionId: number,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -232,12 +234,12 @@ export default fp(
           dataFn: (await sc2Api()).queryGrandmasterLeaderboard(regionId),
           ttlTime: ttl.grandmaster,
         },
-        refresh,
+        refresh
       );
 
     const getLegacyProfile = async (
       { regionId, realmId, profileId }: PlayerObject,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -249,12 +251,12 @@ export default fp(
           }),
           ttlTime: ttl.legacy.profile,
         },
-        refresh,
+        refresh
       );
 
     const getLegacyLadders = async (
       { regionId, realmId, profileId }: PlayerObject,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -266,13 +268,13 @@ export default fp(
           }),
           ttlTime: ttl.legacy.ladders,
         },
-        refresh,
+        refresh
       );
 
     const getLegacyLadder = async (
       regionId: number,
       ladderId: string,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -280,12 +282,12 @@ export default fp(
           dataFn: (await sc2Api()).queryLegacyLadder(regionId, ladderId),
           ttlTime: ttl.legacy.ladder,
         },
-        refresh,
+        refresh
       );
 
     const getLegacyMatchHistory = async (
       { regionId, realmId, profileId }: PlayerObject,
-      refresh?: boolean,
+      refresh?: boolean
     ) =>
       getDataObject(
         {
@@ -297,7 +299,7 @@ export default fp(
           }),
           ttlTime: ttl.legacy.matchHistory,
         },
-        refresh,
+        refresh
       );
 
     const getLegacyAchievements = async (regionId: number, refresh?: boolean) =>
@@ -307,7 +309,7 @@ export default fp(
           dataFn: (await sc2Api()).queryLegacyAchievements(regionId),
           ttlTime: ttl.legacy.achievements,
         },
-        refresh,
+        refresh
       );
 
     const getLegacyRewards = async (regionId: number, refresh?: boolean) =>
@@ -317,10 +319,10 @@ export default fp(
           dataFn: (await sc2Api()).queryLegacyRewards(regionId),
           ttlTime: ttl.legacy.rewards,
         },
-        refresh,
+        refresh
       );
 
-    server.decorate('sc2api', {
+    server.decorate("sc2api", {
       getProfile,
       getStaticProfileData,
       getProfileMetadata,
@@ -337,5 +339,5 @@ export default fp(
       getLegacyRewards,
     });
     next();
-  },
+  }
 );

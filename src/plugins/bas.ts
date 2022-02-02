@@ -1,12 +1,12 @@
-import { FastifyInstance } from 'fastify';
-import fp from 'fastify-plugin';
-import http from 'http';
+import { FastifyInstance } from "fastify";
+import fp from "fastify-plugin";
+import http from "http";
 
 export interface BasOptions {
-  url: String;
-  statusEndpoint: String;
-  accessTokenEndpoint: String;
-  accessTokenRefreshEndpoint: String;
+  url: string;
+  statusEndpoint: string;
+  accessTokenEndpoint: string;
+  accessTokenRefreshEndpoint: string;
 }
 
 interface BASReply {
@@ -18,10 +18,11 @@ interface BASReply {
 
 interface OKReply {
   status: 200;
-  message: 'ok';
+  message: "ok";
 }
 
 const bas = fp(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async (fastify: FastifyInstance, opts: BasOptions, next: Function) => {
     let isUp = false;
     const statusUrl = `${opts.url}/${opts.statusEndpoint}`;
@@ -30,7 +31,7 @@ const bas = fp(
 
     const basDown = {
       status: 500,
-      message: 'Bnet-auth-service is down!',
+      message: "Bnet-auth-service is down!",
     };
 
     /* istanbul ignore next */
@@ -38,13 +39,13 @@ const bas = fp(
       new Promise((resolve, reject) => {
         http
           .get(url, (res) => {
-            res.setEncoding('utf8');
-            let body = '';
+            res.setEncoding("utf8");
+            let body = "";
             // eslint-disable-next-line no-return-assign
-            res.on('data', (chunk) => (body += chunk));
-            res.on('end', () => resolve(JSON.parse(body)));
+            res.on("data", (chunk) => (body += chunk));
+            res.on("end", () => resolve(JSON.parse(body)));
           })
-          .on('error', reject);
+          .on("error", reject);
       });
 
     /* istanbul ignore next */
@@ -63,9 +64,9 @@ const bas = fp(
       const isBASup = await checkIfHostIsUp(statusUrl);
       isUp = isBASup;
       if (isBASup) {
-        fastify.log.info('Bnet-auth-service status: running');
+        fastify.log.info("Bnet-auth-service status: running");
       } else {
-        fastify.log.error('Bnet-auth-service status: down or starting');
+        fastify.log.error("Bnet-auth-service status: down or starting");
       }
     };
 
@@ -82,7 +83,7 @@ const bas = fp(
     /* istanbul ignore next */
     const refreshAccessToken = () => getAccessToken(true);
 
-    fastify.decorate('bas', {
+    fastify.decorate("bas", {
       getAccessToken,
       refreshAccessToken,
     });
@@ -90,7 +91,7 @@ const bas = fp(
     checkOnStartup();
 
     next();
-  },
+  }
 );
 
 export default bas;

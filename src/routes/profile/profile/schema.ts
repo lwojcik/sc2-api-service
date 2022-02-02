@@ -1,4 +1,4 @@
-import responseSchema from '../../../schemas/response/index';
+import responseSchema from "../../../schemas/response/index";
 import {
   str,
   obj,
@@ -7,21 +7,21 @@ import {
   oneOfStr,
   num,
   oneOfNum,
-} from '../../../helpers/schema';
+} from "../../../helpers/schema";
 
 const ranks = [
-  'BRONZE',
-  'SILVER',
-  'GOLD',
-  'PLATINUM',
-  'DIAMOND',
-  'MASTER',
-  'GRANDMASTER',
+  "BRONZE",
+  "SILVER",
+  "GOLD",
+  "PLATINUM",
+  "DIAMOND",
+  "MASTER",
+  "GRANDMASTER",
 ];
 
 const realms = [1, 2];
 
-const campaignDifficulties = ['CASUAL', 'NORMAL', 'BRUTAL'];
+const campaignDifficulties = ["CASUAL", "NORMAL", "BRUTAL"];
 
 const modeProps = {
   rank: num,
@@ -75,10 +75,10 @@ const bnetData = {
       seasonSnapshot: {
         ...obj,
         properties: {
-          '1v1': snapshotMode,
-          '2v2': snapshotMode,
-          '3v3': snapshotMode,
-          '4v4': snapshotMode,
+          "1v1": snapshotMode,
+          "2v2": snapshotMode,
+          "3v3": snapshotMode,
+          "4v4": snapshotMode,
           Archon: snapshotMode,
         },
       },
@@ -113,9 +113,9 @@ const bnetData = {
       difficultyCompleted: {
         ...obj,
         properties: {
-          'wings-of-liberty': oneOfStr(campaignDifficulties),
-          'heart-of-the-swarm': oneOfStr(campaignDifficulties),
-          'legacy-of-the-void': oneOfStr(campaignDifficulties),
+          "wings-of-liberty": oneOfStr(campaignDifficulties),
+          "heart-of-the-swarm": oneOfStr(campaignDifficulties),
+          "legacy-of-the-void": oneOfStr(campaignDifficulties),
         },
       },
     },

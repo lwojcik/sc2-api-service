@@ -1,7 +1,7 @@
-import { FastifyPluginCallback } from 'fastify';
-import fp from 'fastify-plugin';
-import schema from './schema';
-import { RouteQueryString } from '../../../@types/fastify.d';
+import { FastifyPluginCallback } from "fastify";
+import fp from "fastify-plugin";
+import schema from "./schema";
+import { RouteQueryString } from "../../../@types/fastify.d";
 
 interface RouteParams {
   regionId: string;
@@ -10,12 +10,12 @@ interface RouteParams {
 // eslint-disable-next-line no-empty-pattern
 const route: FastifyPluginCallback = (server, {}, next) => {
   server.route<{
-    Params: RouteParams,
-    Querystring: RouteQueryString,
+    Params: RouteParams;
+    Querystring: RouteQueryString;
   }>({
     schema,
-    url: '/ladder/season/:regionId',
-    method: 'GET',
+    url: "/ladder/season/:regionId",
+    method: "GET",
     handler: async (request, reply) => {
       const { refresh } = request.query;
       const { regionId } = request.params;

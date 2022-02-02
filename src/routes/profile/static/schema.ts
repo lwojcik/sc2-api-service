@@ -1,11 +1,5 @@
-import responseSchema from '../../../schemas/response/index';
-import {
-  str,
-  arr,
-  obj,
-  num,
-  bool,
-} from '../../../helpers/schema';
+import responseSchema from "../../../schemas/response/index";
+import { str, arr, obj, num, bool } from "../../../helpers/schema";
 
 const bnetData = {
   achievements: {

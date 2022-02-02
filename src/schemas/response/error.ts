@@ -1,6 +1,6 @@
 export default {
-  type: 'object',
+  type: "object",
   properties: {
-    status: { type: 'number' },
+    status: { type: "number" },
   },
 };

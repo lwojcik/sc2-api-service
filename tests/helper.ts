@@ -1,23 +1,23 @@
 const getConfig = (enableRedis: boolean) => ({
   app: {
-    nodeEnv: 'test',
-    port: '8123',
+    nodeEnv: "test",
+    port: "8123",
   },
   bas: {
-    url: 'http://localhost:7890',
-    statusEndpoint: 'status',
-    accessTokenEndpoint: 'accessToken/get',
-    accessTokenRefreshEndpoint: 'accessToken/get?refresh=true',
+    url: "http://localhost:7890",
+    statusEndpoint: "status",
+    accessTokenEndpoint: "accessToken/get",
+    accessTokenRefreshEndpoint: "accessToken/get?refresh=true",
   },
   bnet: {
-    region: 'us',
+    region: "us",
   },
   redis: {
     enable: enableRedis,
-    host: '127.0.0.1',
-    port: '6379',
-    password: '',
-    db: '0',
+    host: "127.0.0.1",
+    port: "6379",
+    password: "",
+    db: "0",
     replyCachePeriod: 2000,
     ttl: {
       static: 21,
