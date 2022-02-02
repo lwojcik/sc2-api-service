@@ -1,8 +1,8 @@
-import { FastifyPluginCallback } from 'fastify';
-import fp from 'fastify-plugin';
-import schema from './schema';
-import { PlayerObject } from 'starcraft2-api';
-import { RouteQueryString } from '../../../@types/fastify.d';
+import { FastifyPluginCallback } from "fastify";
+import fp from "fastify-plugin";
+import { PlayerObject } from "starcraft2-api";
+import schema from "./schema";
+import { RouteQueryString } from "../../../@types/fastify.d";
 
 // eslint-disable-next-line no-empty-pattern
 const route: FastifyPluginCallback = (server, {}, next) => {
@@ -10,13 +10,13 @@ const route: FastifyPluginCallback = (server, {}, next) => {
     Querystring: RouteQueryString;
   }>({
     schema,
-    url: '/legacy/ladders/:regionId/:realmId/:profileId',
-    method: 'GET',
+    url: "/legacy/ladders/:regionId/:realmId/:profileId",
+    method: "GET",
     handler: async (request, reply) => {
       const { refresh } = request.query;
       const data = await server.sc2api.getLegacyLadders(
         request.params as PlayerObject,
-        refresh,
+        refresh
       );
       reply.code(data.status).send(data);
     },

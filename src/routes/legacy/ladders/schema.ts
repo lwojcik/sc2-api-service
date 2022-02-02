@@ -1,4 +1,4 @@
-import responseSchema from '../../../schemas/response/index';
+import responseSchema from "../../../schemas/response/index";
 import {
   arr,
   obj,
@@ -7,28 +7,28 @@ import {
   oneOfStr,
   bool,
   oneOfNum,
-} from '../../../helpers/schema';
+} from "../../../helpers/schema";
 
 const regions = [1, 2, 3, 5];
 
 const realms = [1, 2];
 
 const ranks = [
-  'BRONZE',
-  'SILVER',
-  'GOLD',
-  'PLATINUM',
-  'DIAMOND',
-  'MASTER',
-  'GRANDMASTER',
+  "BRONZE",
+  "SILVER",
+  "GOLD",
+  "PLATINUM",
+  "DIAMOND",
+  "MASTER",
+  "GRANDMASTER",
 ];
 
 const matchMakingQueues = [
-  'LOTV_SOLO',
-  'LOTV_TWOS',
-  'LOTV_TWOS_COMP',
-  'LOTV_THREES',
-  'LOTV_FOURS',
+  "LOTV_SOLO",
+  "LOTV_TWOS",
+  "LOTV_TWOS_COMP",
+  "LOTV_THREES",
+  "LOTV_FOURS",
 ];
 
 const ladder = {

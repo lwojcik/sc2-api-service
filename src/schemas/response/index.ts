@@ -1,5 +1,5 @@
-import { num, obj } from '../../helpers/schema';
-import error from './error';
+import { num, obj } from "../../helpers/schema";
+import error from "./error";
 
 const responseSchema = (res: object) => ({
   200: {

@@ -1,4 +1,6 @@
-import { PlayerObject, League } from 'starcraft2-api';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { PlayerObject, League } from "starcraft2-api";
+
 interface ApiResponse {
   status: number;
   data: object;
@@ -12,7 +14,7 @@ export interface RouteQueryString {
   refresh?: boolean;
 }
 
-declare module 'fastify' {
+declare module "fastify" {
   export interface FastifyInstance {
     blipp(): void;
     cache: {
@@ -40,59 +42,59 @@ declare module 'fastify' {
       ttl: (key) => Promise<number>;
     };
     bas: {
-      getAccessToken: (refresh?: Boolean) => Promise<string>;
+      getAccessToken: (refresh?: boolean) => Promise<string>;
       refreshAccessToken: () => Promise<string>;
     };
     sc2api: {
       getProfile: (
         object: PlayerObject,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getStaticProfileData: (
         regionId: number | string,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getProfileMetadata: (
         object: PlayerObject,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLadderSummary: (
         object: PlayerObject,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLadder: (
         object: PlayerLadder,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLeague: (object: League, refresh?: boolean) => Promise<ApiResponse>;
       getGrandmasterLeaderboard: (
         regionId: string | number,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getSeason: (
         regionId: string | number,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLegacyProfile: (
         object: PlayerObject,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLegacyLadders: (
         object: PlayerObject,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLegacyLadder: (
         regionId: string | number,
         ladderId: string | number,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLegacyMatchHistory: (
         object: PlayerObject,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLegacyAchievements: (
         regionId: string | number,
-        refresh?: boolean,
+        refresh?: boolean
       ) => Promise<ApiResponse>;
       getLegacyRewards: (regionId, refresh?: boolean) => Promise<ApiResponse>;
     };

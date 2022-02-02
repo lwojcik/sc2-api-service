@@ -1,14 +1,15 @@
-import { FastifyInstance } from 'fastify';
-import fp from 'fastify-plugin';
-import bas, { BasOptions } from './plugins/bas';
-import sc2api, { Sc2ApiOptions } from './plugins/sc2api';
-import routes from './routes';
+import { FastifyInstance } from "fastify";
+import fp from "fastify-plugin";
+import bas, { BasOptions } from "./plugins/bas";
+import sc2api, { Sc2ApiOptions } from "./plugins/sc2api";
+import routes from "./routes";
 
 interface ServerOptions extends Sc2ApiOptions {
   bas: BasOptions;
 }
 
 const api = fp(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   (fastify: FastifyInstance, opts: ServerOptions, next: Function) => {
     fastify.register(bas, opts.bas);
     fastify.register(sc2api, { bnet: opts.bnet, redis: opts.redis });
@@ -28,7 +29,7 @@ const api = fp(
     fastify.register(routes.legacy.rewards);
     fastify.register(routes.data.league);
     next();
-  },
+  }
 );
 
 export = api;

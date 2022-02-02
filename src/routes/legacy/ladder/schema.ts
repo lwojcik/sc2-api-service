@@ -1,4 +1,4 @@
-import responseSchema from '../../../schemas/response/index';
+import responseSchema from "../../../schemas/response/index";
 import {
   str,
   arr,
@@ -6,13 +6,13 @@ import {
   oneOfStr,
   oneOfNum,
   num,
-} from '../../../helpers/schema';
+} from "../../../helpers/schema";
 
 const regions = [1, 2, 3, 5];
 
 const realms = [1, 2];
 
-const races = ['TERRAN', 'ZERG', 'PROTOSS', 'RANDOM'];
+const races = ["TERRAN", "ZERG", "PROTOSS", "RANDOM"];
 
 const bnetData = {
   ladderMembers: {

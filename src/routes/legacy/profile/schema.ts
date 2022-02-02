@@ -1,4 +1,4 @@
-import responseSchema from '../../../schemas/response/index';
+import responseSchema from "../../../schemas/response/index";
 import {
   str,
   obj,
@@ -7,25 +7,25 @@ import {
   numOnly,
   oneOfStr,
   arr,
-} from '../../../helpers/schema';
+} from "../../../helpers/schema";
 
 const realms = [1, 2];
 
-const races = ['TERRAN', 'ZERG', 'PROTOSS', 'RANDOM'];
+const races = ["TERRAN", "ZERG", "PROTOSS", "RANDOM"];
 
 const ranks = [
-  'BRONZE',
-  'SILVER',
-  'GOLD',
-  'PLATINUM',
-  'DIAMOND',
-  'MASTER',
-  'GRANDMASTER',
+  "BRONZE",
+  "SILVER",
+  "GOLD",
+  "PLATINUM",
+  "DIAMOND",
+  "MASTER",
+  "GRANDMASTER",
 ];
 
-const campaignDifficulties = ['CASUAL', 'NORMAL', 'BRUTAL'];
+const campaignDifficulties = ["CASUAL", "NORMAL", "BRUTAL"];
 
-const modes = ['1v1', '2v2', '3v3', '4v4', 'Archon'];
+const modes = ["1v1", "2v2", "3v3", "4v4", "Archon"];
 
 const swarmLevel = {
   ...obj,
@@ -137,7 +137,7 @@ const bnetData = {
           categoryPoints: {
             ...obj,
             patternProperties: {
-              '.*': numOnly,
+              ".*": numOnly,
             },
           },
         },

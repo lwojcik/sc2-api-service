@@ -1,7 +1,7 @@
-import { FastifyPluginCallback } from 'fastify';
-import fp from 'fastify-plugin';
-import { League } from 'starcraft2-api';
-import schema from './schema';
+import { FastifyPluginCallback } from "fastify";
+import fp from "fastify-plugin";
+import { League } from "starcraft2-api";
+import schema from "./schema";
 
 interface RouteQueryString {
   refresh?: boolean;
@@ -13,13 +13,13 @@ const route: FastifyPluginCallback = (server, {}, next) => {
     Querystring: RouteQueryString;
   }>({
     schema,
-    url: '/data/league/:seasonId/:queueId/:teamType/:leagueId',
-    method: 'GET',
+    url: "/data/league/:seasonId/:queueId/:teamType/:leagueId",
+    method: "GET",
     handler: async (request, reply) => {
       const { refresh } = request.query;
       const data = await server.sc2api.getLeague(
         request.params as League,
-        refresh,
+        refresh
       );
       reply.code(data.status).send(data);
     },

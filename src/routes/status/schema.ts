@@ -1,9 +1,5 @@
-import {
-  obj,
-  num,
-  str,
-} from '../../helpers/schema';
-import error from '../../schemas/response/error';
+import { obj, num, str } from "../../helpers/schema";
+import error from "../../schemas/response/error";
 
 const schema = {
   response: {

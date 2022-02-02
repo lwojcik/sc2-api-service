@@ -1,19 +1,20 @@
-import fastify from 'fastify';
-import fastifyRedis from 'fastify-redis-mock';
-import server from '../../../../src/index';
-import getConfig from '../../../helper';
+import fastify from "fastify";
+import fastifyRedis from "fastify-redis-mock";
+import server from "../../../../src/index";
+import getConfig from "../../../helper";
 
-describe('/legacy/ladder/:regionId/:ladderId (Redis enabled)', () => {
+describe("/legacy/ladder/:regionId/:ladderId (Redis enabled)", () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fastifyServer = fastify() as any;
-  const url = '/legacy/ladder/1/1';
-  const cacheSegment = 'legacyLadder-1-1';
+  const url = "/legacy/ladder/1/1";
+  const cacheSegment = "legacyLadder-1-1";
   const expectedTTL = getConfig(true).redis.ttl.legacy.ladder;
 
   beforeAll(() => {
     fastifyServer.register(fastifyRedis, {
-      host: '127.0.0.1',
-      port: '6379',
-      password: '',
+      host: "127.0.0.1",
+      port: "6379",
+      password: "",
       enableReadyCheck: true,
       dropBufferSupport: false,
     });
@@ -22,33 +23,37 @@ describe('/legacy/ladder/:regionId/:ladderId (Redis enabled)', () => {
 
   afterAll(() => fastifyServer.close());
 
-  it('returns 200', async () => {
+  it("returns 200", async () => {
     expect.assertions(1);
-    const res = await fastifyServer.inject({ method: 'GET', url });
+    const res = await fastifyServer.inject({ method: "GET", url });
     expect(res.statusCode).toBe(200);
   });
 
-  it('returns correct response', async () => {
+  it("returns correct response", async () => {
     expect.assertions(1);
-    const res = await fastifyServer.inject({ method: 'GET', url });
+    const res = await fastifyServer.inject({ method: "GET", url });
     expect(res.payload).toMatchSnapshot();
   });
 
-  it('response is cached correctly', async () => {
+  it("response is cached correctly", async () => {
     expect.assertions(1);
     const cachedResponse = await fastifyServer.redis.get(cacheSegment);
     expect(cachedResponse).toMatchSnapshot();
   });
 
-  it('cached response has correct TTL', async () => {
+  it("cached response has correct TTL", async () => {
     expect.assertions(1);
     const ttl = await fastifyServer.redis.ttl(cacheSegment);
     expect(ttl).toStrictEqual(expectedTTL);
   });
 
-  it('returns correct response when refresh is set to true', async () => {
+  it("returns correct response when refresh is set to true", async () => {
     expect.assertions(2);
-    const res = await fastifyServer.inject({ method: 'GET', url, query: { refresh: 'true' } });
+    const res = await fastifyServer.inject({
+      method: "GET",
+      url,
+      query: { refresh: "true" },
+    });
     expect(res.statusCode).toBe(200);
     expect(res.payload).toMatchSnapshot();
   });

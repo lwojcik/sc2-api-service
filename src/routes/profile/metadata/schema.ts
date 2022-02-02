@@ -1,5 +1,5 @@
-import responseSchema from '../../../schemas/response/index';
-import { str, num } from '../../../helpers/schema';
+import responseSchema from "../../../schemas/response/index";
+import { str, num } from "../../../helpers/schema";
 
 const bnetData = {
   name: str,

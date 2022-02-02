@@ -1,11 +1,5 @@
-import responseSchema from '../../../schemas/response/index';
-import {
-  str,
-  arr,
-  obj,
-  oneOfNum,
-  num,
-} from '../../../helpers/schema';
+import responseSchema from "../../../schemas/response/index";
+import { str, arr, obj, oneOfNum, num } from "../../../helpers/schema";
 
 const queueIds = [
   1, // WoL 1v1
