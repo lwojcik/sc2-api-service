@@ -39,7 +39,7 @@
     "@types/jest": "27.4.1",
     "@types/node": "17.0.23",
     "blizzapi": "2.1.1",
-    "eslint": "8.11.0",
+    "eslint": "8.12.0",
     "eslint-config-airbnb-typescript-prettier": "5.0.0",
     "eslint-plugin-jest": "26.1.3",
     "fastify": "3.27.4",
@@ -54,11 +54,11 @@
     "starcraft2-api": "2.2.1",
     "jest": "27.5.1",
     "npm-parallel": "2.0.1",
-    "pino-pretty": "7.5.4",
+    "pino-pretty": "7.6.0",
     "prettier": "^2.5.1",
     "rimraf": "3.0.2",
     "ts-jest": "27.1.4",
     "tsc-watch": "4.6.2",
-    "typescript": "4.6.2"
+    "typescript": "4.6.3"
   }
 }
