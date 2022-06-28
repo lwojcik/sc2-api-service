@@ -52,7 +52,7 @@
     "fastify-redis": "4.4.0",
     "fastify-redis-mock": "1.1.0",
     "starcraft2-api": "2.2.1",
-    "jest": "28.1.0",
+    "jest": "28.1.1",
     "npm-parallel": "2.0.1",
     "pino-pretty": "8.0.0",
     "prettier": "^2.5.1",
