@@ -3,11 +3,11 @@
 exports[`constants should be defined 1`] = `
 Object {
   "APP": Object {
-    "corsOrigin": "BAS_APP_CORS_ORIGIN",
-    "enableCors": "BAS_APP_CORS_ENABLE",
+    "corsOrigin": "SAS_APP_CORS_ORIGIN",
+    "enableCors": "SAS_APP_CORS_ENABLE",
     "environment": "NODE_ENV",
-    "host": "BAS_APP_HOST",
-    "port": "BAS_APP_PORT",
+    "host": "SAS_APP_HOST",
+    "port": "SAS_APP_PORT",
   },
   "APP_INFO": Object {
     "appPrefix": "BAS",
@@ -16,14 +16,14 @@ Object {
     "version": "2.0.0",
   },
   "AUTH": Object {
-    "enable": "BAS_AUTH_ENABLE",
-    "jwtSecret": "BAS_AUTH_JWT_SECRET",
-    "username": "BAS_AUTH_USERNAME",
+    "enable": "SAS_AUTH_ENABLE",
+    "jwtSecret": "SAS_AUTH_JWT_SECRET",
+    "username": "SAS_AUTH_USERNAME",
   },
   "BATTLENET": Object {
-    "clientId": "BAS_BATTLENET_CLIENT_ID",
-    "clientSecret": "BAS_BATTLENET_CLIENT_SECRET",
-    "region": "BAS_BATTLENET_REGION",
+    "clientId": "SAS_BATTLENET_CLIENT_ID",
+    "clientSecret": "SAS_BATTLENET_CLIENT_SECRET",
+    "region": "SAS_BATTLENET_REGION",
   },
   "CONFIG_VALIDATION_SCHEMA": Object {
     "$_root": Object {
@@ -369,7 +369,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_APP_HOST",
+          "key": "SAS_APP_HOST",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -553,7 +553,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_APP_PORT",
+          "key": "SAS_APP_PORT",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -737,7 +737,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_APP_CORS_ENABLE",
+          "key": "SAS_APP_CORS_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -921,7 +921,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_APP_CORS_ORIGIN",
+          "key": "SAS_APP_CORS_ORIGIN",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -1104,7 +1104,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_ENABLE",
+          "key": "SAS_REDIS_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -1288,7 +1288,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_HOST",
+          "key": "SAS_REDIS_HOST",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -1825,15 +1825,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -2034,7 +2034,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -2045,7 +2045,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_PORT",
+          "key": "SAS_REDIS_PORT",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -2582,15 +2582,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -2791,7 +2791,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -2802,7 +2802,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_PASSWORD",
+          "key": "SAS_REDIS_PASSWORD",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -2985,7 +2985,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_TTL_SECS",
+          "key": "SAS_REDIS_TTL_SECS",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -3522,15 +3522,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -3731,7 +3731,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -3742,7 +3742,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_DB",
+          "key": "SAS_REDIS_DB",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -4279,15 +4279,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -4488,7 +4488,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -4499,7 +4499,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_KEY_PREFIX",
+          "key": "SAS_REDIS_KEY_PREFIX",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -5036,15 +5036,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -5245,7 +5245,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -5256,7 +5256,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_REDIS_KEY_NAME",
+          "key": "SAS_REDIS_KEY_NAME",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -5793,15 +5793,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -6002,7 +6002,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -6013,7 +6013,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_BATTLENET_REGION",
+          "key": "SAS_BATTLENET_REGION",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -6206,7 +6206,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_BATTLENET_CLIENT_ID",
+          "key": "SAS_BATTLENET_CLIENT_ID",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -6390,7 +6390,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_BATTLENET_CLIENT_SECRET",
+          "key": "SAS_BATTLENET_CLIENT_SECRET",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -6574,7 +6574,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_THROTTLE_LIMIT",
+          "key": "SAS_THROTTLE_LIMIT",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -6758,7 +6758,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_THROTTLE_TTL_SECS",
+          "key": "SAS_THROTTLE_TTL_SECS",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -6942,7 +6942,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_AUTH_ENABLE",
+          "key": "SAS_AUTH_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -7126,7 +7126,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_AUTH_USERNAME",
+          "key": "SAS_AUTH_USERNAME",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -7663,15 +7663,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_AUTH_ENABLE",
+                    "display": "ref:SAS_AUTH_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_AUTH_ENABLE",
+                    "key": "SAS_AUTH_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_AUTH_ENABLE",
+                      "SAS_AUTH_ENABLE",
                     ],
-                    "root": "BAS_AUTH_ENABLE",
+                    "root": "SAS_AUTH_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -7872,7 +7872,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_AUTH_ENABLE",
+                  "root": "SAS_AUTH_ENABLE",
                 },
               ],
             },
@@ -7883,7 +7883,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_AUTH_JWT_SECRET",
+          "key": "SAS_AUTH_JWT_SECRET",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -8420,15 +8420,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_AUTH_ENABLE",
+                    "display": "ref:SAS_AUTH_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_AUTH_ENABLE",
+                    "key": "SAS_AUTH_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_AUTH_ENABLE",
+                      "SAS_AUTH_ENABLE",
                     ],
-                    "root": "BAS_AUTH_ENABLE",
+                    "root": "SAS_AUTH_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -8629,7 +8629,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_AUTH_ENABLE",
+                  "root": "SAS_AUTH_ENABLE",
                 },
               ],
             },
@@ -8640,7 +8640,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_HTTPS_ENABLE",
+          "key": "SAS_HTTPS_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -8824,7 +8824,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_HTTPS_KEY_PATH",
+          "key": "SAS_HTTPS_KEY_PATH",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -9361,15 +9361,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_HTTPS_ENABLE",
+                    "display": "ref:SAS_HTTPS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_HTTPS_ENABLE",
+                    "key": "SAS_HTTPS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_HTTPS_ENABLE",
+                      "SAS_HTTPS_ENABLE",
                     ],
-                    "root": "BAS_HTTPS_ENABLE",
+                    "root": "SAS_HTTPS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -9570,7 +9570,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_HTTPS_ENABLE",
+                  "root": "SAS_HTTPS_ENABLE",
                 },
               ],
             },
@@ -9581,7 +9581,7 @@ Object {
           },
         },
         Object {
-          "key": "BAS_HTTPS_CERT_PATH",
+          "key": "SAS_HTTPS_CERT_PATH",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -10118,15 +10118,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_HTTPS_ENABLE",
+                    "display": "ref:SAS_HTTPS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_HTTPS_ENABLE",
+                    "key": "SAS_HTTPS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_HTTPS_ENABLE",
+                      "SAS_HTTPS_ENABLE",
                     ],
-                    "root": "BAS_HTTPS_ENABLE",
+                    "root": "SAS_HTTPS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -10327,7 +10327,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_HTTPS_ENABLE",
+                  "root": "SAS_HTTPS_ENABLE",
                 },
               ],
             },
@@ -10535,8 +10535,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_APP_HOST" => Object {
-          "id": "BAS_APP_HOST",
+        "SAS_APP_HOST" => Object {
+          "id": "SAS_APP_HOST",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -10719,8 +10719,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_APP_PORT" => Object {
-          "id": "BAS_APP_PORT",
+        "SAS_APP_PORT" => Object {
+          "id": "SAS_APP_PORT",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -10903,8 +10903,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_APP_CORS_ENABLE" => Object {
-          "id": "BAS_APP_CORS_ENABLE",
+        "SAS_APP_CORS_ENABLE" => Object {
+          "id": "SAS_APP_CORS_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -11087,8 +11087,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_APP_CORS_ORIGIN" => Object {
-          "id": "BAS_APP_CORS_ORIGIN",
+        "SAS_APP_CORS_ORIGIN" => Object {
+          "id": "SAS_APP_CORS_ORIGIN",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -11270,8 +11270,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_ENABLE" => Object {
-          "id": "BAS_REDIS_ENABLE",
+        "SAS_REDIS_ENABLE" => Object {
+          "id": "SAS_REDIS_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -11454,8 +11454,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_REDIS_HOST" => Object {
-          "id": "BAS_REDIS_HOST",
+        "SAS_REDIS_HOST" => Object {
+          "id": "SAS_REDIS_HOST",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -11992,15 +11992,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -12201,7 +12201,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -12211,8 +12211,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_PORT" => Object {
-          "id": "BAS_REDIS_PORT",
+        "SAS_REDIS_PORT" => Object {
+          "id": "SAS_REDIS_PORT",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -12749,15 +12749,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -12958,7 +12958,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -12968,8 +12968,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_PASSWORD" => Object {
-          "id": "BAS_REDIS_PASSWORD",
+        "SAS_REDIS_PASSWORD" => Object {
+          "id": "SAS_REDIS_PASSWORD",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -13151,8 +13151,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_TTL_SECS" => Object {
-          "id": "BAS_REDIS_TTL_SECS",
+        "SAS_REDIS_TTL_SECS" => Object {
+          "id": "SAS_REDIS_TTL_SECS",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -13689,15 +13689,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -13898,7 +13898,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -13908,8 +13908,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_DB" => Object {
-          "id": "BAS_REDIS_DB",
+        "SAS_REDIS_DB" => Object {
+          "id": "SAS_REDIS_DB",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -14446,15 +14446,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -14655,7 +14655,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -14665,8 +14665,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_KEY_PREFIX" => Object {
-          "id": "BAS_REDIS_KEY_PREFIX",
+        "SAS_REDIS_KEY_PREFIX" => Object {
+          "id": "SAS_REDIS_KEY_PREFIX",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -15203,15 +15203,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -15412,7 +15412,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -15422,8 +15422,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_REDIS_KEY_NAME" => Object {
-          "id": "BAS_REDIS_KEY_NAME",
+        "SAS_REDIS_KEY_NAME" => Object {
+          "id": "SAS_REDIS_KEY_NAME",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -15960,15 +15960,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_REDIS_ENABLE",
+                    "display": "ref:SAS_REDIS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_REDIS_ENABLE",
+                    "key": "SAS_REDIS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_REDIS_ENABLE",
+                      "SAS_REDIS_ENABLE",
                     ],
-                    "root": "BAS_REDIS_ENABLE",
+                    "root": "SAS_REDIS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -16169,7 +16169,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_REDIS_ENABLE",
+                  "root": "SAS_REDIS_ENABLE",
                 },
               ],
             },
@@ -16179,8 +16179,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_BATTLENET_REGION" => Object {
-          "id": "BAS_BATTLENET_REGION",
+        "SAS_BATTLENET_REGION" => Object {
+          "id": "SAS_BATTLENET_REGION",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -16372,8 +16372,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_BATTLENET_CLIENT_ID" => Object {
-          "id": "BAS_BATTLENET_CLIENT_ID",
+        "SAS_BATTLENET_CLIENT_ID" => Object {
+          "id": "SAS_BATTLENET_CLIENT_ID",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -16556,8 +16556,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_BATTLENET_CLIENT_SECRET" => Object {
-          "id": "BAS_BATTLENET_CLIENT_SECRET",
+        "SAS_BATTLENET_CLIENT_SECRET" => Object {
+          "id": "SAS_BATTLENET_CLIENT_SECRET",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -16740,8 +16740,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_THROTTLE_LIMIT" => Object {
-          "id": "BAS_THROTTLE_LIMIT",
+        "SAS_THROTTLE_LIMIT" => Object {
+          "id": "SAS_THROTTLE_LIMIT",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -16924,8 +16924,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_THROTTLE_TTL_SECS" => Object {
-          "id": "BAS_THROTTLE_TTL_SECS",
+        "SAS_THROTTLE_TTL_SECS" => Object {
+          "id": "SAS_THROTTLE_TTL_SECS",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -17108,8 +17108,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_AUTH_ENABLE" => Object {
-          "id": "BAS_AUTH_ENABLE",
+        "SAS_AUTH_ENABLE" => Object {
+          "id": "SAS_AUTH_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -17292,8 +17292,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_AUTH_USERNAME" => Object {
-          "id": "BAS_AUTH_USERNAME",
+        "SAS_AUTH_USERNAME" => Object {
+          "id": "SAS_AUTH_USERNAME",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -17830,15 +17830,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_AUTH_ENABLE",
+                    "display": "ref:SAS_AUTH_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_AUTH_ENABLE",
+                    "key": "SAS_AUTH_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_AUTH_ENABLE",
+                      "SAS_AUTH_ENABLE",
                     ],
-                    "root": "BAS_AUTH_ENABLE",
+                    "root": "SAS_AUTH_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -18039,7 +18039,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_AUTH_ENABLE",
+                  "root": "SAS_AUTH_ENABLE",
                 },
               ],
             },
@@ -18049,8 +18049,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_AUTH_JWT_SECRET" => Object {
-          "id": "BAS_AUTH_JWT_SECRET",
+        "SAS_AUTH_JWT_SECRET" => Object {
+          "id": "SAS_AUTH_JWT_SECRET",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -18587,15 +18587,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_AUTH_ENABLE",
+                    "display": "ref:SAS_AUTH_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_AUTH_ENABLE",
+                    "key": "SAS_AUTH_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_AUTH_ENABLE",
+                      "SAS_AUTH_ENABLE",
                     ],
-                    "root": "BAS_AUTH_ENABLE",
+                    "root": "SAS_AUTH_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -18796,7 +18796,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_AUTH_ENABLE",
+                  "root": "SAS_AUTH_ENABLE",
                 },
               ],
             },
@@ -18806,8 +18806,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_HTTPS_ENABLE" => Object {
-          "id": "BAS_HTTPS_ENABLE",
+        "SAS_HTTPS_ENABLE" => Object {
+          "id": "SAS_HTTPS_ENABLE",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -18990,8 +18990,8 @@ Object {
             "type": "string",
           },
         },
-        "BAS_HTTPS_KEY_PATH" => Object {
-          "id": "BAS_HTTPS_KEY_PATH",
+        "SAS_HTTPS_KEY_PATH" => Object {
+          "id": "SAS_HTTPS_KEY_PATH",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -19528,15 +19528,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_HTTPS_ENABLE",
+                    "display": "ref:SAS_HTTPS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_HTTPS_ENABLE",
+                    "key": "SAS_HTTPS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_HTTPS_ENABLE",
+                      "SAS_HTTPS_ENABLE",
                     ],
-                    "root": "BAS_HTTPS_ENABLE",
+                    "root": "SAS_HTTPS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -19737,7 +19737,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_HTTPS_ENABLE",
+                  "root": "SAS_HTTPS_ENABLE",
                 },
               ],
             },
@@ -19747,8 +19747,8 @@ Object {
             "type": "any",
           },
         },
-        "BAS_HTTPS_CERT_PATH" => Object {
-          "id": "BAS_HTTPS_CERT_PATH",
+        "SAS_HTTPS_CERT_PATH" => Object {
+          "id": "SAS_HTTPS_CERT_PATH",
           "schema": Object {
             "$_root": Object {
               "ValidationError": [Function],
@@ -20285,15 +20285,15 @@ Object {
                     "adjust": null,
                     "ancestor": 1,
                     "depth": 1,
-                    "display": "ref:BAS_HTTPS_ENABLE",
+                    "display": "ref:SAS_HTTPS_ENABLE",
                     "in": false,
                     "iterables": null,
-                    "key": "BAS_HTTPS_ENABLE",
+                    "key": "SAS_HTTPS_ENABLE",
                     "map": null,
                     "path": Array [
-                      "BAS_HTTPS_ENABLE",
+                      "SAS_HTTPS_ENABLE",
                     ],
-                    "root": "BAS_HTTPS_ENABLE",
+                    "root": "SAS_HTTPS_ENABLE",
                     "separator": ".",
                     "type": "value",
                   },
@@ -20494,7 +20494,7 @@ Object {
               "refs": Array [
                 Object {
                   "ancestor": 0,
-                  "root": "BAS_HTTPS_ENABLE",
+                  "root": "SAS_HTTPS_ENABLE",
                 },
               ],
             },
@@ -20557,24 +20557,24 @@ Object {
     },
   },
   "HTTPS": Object {
-    "certPath": "BAS_HTTPS_CERT_PATH",
-    "enable": "BAS_HTTPS_ENABLE",
-    "keyPath": "BAS_HTTPS_KEY_PATH",
+    "certPath": "SAS_HTTPS_CERT_PATH",
+    "enable": "SAS_HTTPS_ENABLE",
+    "keyPath": "SAS_HTTPS_KEY_PATH",
   },
   "REDIS": Object {
-    "db": "BAS_REDIS_DB",
-    "enable": "BAS_REDIS_ENABLE",
-    "host": "BAS_REDIS_HOST",
-    "keyName": "BAS_REDIS_KEY_NAME",
-    "keyPrefix": "BAS_REDIS_KEY_PREFIX",
-    "password": "BAS_REDIS_PASSWORD",
-    "port": "BAS_REDIS_PORT",
-    "ttlSecs": "BAS_REDIS_TTL_SECS",
+    "db": "SAS_REDIS_DB",
+    "enable": "SAS_REDIS_ENABLE",
+    "host": "SAS_REDIS_HOST",
+    "keyName": "SAS_REDIS_KEY_NAME",
+    "keyPrefix": "SAS_REDIS_KEY_PREFIX",
+    "password": "SAS_REDIS_PASSWORD",
+    "port": "SAS_REDIS_PORT",
+    "ttlSecs": "SAS_REDIS_TTL_SECS",
   },
   "THROTTLE": Object {
-    "enable": "BAS_THROTTLE_ENABLE",
-    "limit": "BAS_THROTTLE_LIMIT",
-    "ttlSecs": "BAS_THROTTLE_TTL_SECS",
+    "enable": "SAS_THROTTLE_ENABLE",
+    "limit": "SAS_THROTTLE_LIMIT",
+    "ttlSecs": "SAS_THROTTLE_TTL_SECS",
   },
 }
 `;
