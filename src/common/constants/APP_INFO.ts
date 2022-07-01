@@ -5,5 +5,5 @@ export const APP_INFO = {
   description:
     'REST microservice for retrieving and caching OAuth access tokens from Blizzard Battle.net API',
   version,
-  appPrefix: 'BAS',
+  appPrefix: 'SAS',
 };

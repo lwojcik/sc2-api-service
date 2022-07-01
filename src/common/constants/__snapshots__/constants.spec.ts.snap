@@ -10,7 +10,7 @@ Object {
     "port": "SAS_APP_PORT",
   },
   "APP_INFO": Object {
-    "appPrefix": "BAS",
+    "appPrefix": "SAS",
     "description": "REST microservice for retrieving and caching OAuth access tokens from Blizzard Battle.net API",
     "name": "sc2-api-service",
     "version": "2.0.0",
