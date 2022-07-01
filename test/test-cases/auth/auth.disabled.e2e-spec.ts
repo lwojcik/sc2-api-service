@@ -32,16 +32,16 @@ describe('Authorization disabled', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_AUTH_ENABLE',
+        name: 'SAS_AUTH_ENABLE',
         value: 'false',
       },
     ]);
 
     app = await createTestServer({
       auth: {
-        enable: process.env.BAS_AUTH_ENABLE === 'true',
-        username: process.env.BAS_AUTH_USERNAME,
-        jwtSecret: process.env.BAS_AUTH_JWT_SECRET,
+        enable: process.env.SAS_AUTH_ENABLE === 'true',
+        username: process.env.SAS_AUTH_USERNAME,
+        jwtSecret: process.env.SAS_AUTH_JWT_SECRET,
       },
     });
 

@@ -32,24 +32,24 @@ describe('HTTPS enabled', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_HTTPS_ENABLE',
+        name: 'SAS_HTTPS_ENABLE',
         value: 'true',
       },
       {
-        name: 'BAS_HTTPS_KEY',
+        name: 'SAS_HTTPS_KEY',
         value: 'test/certs/test.key',
       },
       {
-        name: 'BAS_HTTPS_CERT',
+        name: 'SAS_HTTPS_CERT',
         value: 'test/certs/test.pem',
       },
     ]);
 
     app = await createTestServer({
       https: {
-        enable: process.env.BAS_HTTPS_ENABLE === 'true',
-        key: process.env.BAS_HTTPS_KEY,
-        cert: process.env.BAS_HTTPS_CERT,
+        enable: process.env.SAS_HTTPS_ENABLE === 'true',
+        key: process.env.SAS_HTTPS_KEY,
+        cert: process.env.SAS_HTTPS_CERT,
       },
     });
 

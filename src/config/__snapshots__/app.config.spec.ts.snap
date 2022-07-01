@@ -6,7 +6,7 @@ Object {
   "enableCors": false,
   "environment": "test",
   "host": "0.0.0.0",
-  "name": "bnet-auth-service",
+  "name": "sc2-api-service",
   "port": 3000,
 }
 `;

@@ -36,24 +36,24 @@ describe('Battle.net API (incorrect config)', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_BATTLENET_REGION',
+        name: 'SAS_BATTLENET_REGION',
         value: undefined,
       },
       {
-        name: 'BAS_BATTLENET_CLIENT_ID',
+        name: 'SAS_BATTLENET_CLIENT_ID',
         value: undefined,
       },
       {
-        name: 'BAS_BATTLENET_CLIENT_SECRET',
+        name: 'SAS_BATTLENET_CLIENT_SECRET',
         value: undefined,
       },
     ]);
 
     app = await createTestServer({
       battlenet: {
-        region: process.env.BAS_BATTLENET_REGION,
-        clientId: process.env.BAS_BATTLENET_CLIENT_ID,
-        clientSecret: process.env.BAS_BATTLENET_CLIENT_SECRET,
+        region: process.env.SAS_BATTLENET_REGION,
+        clientId: process.env.SAS_BATTLENET_CLIENT_ID,
+        clientSecret: process.env.SAS_BATTLENET_CLIENT_SECRET,
       },
     });
 

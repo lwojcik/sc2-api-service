@@ -9,39 +9,39 @@ const minimalSetup: EnvironmentVariable[] = [
     value: 'test',
   },
   {
-    name: 'BAS_APP_ENABLE_CORS',
+    name: 'SAS_APP_ENABLE_CORS',
     value: 'false',
   },
   {
-    name: 'BAS_APP_CORS_ORIGIN',
+    name: 'SAS_APP_CORS_ORIGIN',
     value: undefined,
   },
   {
-    name: 'BAS_REDIS_ENABLE',
+    name: 'SAS_REDIS_ENABLE',
     value: 'false',
   },
   {
-    name: 'BAS_REDIS_HOST',
+    name: 'SAS_REDIS_HOST',
     value: 'redis',
   },
   {
-    name: 'BAS_REDIS_PORT',
+    name: 'SAS_REDIS_PORT',
     value: '6379',
   },
   {
-    name: 'BAS_REDIS_TTL_SECS',
+    name: 'SAS_REDIS_TTL_SECS',
     value: '2000',
   },
   {
-    name: 'BAS_REDIS_DB',
+    name: 'SAS_REDIS_DB',
     value: '0',
   },
   {
-    name: 'BAS_REDIS_KEY_PREFIX',
-    value: 'bas',
+    name: 'SAS_REDIS_KEY_PREFIX',
+    value: 'sas',
   },
   {
-    name: 'BAS_REDIS_KEY_NAME',
+    name: 'SAS_REDIS_KEY_NAME',
     value: '',
   },
 ];

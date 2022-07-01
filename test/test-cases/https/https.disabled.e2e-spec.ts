@@ -32,14 +32,14 @@ describe('HTTPS disabled', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_HTTPS_ENABLE',
+        name: 'SAS_HTTPS_ENABLE',
         value: 'false',
       },
     ]);
 
     app = await createTestServer({
       https: {
-        enable: process.env.BAS_HTTPS_ENABLE === 'true',
+        enable: process.env.SAS_HTTPS_ENABLE === 'true',
       },
     });
 

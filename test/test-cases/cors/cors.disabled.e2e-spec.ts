@@ -27,14 +27,14 @@ describe('CORS disabled', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_APP_CORS_ENABLE',
+        name: 'SAS_APP_CORS_ENABLE',
         value: 'false',
       },
     ]);
 
     app = await createTestServer({
       cors: {
-        enable: process.env.BAS_APP_CORS_ENABLE === 'true',
+        enable: process.env.SAS_APP_CORS_ENABLE === 'true',
       },
     });
 

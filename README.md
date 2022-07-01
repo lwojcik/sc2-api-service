@@ -1,9 +1,9 @@
-# bnet-auth-service
+# sc2-api-service
 
-[![Build status](https://ci.appveyor.com/api/projects/status/5lunfkv0ot8rh3yt/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/bnet-auth-service/branch/master)
-[![codecov](https://codecov.io/gh/sc2pte/bnet-auth-service/branch/master/graph/badge.svg?token=sFEmFjKiRo)](https://codecov.io/gh/sc2pte/bnet-auth-service)
+[![Build status](https://ci.appveyor.com/api/projects/status/5lunfkv0ot8rh3yt/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/sc2-api-service/branch/master)
+[![codecov](https://codecov.io/gh/sc2pte/sc2-api-service/branch/master/graph/badge.svg?token=sFEmFjKiRo)](https://codecov.io/gh/sc2pte/sc2-api-service)
 
-**This is version 2 of the project and it's incompatible with previous version. If you're looking for the previous version, head to [v1 branch](https://github.com/sc2pte/bnet-auth-service/tree/v1).**
+**This is version 2 of the project and it's incompatible with previous version. If you're looking for the previous version, head to [v1 branch](https://github.com/sc2pte/sc2-api-service/tree/v1).**
 
 REST microservice retrieving and caching OAuth access tokens from [Blizzard Battle.net API](https://develop.battle.net/).
 
@@ -16,32 +16,32 @@ While the primary purpose for this service is to be run inside secure API infras
 Docker and Docker Compose are preferred ways of setting up the project.
 
 ```bash
-git clone https://github.com/sc2pte/bnet-auth-service.git
-cd bnet-auth-service
+git clone https://github.com/sc2pte/sc2-api-service.git
+cd sc2-api-service
 npm install
 docker-compose build
 docker-compose up
 ```
 
-Alternatively, you can pull a pre-built image from [GitHub Container Registry](https://github.com/orgs/sc2pte/packages/container/package/bnet-auth-service):
+Alternatively, you can pull a pre-built image from [GitHub Container Registry](https://github.com/orgs/sc2pte/packages/container/package/sc2-api-service):
 
 ```bash
-docker pull ghcr.io/sc2pte/bnet-auth-service:2
+docker pull ghcr.io/sc2pte/sc2-api-service:2
 ```
 
-Pre-built images are also available on [Docker Hub](https://hub.docker.com/r/sc2pte/bnet-auth-service/tags):
+Pre-built images are also available on [Docker Hub](https://hub.docker.com/r/sc2pte/sc2-api-service/tags):
 
 ```bash
-docker pull sc2pte/bnet-auth-service:2
+docker pull sc2pte/sc2-api-service:2
 ```
 
 Images tagged as `1`, `2` and `latest` are built from the master branch and they are considered production-ready.
 
-Production installation can be automated with an [Ansible role](https://github.com/sc2pte/ansible-role-bnet-auth-service).
+Production installation can be automated with an [Ansible role](https://github.com/sc2pte/ansible-role-sc2-api-service).
 
 ## Environment variables
 
-Environment variable names follow the following format: `BAS_[feature name]_[feature property]`.
+Environment variable names follow the following format: `SAS_[feature name]_[feature property]`.
 
 When in development mode, the API can load environment variables from `.env` file in root directory.
 
@@ -52,38 +52,38 @@ See also `.env.sample` for a dotenv template.
 General app setup necessary to launch the service.
 
 - `NODE_ENV` - Node environment (`'development'` or `'production'`, default: `development`)
-- `BAS_NODE_HOST` - hostname (default: `'0.0.0.0'`)
-- `BAS_NODE_PORT` - port (default: `'3000'`)
-- `BAS_APP_CORS_ENABLE` - enable CORS (default: `false`)
-- `BAS_APP_CORS_ORIGIN` - allowed CORS origin if CORS is enabled, optional
+- `SAS_NODE_HOST` - hostname (default: `'0.0.0.0'`)
+- `SAS_NODE_PORT` - port (default: `'3000'`)
+- `SAS_APP_CORS_ENABLE` - enable CORS (default: `false`)
+- `SAS_APP_CORS_ORIGIN` - allowed CORS origin if CORS is enabled, optional
 
 ### Battle.net setup
 
 This part of setup is mandatory. To obtain Battle.net API credentials log in to [Blizzard Battle.net Developer Portal](https://develop.battle.net/access/).and [create a new client](https://develop.battle.net/access/clients/create).
 
-- `BAS_BATTLENET_REGION` - Battle.net API region to authorize against (`'us'`, `'eu'`, `'kr'` or `'ch'`, required). API credentials and generated access tokens are valid across all regions.
-- `BAS_BATTLENET_CLIENT_ID` = Battle.net API application key
-- `BAS_BATTLENET_CLIENT_SECRET` - Battle.net API application secret
+- `SAS_BATTLENET_REGION` - Battle.net API region to authorize against (`'us'`, `'eu'`, `'kr'` or `'ch'`, required). API credentials and generated access tokens are valid across all regions.
+- `SAS_BATTLENET_CLIENT_ID` = Battle.net API application key
+- `SAS_BATTLENET_CLIENT_SECRET` - Battle.net API application secret
 
 ### Redis setup
 
 This setup is optional. Enabling Redis allows for caching access tokens in order to minimize the number of requests to Battle.net API.
 
-- `BAS_REDIS_ENABLE` - enable Redis caching (default `'true'`). If you pass `false`, configuring other Redis-related environment variables is not necessary.
-- `BAS_REDIS_HOST` - Redis hostname (default: `'redis'`)
-- `BAS_REDIS_PORT` - Redis port (default: `'6379'`)
-- `BAS_REDIS_PASSWORD` - Redis password (optional)
-- `BAS_REDIS_TTL_SECS` - cache TTL in seconds (Time To Live, time for which objects will be cached). Access tokens issued by Battle.net API are valid for 24 hours, so it is not advisable to set TTL longer than 86400 seconds (default: `2000`).
-- `BAS_REDIS_DB` - Redis database index to use
-- `BAS_REDIS_KEY_PREFIX` - key prefix used to identify keys related to bnet-auth-service (default: `'bas'`)
-- `BAS_REDIS_KEY_NAME` - name used to identify the key under which cached access token is stored (default: `accesstoken`)
+- `SAS_REDIS_ENABLE` - enable Redis caching (default `'true'`). If you pass `false`, configuring other Redis-related environment variables is not necessary.
+- `SAS_REDIS_HOST` - Redis hostname (default: `'redis'`)
+- `SAS_REDIS_PORT` - Redis port (default: `'6379'`)
+- `SAS_REDIS_PASSWORD` - Redis password (optional)
+- `SAS_REDIS_TTL_SECS` - cache TTL in seconds (Time To Live, time for which objects will be cached). Access tokens issued by Battle.net API are valid for 24 hours, so it is not advisable to set TTL longer than 86400 seconds (default: `2000`).
+- `SAS_REDIS_DB` - Redis database index to use
+- `SAS_REDIS_KEY_PREFIX` - key prefix used to identify keys related to sc2-api-service (default: `'bas'`)
+- `SAS_REDIS_KEY_NAME` - name used to identify the key under which cached access token is stored (default: `accesstoken`)
 
 ### Throttling / rate limiting
 
 Rate limiting is always on. To effectively disable it, set high values for TTL and limit. Default limits are significantly below limits of Battle.net API (36,000 requests per hour / 100 requests per second) and they shouldn't trigger 429 Too Many Requests errors.
 
-- `BAS_THROTTLE_TTL_SECS` - how long throttling is effective per single client (default: 60 seconds)
-- `BAS_THROTTLE_LIMIT`- limit of requests per client within alloted TTL (default: 300)
+- `SAS_THROTTLE_TTL_SECS` - how long throttling is effective per single client (default: 60 seconds)
+- `SAS_THROTTLE_LIMIT`- limit of requests per client within alloted TTL (default: 300)
 
 When the limit is reached, the service will return 429 error code with the following body:
 
@@ -96,7 +96,7 @@ When the limit is reached, the service will return 429 error code with the follo
 
 ### Authorization
 
-Bnet-auth-service supports simplified authorization flow with JWT tokens. If you enable it, each request must contain a JWT token containing pre-configured username (`{ 'username': 'some-user' }`), signed by a pre-configured secret, passed inside a request header:
+sc2-api-service supports simplified authorization flow with JWT tokens. If you enable it, each request must contain a JWT token containing pre-configured username (`{ 'username': 'some-user' }`), signed by a pre-configured secret, passed inside a request header:
 
 ```js
 {
@@ -104,9 +104,9 @@ Bnet-auth-service supports simplified authorization flow with JWT tokens. If you
 }
 ```
 
-- `BAS_AUTH_ENABLE` - whether authorization should be enabled (default: `false`)
-- `BAS_AUTH_USERNAME` - username passed as JWT payload
-- `BAS_AUTH_JWT_SECRET` - secret that should be used to sign and verify JWT token
+- `SAS_AUTH_ENABLE` - whether authorization should be enabled (default: `false`)
+- `SAS_AUTH_USERNAME` - username passed as JWT payload
+- `SAS_AUTH_JWT_SECRET` - secret that should be used to sign and verify JWT token
 
 If the incoming request doesn't contain correct JWT token, all endpoints will return 401 error:
 
@@ -121,9 +121,9 @@ If the incoming request doesn't contain correct JWT token, all endpoints will re
 
 Service can run in HTTPS mode using provided key and certificate.
 
-- `BAS_HTTPS_ENABLE` - whether HTTPS should be supported (default: `false`)
-- `BAS_HTTPS_KEY_PATH` - path to HTTPS signing key (example: `certs/localhost.key`)
-- `BAS_HTTPS_CERT_PATH` - path to HTTPS certificate (example: `certs/localhost.pem`)
+- `SAS_HTTPS_ENABLE` - whether HTTPS should be supported (default: `false`)
+- `SAS_HTTPS_KEY_PATH` - path to HTTPS signing key (example: `certs/localhost.key`)
+- `SAS_HTTPS_CERT_PATH` - path to HTTPS certificate (example: `certs/localhost.pem`)
 
 ## Available endpoints
 
@@ -133,7 +133,7 @@ General information about the service.
 
 ```json
 {
-  "name": "bnet-auth-service",
+  "name": "sc2-api-service",
   "version": "2.0.0",
   "caching": true,
   "endpoints": {
@@ -169,9 +169,9 @@ Information on service health.
 
 Get access token either (1) from Redis cache if there is cached access token available or (2) directly from Battle.net API and cache it in Redis store.
 
-If `BAS_REDIS_ENABLE` is set to `false`, this endpoint always queries Battle.net API for a new access token.
+If `SAS_REDIS_ENABLE` is set to `false`, this endpoint always queries Battle.net API for a new access token.
 
-If `BAS_REDIS_ENABLE` is set to `true`, each access token obtained from Battle.net API is cached in Redis store.
+If `SAS_REDIS_ENABLE` is set to `true`, each access token obtained from Battle.net API is cached in Redis store.
 
 `source` property returns one of two values: `battlenet` or `cache`, depending on where the access token was obtained from.
 
@@ -214,7 +214,7 @@ Swagger is available when `NODE_ENV` is set to `development` at `http://service.
 
 ## Contributions
 
-`bnet-auth-service` is mostly a complete project and no further features are planned.
+`sc2-api-service` is mostly a complete project and no further features are planned.
 
 The type of contributions that are most welcome:
 
@@ -223,8 +223,8 @@ The type of contributions that are most welcome:
 - suggestions of additional properties returned by any of the existing endpoints
 - error responses that weren't explicitly documented
 
-Before contributing be sure to read [Code of Conduct](https://github.com/sc2pte/bnet-auth-service/blob/master/CODE_OF_CONDUCT.md).
+Before contributing be sure to read [Code of Conduct](https://github.com/sc2pte/sc2-api-service/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
-Code is available under MIT license. See [LICENSE](https://raw.githubusercontent.com/sc2pte/bnet-auth-service/master/LICENSE) for more information.
+Code is available under MIT license. See [LICENSE](https://raw.githubusercontent.com/sc2pte/sc2-api-service/master/LICENSE) for more information.

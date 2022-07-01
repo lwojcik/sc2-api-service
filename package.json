@@ -1,23 +1,25 @@
 {
-  "name": "bnet-auth-service",
+  "name": "sc2-api-service",
   "version": "2.0.0",
   "private": true,
-  "description": "Battle.net access token retrieval microservice",
+  "description": "StarCraft II Community and Game Data API data microservice",
   "keywords": [
     "battlenet",
     "bnet",
-    "authentication",
+    "starcraft",
+    "starcraft2",
+    "community",
     "api",
-    "backend",
+    "player",
     "microservice"
   ],
-  "homepage": "https://github.com/sc2pte/bnet-auth-service#readme",
+  "homepage": "https://github.com/sc2pte/sc2-api-service#readme",
   "bugs": {
-    "url": "https://github.com/sc2pte/bnet-auth-service/issues"
+    "url": "https://github.com/sc2pte/sc2-api-service/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sc2pte/bnet-auth-service.git"
+    "url": "git+https://github.com/sc2pte/sc2-api-service.git"
   },
   "license": "MIT",
   "author": "Łukasz Wójcik",

@@ -12,7 +12,7 @@ Object {
   "APP_INFO": Object {
     "appPrefix": "BAS",
     "description": "REST microservice for retrieving and caching OAuth access tokens from Blizzard Battle.net API",
-    "name": "bnet-auth-service",
+    "name": "sc2-api-service",
     "version": "2.0.0",
   },
   "AUTH": Object {
@@ -5212,7 +5212,7 @@ Object {
                     },
                     "_cache": null,
                     "_flags": Object {
-                      "default": "bas",
+                      "default": "sas",
                     },
                     "_ids": Object {
                       "_byId": Map {},
@@ -15379,7 +15379,7 @@ Object {
                     },
                     "_cache": null,
                     "_flags": Object {
-                      "default": "bas",
+                      "default": "sas",
                     },
                     "_ids": Object {
                       "_byId": Map {},
@@ -20546,7 +20546,7 @@ Object {
       "enable": true,
       "host": "redis",
       "keyName": "accesstoken",
-      "keyPrefix": "bas",
+      "keyPrefix": "sas",
       "password": "",
       "port": 6379,
       "ttlSecs": 2000,

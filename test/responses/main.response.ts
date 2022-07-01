@@ -1,5 +1,5 @@
 const mainResponse = (caching: boolean) => ({
-  name: 'bnet-auth-service',
+  name: 'sc2-api-service',
   version: '2.0.0',
   caching,
   endpoints: {

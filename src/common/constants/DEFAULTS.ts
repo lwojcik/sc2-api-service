@@ -24,7 +24,7 @@ export const DEFAULTS = {
     password: '',
     ttlSecs: 2000,
     db: 0,
-    keyPrefix: 'bas',
+    keyPrefix: 'sas',
     keyName: 'accesstoken',
   },
   auth: {

@@ -32,44 +32,44 @@ describe('Redis enabled', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_REDIS_ENABLE',
+        name: 'SAS_REDIS_ENABLE',
         value: 'true',
       },
       {
-        name: 'BAS_REDIS_HOST',
+        name: 'SAS_REDIS_HOST',
         value: 'redis',
       },
       {
-        name: 'BAS_REDIS_PORT',
+        name: 'SAS_REDIS_PORT',
         value: '6379',
       },
       {
-        name: 'BAS_REDIS_TTL_SECS',
+        name: 'SAS_REDIS_TTL_SECS',
         value: '2000',
       },
       {
-        name: 'BAS_REDIS_DB',
+        name: 'SAS_REDIS_DB',
         value: '0',
       },
       {
-        name: 'BAS_REDIS_KEY_PREFIX',
-        value: 'bas',
+        name: 'SAS_REDIS_KEY_PREFIX',
+        value: 'sas',
       },
       {
-        name: 'BAS_REDIS_KEY_NAME',
+        name: 'SAS_REDIS_KEY_NAME',
         value: 'accesstoken',
       },
     ]);
 
     app = await createTestServer({
       redis: {
-        enable: process.env.BAS_REDIS_ENABLE === 'true',
-        host: process.env.BAS_REDIS_HOST,
-        port: process.env.BAS_REDIS_PORT,
-        ttlSecs: process.env.BAS_REDIS_TTL_SECS,
-        db: process.env.BAS_REDIS_DB,
-        keyPrefix: process.env.BAS_REDIS_KEY_PREFIX,
-        keyName: process.env.BAS_REDIS_KEY_NAME,
+        enable: process.env.SAS_REDIS_ENABLE === 'true',
+        host: process.env.SAS_REDIS_HOST,
+        port: process.env.SAS_REDIS_PORT,
+        ttlSecs: process.env.SAS_REDIS_TTL_SECS,
+        db: process.env.SAS_REDIS_DB,
+        keyPrefix: process.env.SAS_REDIS_KEY_PREFIX,
+        keyName: process.env.SAS_REDIS_KEY_NAME,
       },
     });
 

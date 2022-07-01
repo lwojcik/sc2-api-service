@@ -28,24 +28,24 @@ describe('Authorization enabled (incorrect JWT token)', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_AUTH_ENABLE',
+        name: 'SAS_AUTH_ENABLE',
         value: 'true',
       },
       {
-        name: 'BAS_AUTH_USERNAME',
+        name: 'SAS_AUTH_USERNAME',
         value: 'test_user',
       },
       {
-        name: 'BAS_AUTH_JWT_SECRET',
+        name: 'SAS_AUTH_JWT_SECRET',
         value: 'test_jwt_secret',
       },
     ]);
 
     app = await createTestServer({
       auth: {
-        enable: process.env.BAS_AUTH_ENABLE === 'true',
-        username: process.env.BAS_AUTH_USERNAME,
-        jwtSecret: process.env.BAS_AUTH_JWT_SECRET,
+        enable: process.env.SAS_AUTH_ENABLE === 'true',
+        username: process.env.SAS_AUTH_USERNAME,
+        jwtSecret: process.env.SAS_AUTH_JWT_SECRET,
       },
     });
 

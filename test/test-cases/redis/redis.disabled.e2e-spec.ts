@@ -31,14 +31,14 @@ describe('Redis disabled', () => {
 
     setupEnvVariables([
       {
-        name: 'BAS_REDIS_ENABLE',
+        name: 'SAS_REDIS_ENABLE',
         value: 'false',
       },
     ]);
 
     app = await createTestServer({
       redis: {
-        enable: process.env.BAS_REDIS_ENABLE === 'true',
+        enable: process.env.SAS_REDIS_ENABLE === 'true',
       },
     });
 
