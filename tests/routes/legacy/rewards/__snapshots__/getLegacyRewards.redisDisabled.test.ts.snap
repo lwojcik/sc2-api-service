@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/legacy/rewards/:regionId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"portraits\\":[{\\"title\\":\\"sample legacy reward\\",\\"id\\":\\"\\",\\"achievementId\\":\\"\\"}]}}"`;

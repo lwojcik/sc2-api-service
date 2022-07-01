@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/profile/profile/:regionId/:realmId/:profileId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"summary\\":{\\"displayName\\":\\"sample profile object\\"}}}"`;
-
-exports[`/profile/profile/:regionId/:realmId/:profileId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"summary\\":{\\"id\\":\\"\\",\\"displayName\\":\\"sample profile object\\",\\"clanName\\":\\"\\",\\"clanTag\\":\\"\\",\\"portrait\\":\\"\\",\\"decalTerran\\":\\"\\",\\"decalProtoss\\":\\"\\",\\"decalZerg\\":\\"\\",\\"totalSwarmLevel\\":\\"\\",\\"totalAchievementPoints\\":\\"\\"}}}"`;
-
-exports[`/profile/profile/:regionId/:realmId/:profileId (Redis enabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"summary\\":{\\"id\\":\\"\\",\\"displayName\\":\\"sample profile object\\",\\"clanName\\":\\"\\",\\"clanTag\\":\\"\\",\\"portrait\\":\\"\\",\\"decalTerran\\":\\"\\",\\"decalProtoss\\":\\"\\",\\"decalZerg\\":\\"\\",\\"totalSwarmLevel\\":\\"\\",\\"totalAchievementPoints\\":\\"\\"}}}"`;

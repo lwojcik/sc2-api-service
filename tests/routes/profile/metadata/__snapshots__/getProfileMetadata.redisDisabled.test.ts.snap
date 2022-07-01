@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/profile/metadata/:regionId/:realmId/:profileId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"name\\":\\"sample profile metadata object\\",\\"profileUrl\\":\\"\\",\\"avatarUrl\\":\\"\\",\\"profileId\\":\\"\\",\\"regionId\\":\\"\\",\\"realmId\\":\\"\\"}}"`;
-
-exports[`/profile/metadata/:regionId/:realmId/:profileId (Redis disabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"name\\":\\"sample profile metadata object\\",\\"profileUrl\\":\\"\\",\\"avatarUrl\\":\\"\\",\\"profileId\\":\\"\\",\\"regionId\\":\\"\\",\\"realmId\\":\\"\\"}}"`;

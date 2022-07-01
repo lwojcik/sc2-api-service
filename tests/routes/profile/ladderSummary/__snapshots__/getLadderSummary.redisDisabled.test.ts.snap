@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/profile/ladderSummary/:regionId/:realmId/:profileId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"showCaseEntries\\":[{\\"ladderId\\":\\"sample ladder summary object\\",\\"localizedDivisionName\\":\\"\\",\\"rank\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\"}]}}"`;
