@@ -18,4 +18,3 @@ services:
     image: 'redis:alpine'
     ports:
       - ${SAS_REDIS_PORT}:${SAS_REDIS_PORT}
-    env_file: .env
