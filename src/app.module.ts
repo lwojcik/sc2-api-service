@@ -5,13 +5,16 @@ import { APP_GUARD } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AUTH, CONFIG_VALIDATION_SCHEMA, THROTTLE } from './common/constants';
 import { StatusModule } from './status/status.module';
-import { AccessTokenModule } from './accesstoken/accesstoken.module';
 import { LoggerModule } from './logger/logger.module';
 import { MainModule } from './main/main.module';
 import { endpointsConfig, redisConfig } from './config';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard, PassthroughGuard } from './auth/guards';
 import { trueStringToBoolean } from './utils/trueStringToBoolean';
+import { ProfileModule } from './profile/profile.module';
+import { LadderModule } from './ladder/ladder.module';
+import { DataModule } from './data/data.module';
+import { LegacyModule } from './legacy/legacy.module';
 
 @Module({
   imports: [
@@ -35,7 +38,10 @@ import { trueStringToBoolean } from './utils/trueStringToBoolean';
     LoggerModule,
     MainModule,
     StatusModule,
-    AccessTokenModule,
+    ProfileModule,
+    LadderModule,
+    DataModule,
+    LegacyModule,
   ],
   controllers: [AppController],
   providers: [
