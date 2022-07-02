@@ -40,6 +40,7 @@ export class DataController {
   ) {
     this.logger.setLoggedMethod(this.getLeague.name);
     this.logger.debug();
+
     return this.dataService.getLeague({
       seasonId,
       queueId,

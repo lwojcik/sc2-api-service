@@ -37,7 +37,11 @@ export class ProfileController {
     this.logger.setLoggedMethod(this.getMetadata.name);
     this.logger.debug();
 
-    return this.profileService.getMetadata({ regionId, realmId, profileId });
+    return this.profileService.getMetadata({
+      regionId,
+      realmId,
+      profileId,
+    });
   }
 
   @Get('/profile/:regionId/:realmId/:profileId')
@@ -52,7 +56,11 @@ export class ProfileController {
     this.logger.setLoggedMethod(this.getProfile.name);
     this.logger.debug();
 
-    return this.profileService.getProfile({ regionId, realmId, profileId });
+    return this.profileService.getProfile({
+      regionId,
+      realmId,
+      profileId,
+    });
   }
 
   @Get('/laddersummary/:regionId/:realmId/:profileId')
@@ -64,10 +72,10 @@ export class ProfileController {
     @Param('realmId') realmId: string,
     @Param('profileId') profileId: string
   ) {
-    this.logger.setLoggedMethod(this.getProfile.name);
+    this.logger.setLoggedMethod(this.getLadderSummary.name);
     this.logger.debug();
 
-    return this.profileService.getLadderSummary({
+    return this.profileService[this.getLadderSummary.name]({
       regionId,
       realmId,
       profileId,

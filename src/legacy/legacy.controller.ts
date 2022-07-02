@@ -40,7 +40,7 @@ export class LegacyController {
     @Param('realmId') realmId: string,
     @Param('profileId') profileId: string
   ) {
-    this.logger.setLoggedMethod(this.getProfile.name);
+    this.logger.setLoggedMethod(this.getLadders.name);
 
     return this.legacyService.getLadders({
       regionId,
@@ -58,9 +58,9 @@ export class LegacyController {
     @Param('realmId') realmId: string,
     @Param('profileId') profileId: string
   ) {
-    this.logger.setLoggedMethod(this.getProfile.name);
+    this.logger.setLoggedMethod(this.getMatches.name);
 
-    return this.legacyService.getLadders({
+    return this.legacyService.getMatches({
       regionId,
       realmId,
       profileId,
@@ -72,7 +72,7 @@ export class LegacyController {
     summary: 'Returns data about an individual SC2 ladder.',
   })
   getLadder(@Param('ladderId') ladderId: string) {
-    this.logger.setLoggedMethod(this.getProfile.name);
+    this.logger.setLoggedMethod(this.getLadder.name);
 
     return this.legacyService.getLadder({ ladderId });
   }

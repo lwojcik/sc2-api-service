@@ -106,6 +106,8 @@
     "@nestjs/cli": "^8.2.8",
     "@nestjs/schematics": "^8.0.11",
     "@nestjs/testing": "^8.4.7",
+    "@types/cache-manager": "^4.0.1",
+    "@types/cache-manager-ioredis": "^2.0.2",
     "@types/jest": "28.1.4",
     "@types/luxon": "^2.3.2",
     "@types/module-alias": "^2.0.1",

@@ -17,8 +17,8 @@ export class LadderController {
   @ApiOperation({
     summary: "Get data for the current season's grandmaster leaderboard.",
   })
-  getLeague(@Param('regionId') regionId: string) {
-    this.logger.setLoggedMethod(this.getLeague.name);
+  getGrandmaster(@Param('regionId') regionId: string) {
+    this.logger.setLoggedMethod(this.getGrandmaster.name);
     this.logger.debug();
 
     return this.ladderService.getGrandmaster({
