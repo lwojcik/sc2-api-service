@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class GetGrandmasterDto {
+export class RegionDto {
   @ApiProperty({
-    description: `Region id`,
+    description: 'Region id',
   })
   regionId: string;
 }

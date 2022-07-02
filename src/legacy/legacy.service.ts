@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import { ProfileDto } from '../common/dto/profile.dto';
 import { LoggerService } from '../logger/logger.service';
+import { LadderDto } from '../common/dto/ladder.dto';
+import { RegionDto } from '../common/dto/region.dto';
 
 @Injectable()
 export class LegacyService {
@@ -7,10 +10,27 @@ export class LegacyService {
     this.logger.setLoggedClass(LegacyService.name);
   }
 
-  // getGrandmaster(getGrandmasterDto: GetGrandmasterDto) {
-  //   this.logger.setLoggedMethod(this.getGrandmaster.name);
-  //   this.logger.debug();
+  getProfile(profileDto: ProfileDto) {
+    return profileDto;
+  }
 
-  //   return getGrandmasterDto;
-  // }
+  getLadders(profileDto: ProfileDto) {
+    return profileDto;
+  }
+
+  getMatches(profileDto: ProfileDto) {
+    return profileDto;
+  }
+
+  getLadder(ladderDto: LadderDto) {
+    return ladderDto;
+  }
+
+  getAchievements(regionDto: RegionDto) {
+    return regionDto;
+  }
+
+  getRewards(ladderDto: LadderDto) {
+    return ladderDto;
+  }
 }

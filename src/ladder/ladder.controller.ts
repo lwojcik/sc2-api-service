@@ -25,4 +25,17 @@ export class LadderController {
       regionId,
     });
   }
+
+  @Get('/season/:regionId')
+  @ApiOperation({
+    summary: "Get data for the current season's grandmaster leaderboard.",
+  })
+  getSeason(@Param('regionId') regionId: string) {
+    this.logger.setLoggedMethod(this.getSeason.name);
+    this.logger.debug();
+
+    return this.ladderService.getSeason({
+      regionId,
+    });
+  }
 }

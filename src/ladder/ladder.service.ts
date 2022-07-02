@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { RegionDto } from '../common/dto/region.dto';
 import { LoggerService } from '../logger/logger.service';
-import { GetGrandmasterDto } from './dto/get-grandmaster.dto';
 
 @Injectable()
 export class LadderService {
@@ -8,10 +8,17 @@ export class LadderService {
     this.logger.setLoggedClass(LadderService.name);
   }
 
-  getGrandmaster(getGrandmasterDto: GetGrandmasterDto) {
+  getGrandmaster(regionDto: RegionDto) {
     this.logger.setLoggedMethod(this.getGrandmaster.name);
     this.logger.debug();
 
-    return getGrandmasterDto;
+    return regionDto;
+  }
+
+  getSeason(regionDto: RegionDto) {
+    this.logger.setLoggedMethod(this.getSeason.name);
+    this.logger.debug();
+
+    return regionDto;
   }
 }
