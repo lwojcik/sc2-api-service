@@ -1,9 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import {
-  accessTokenFromApiResponse,
-  mainResponseWithoutCaching,
-  statusProperties,
-} from '../../responses';
+import { mainResponseWithoutCaching, statusProperties } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -74,27 +70,5 @@ describe('HTTPS disabled', () => {
         statusProperties.forEach((property) => {
           expect(JSON.parse(result.payload)).toHaveProperty(property);
         });
-      }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(accessTokenFromApiResponse);
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(accessTokenFromApiResponse);
       }));
 });

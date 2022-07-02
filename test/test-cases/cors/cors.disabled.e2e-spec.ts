@@ -67,26 +67,4 @@ describe('CORS disabled', () => {
         expect(result.headers.origin).toBeUndefined();
         expect(result.headers['access-control-allow-origin']).toBeUndefined();
       }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then((result) => {
-        expect(result.headers.origin).toBeUndefined();
-        expect(result.headers['access-control-allow-origin']).toBeUndefined();
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-      })
-      .then((result) => {
-        expect(result.headers.origin).toBeUndefined();
-        expect(result.headers['access-control-allow-origin']).toBeUndefined();
-      }));
 });

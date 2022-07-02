@@ -87,32 +87,4 @@ describe('Authorization enabled (incorrect JWT token)', () => {
         expect(result.statusCode).toEqual(401);
         expect(JSON.parse(result.payload)).toEqual(unauthorizedResponse);
       }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-        headers: {
-          Authorization: `Bearer ${incorrectJwt}`,
-        },
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(401);
-        expect(JSON.parse(result.payload)).toEqual(unauthorizedResponse);
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-        headers: {
-          Authorization: `Bearer ${incorrectJwt}`,
-        },
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(401);
-        expect(JSON.parse(result.payload)).toEqual(unauthorizedResponse);
-      }));
 });

@@ -14,7 +14,7 @@ import { AuthModule } from '../../src/auth/auth.module';
 import { JwtAuthGuard, PassthroughGuard } from '../../src/auth/guards';
 import { MainModule } from '../../src/main/main.module';
 import { StatusModule } from '../../src/status/status.module';
-import { AccessTokenModule } from '../../src/accesstoken/accesstoken.module';
+// import { AccessTokenModule } from '../../src/accesstoken/accesstoken.module';
 import { LoggerService } from '../../src/logger/logger.service';
 import { JwtStrategy } from '../../src/auth/strategies/jwt.strategy';
 
@@ -104,7 +104,7 @@ const createTestingModule: TestingModuleFactory = (
     AuthModule,
     MainModule,
     StatusModule,
-    AccessTokenModule,
+    // AccessTokenModule,
   ];
 
   if (params.throttle) {

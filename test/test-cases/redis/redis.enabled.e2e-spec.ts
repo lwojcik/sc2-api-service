@@ -1,9 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import {
-  accessTokenFromApiResponse,
-  accessTokenFromCacheResponse,
-  mainResponseWithCaching,
-} from '../../responses';
+import { mainResponseWithCaching } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -90,61 +86,5 @@ describe('Redis enabled', () => {
       .then((result) => {
         expect(result.statusCode).toEqual(200);
         expect(JSON.parse(result.payload)).toEqual(mainResponseWithCaching);
-      }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then(async (firstResult) => {
-        await app
-          .inject({
-            method: 'GET',
-            url: '/accesstoken',
-          })
-          .then((secondResult) => {
-            expect(firstResult.statusCode).toEqual(200);
-            expect(JSON.parse(firstResult.payload)).toEqual(
-              accessTokenFromApiResponse
-            );
-            expect(secondResult.statusCode).toEqual(200);
-            expect(JSON.parse(secondResult.payload)).toEqual(
-              accessTokenFromCacheResponse
-            );
-          });
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then(async () => {
-        await app
-          .inject({
-            method: 'GET',
-            url: '/accesstoken',
-          })
-          .then(async (cachedResult) => {
-            await app
-              .inject({
-                method: 'GET',
-                url: '/accesstoken?refresh=true',
-              })
-              .then((refreshedResult) => {
-                expect(cachedResult.statusCode).toEqual(200);
-                expect(JSON.parse(cachedResult.payload)).toEqual(
-                  accessTokenFromCacheResponse
-                );
-
-                expect(refreshedResult.statusCode).toEqual(200);
-                expect(JSON.parse(refreshedResult.payload)).toEqual(
-                  accessTokenFromApiResponse
-                );
-              });
-          });
       }));
 });

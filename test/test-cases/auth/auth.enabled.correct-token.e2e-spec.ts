@@ -1,9 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import {
-  mainResponseWithoutCaching,
-  accessTokenFromApiResponse,
-  statusProperties,
-} from '../../responses';
+import { mainResponseWithoutCaching, statusProperties } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -95,33 +91,5 @@ describe('Authorization enabled (correct JWT token)', () => {
         statusProperties.forEach((property) => {
           expect(JSON.parse(result.payload)).toHaveProperty(property);
         });
-      }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-        headers: {
-          Authorization: `Bearer ${correctJwt}`,
-        },
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(accessTokenFromApiResponse);
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-        headers: {
-          Authorization: `Bearer ${correctJwt}`,
-        },
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(accessTokenFromApiResponse);
       }));
 });

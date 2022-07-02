@@ -78,30 +78,4 @@ describe('CORS disabled', () => {
         );
         expect(result.headers.vary).toEqual('Origin');
       }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then((result) => {
-        expect(result.headers['access-control-allow-origin']).toEqual(
-          testOrigin
-        );
-        expect(result.headers.vary).toEqual('Origin');
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-      })
-      .then((result) => {
-        expect(result.headers['access-control-allow-origin']).toEqual(
-          testOrigin
-        );
-        expect(result.headers.vary).toEqual('Origin');
-      }));
 });

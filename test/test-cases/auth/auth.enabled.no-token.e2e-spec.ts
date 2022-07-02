@@ -78,26 +78,4 @@ describe('Authorization enabled (no JWT token)', () => {
         expect(result.statusCode).toEqual(401);
         expect(JSON.parse(result.payload)).toEqual(unauthorizedResponse);
       }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(401);
-        expect(JSON.parse(result.payload)).toEqual(unauthorizedResponse);
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(401);
-        expect(JSON.parse(result.payload)).toEqual(unauthorizedResponse);
-      }));
 });

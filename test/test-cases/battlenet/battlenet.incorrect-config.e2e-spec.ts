@@ -89,36 +89,4 @@ describe('Battle.net API (incorrect config)', () => {
           expect(JSON.parse(result.payload)).toHaveProperty(property);
         });
       }));
-
-  it('/accesstoken (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken',
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload).error).toEqual('BnetApiError');
-        expect(JSON.parse(result.payload).message).toEqual(
-          'Request failed with status code 401'
-        );
-        expect(JSON.parse(result.payload).statusCode).toEqual(401);
-        expect(JSON.parse(result.payload)).toHaveProperty('id');
-      }));
-
-  it('/accesstoken?refresh=true (GET)', () =>
-    app
-      .inject({
-        method: 'GET',
-        url: '/accesstoken?refresh=true',
-      })
-      .then((result) => {
-        expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload).error).toEqual('BnetApiError');
-        expect(JSON.parse(result.payload).message).toEqual(
-          'Request failed with status code 401'
-        );
-        expect(JSON.parse(result.payload).statusCode).toEqual(401);
-        expect(JSON.parse(result.payload)).toHaveProperty('id');
-      }));
 });
