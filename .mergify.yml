@@ -37,13 +37,13 @@ pull_request_rules:
       queue:
         method: squash
         name: default
-  - name: ask to resolve conflict
+  - name: Ask to resolve conflict
     conditions:
       - conflict
     actions:
       comment:
         message: This pull request is now in conflicts. Could you fix it @{{author}}? 🙏 cc @lwojcik
-  - name: automatic merge for main when CI passes and 1 reviews
+  - name: Automatic merge for master when CI passes and owner approves
     conditions:
       - 'status-success=continuous-integration/appveyor/branch'
       - 'status-success=continuous-integration/appveyor/pr'
@@ -51,5 +51,6 @@ pull_request_rules:
       - label!=work-in-progress
       - approved-reviews-by=lwojcik
     actions:
-      merge:
-        method: merge
+      queue:
+        method: squash
+        name: default
