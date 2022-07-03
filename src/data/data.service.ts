@@ -8,10 +8,10 @@ export class DataService {
     this.logger.setLoggedClass(DataService.name);
   }
 
-  getLeague(getLeagueDto: GetLeagueDto) {
+  getLeague(getLeagueDto: GetLeagueDto, refresh?: boolean) {
     this.logger.setLoggedMethod(this.getLeague.name);
     this.logger.debug();
 
-    return getLeagueDto;
+    return { getLeagueDto, refresh };
   }
 }

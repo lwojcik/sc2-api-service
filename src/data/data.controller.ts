@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LoggerService } from '../logger/logger.service';
 import { DataService } from './data.service';
@@ -33,19 +33,23 @@ export class DataController {
   //   type: TooManyRequestsError,
   // })
   getLeague(
-    @Param('seasonId') seasonId: string,
-    @Param('queueId') queueId: string,
-    @Param('teamType') teamType: string,
-    @Param('leagueId') leagueId: string
+    @Param('seasonId') seasonId: number,
+    @Param('queueId') queueId: number,
+    @Param('teamType') teamType: number,
+    @Param('leagueId') leagueId: number,
+    @Query('refresh') refresh: boolean
   ) {
     this.logger.setLoggedMethod(this.getLeague.name);
     this.logger.debug();
 
-    return this.dataService.getLeague({
-      seasonId,
-      queueId,
-      teamType,
-      leagueId,
-    });
+    return this.dataService.getLeague(
+      {
+        seasonId,
+        queueId,
+        teamType,
+        leagueId,
+      },
+      refresh
+    );
   }
 }

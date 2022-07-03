@@ -4,20 +4,20 @@ export class GetLeagueDto {
   @ApiProperty({
     description: `Season id`,
   })
-  seasonId: string;
+  seasonId: number;
 
   @ApiProperty({
     description: `Queue id`,
   })
-  queueId: string;
+  queueId: number;
 
   @ApiProperty({
     description: `Team type`,
   })
-  teamType: string;
+  teamType: number;
 
   @ApiProperty({
     description: `League id`,
   })
-  leagueId: string;
+  leagueId: number;
 }
