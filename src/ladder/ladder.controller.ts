@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LoggerService } from '../logger/logger.service';
 import { LadderService } from './ladder.service';
@@ -17,25 +17,37 @@ export class LadderController {
   @ApiOperation({
     summary: "Get data for the current season's grandmaster leaderboard.",
   })
-  getGrandmaster(@Param('regionId') regionId: string) {
+  getGrandmaster(
+    @Param('regionId') regionId: string,
+    @Query('refresh') refresh?: boolean
+  ) {
     this.logger.setLoggedMethod(this.getGrandmaster.name);
     this.logger.debug();
 
-    return this.ladderService.getGrandmaster({
-      regionId,
-    });
+    return this.ladderService.getGrandmaster(
+      {
+        regionId,
+      },
+      refresh
+    );
   }
 
   @Get('/season/:regionId')
   @ApiOperation({
     summary: "Get data for the current season's grandmaster leaderboard.",
   })
-  getSeason(@Param('regionId') regionId: string) {
+  getSeason(
+    @Param('regionId') regionId: string,
+    @Query('refresh') refresh?: boolean
+  ) {
     this.logger.setLoggedMethod(this.getSeason.name);
     this.logger.debug();
 
-    return this.ladderService.getSeason({
-      regionId,
-    });
+    return this.ladderService.getSeason(
+      {
+        regionId,
+      },
+      refresh
+    );
   }
 }

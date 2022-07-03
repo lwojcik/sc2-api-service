@@ -10,27 +10,27 @@ export class LegacyService {
     this.logger.setLoggedClass(LegacyService.name);
   }
 
-  getProfile(profileDto: ProfileDto) {
-    return profileDto;
+  getProfile(profileDto: ProfileDto, refresh?: boolean) {
+    return { profileDto, refresh };
   }
 
-  getLadders(profileDto: ProfileDto) {
-    return profileDto;
+  getLadders(profileDto: ProfileDto, refresh?: boolean) {
+    return { profileDto, refresh };
   }
 
-  getMatches(profileDto: ProfileDto) {
-    return profileDto;
+  getMatches(profileDto: ProfileDto, refresh?: boolean) {
+    return { profileDto, refresh };
   }
 
-  getLadder(ladderDto: LadderDto) {
-    return ladderDto;
+  getLadder(ladderDto: LadderDto, refresh?: boolean) {
+    return { ladderDto, refresh };
   }
 
-  getAchievements(regionDto: RegionDto) {
-    return regionDto;
+  getAchievements(regionDto: RegionDto, refresh?: boolean) {
+    return { regionDto, refresh };
   }
 
-  getRewards(ladderDto: LadderDto) {
-    return ladderDto;
+  getRewards(ladderDto: LadderDto, refresh?: boolean) {
+    return { ladderDto, refresh };
   }
 }

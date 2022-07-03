@@ -10,23 +10,23 @@ export class ProfileService {
     this.logger.setLoggedClass(ProfileService.name);
   }
 
-  getStatic(regionDto: RegionDto) {
-    return regionDto;
+  getStatic(regionDto: RegionDto, refresh?: boolean) {
+    return { regionDto, refresh };
   }
 
-  getMetadata(profileDto: ProfileDto) {
-    return profileDto;
+  getMetadata(profileDto: ProfileDto, refresh?: boolean) {
+    return { profileDto, refresh };
   }
 
-  getProfile(profileDto: ProfileDto) {
-    return profileDto;
+  getProfile(profileDto: ProfileDto, refresh?: boolean) {
+    return { profileDto, refresh };
   }
 
-  getLadderSummary(profileDto: ProfileDto) {
-    return profileDto;
+  getLadderSummary(profileDto: ProfileDto, refresh?: boolean) {
+    return { profileDto, refresh };
   }
 
-  getPlayerLadder(individualLadderDto: IndividualLadderDto) {
-    return individualLadderDto;
+  getPlayerLadder(individualLadderDto: IndividualLadderDto, refresh?: boolean) {
+    return { individualLadderDto, refresh };
   }
 }

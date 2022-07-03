@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LoggerService } from '../logger/logger.service';
 import { LegacyService } from './legacy.service';
@@ -20,15 +20,19 @@ export class LegacyController {
   getProfile(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
-    @Param('profileId') profileId: string
+    @Param('profileId') profileId: string,
+    @Query('refresh') refresh?: boolean
   ) {
     this.logger.setLoggedMethod(this.getProfile.name);
 
-    return this.legacyService.getProfile({
-      regionId,
-      realmId,
-      profileId,
-    });
+    return this.legacyService.getProfile(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/ladders/:regionId/:realmId/:profileId')
@@ -38,15 +42,19 @@ export class LegacyController {
   getLadders(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
-    @Param('profileId') profileId: string
+    @Param('profileId') profileId: string,
+    @Query('refresh') refresh?: boolean
   ) {
     this.logger.setLoggedMethod(this.getLadders.name);
 
-    return this.legacyService.getLadders({
-      regionId,
-      realmId,
-      profileId,
-    });
+    return this.legacyService.getLadders(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/matches/:regionId/:realmId/:profileId')
@@ -56,15 +64,19 @@ export class LegacyController {
   getMatches(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
-    @Param('profileId') profileId: string
+    @Param('profileId') profileId: string,
+    @Query('refresh') refresh?: boolean
   ) {
     this.logger.setLoggedMethod(this.getMatches.name);
 
-    return this.legacyService.getMatches({
-      regionId,
-      realmId,
-      profileId,
-    });
+    return this.legacyService.getMatches(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/ladder/:ladderId')
@@ -81,9 +93,12 @@ export class LegacyController {
   @ApiOperation({
     summary: 'Returns data about the achievements available in SC2.',
   })
-  getAchievements(@Param('regionId') regionId: string) {
+  getAchievements(
+    @Param('regionId') regionId: string,
+    @Query('refresh') refresh?: boolean
+  ) {
     this.logger.setLoggedMethod(this.getAchievements.name);
 
-    return this.legacyService.getAchievements({ regionId });
+    return this.legacyService.getAchievements({ regionId }, refresh);
   }
 }

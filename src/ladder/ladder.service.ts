@@ -8,17 +8,17 @@ export class LadderService {
     this.logger.setLoggedClass(LadderService.name);
   }
 
-  getGrandmaster(regionDto: RegionDto) {
+  getGrandmaster(regionDto: RegionDto, refresh?: boolean) {
     this.logger.setLoggedMethod(this.getGrandmaster.name);
     this.logger.debug();
 
-    return regionDto;
+    return { regionDto, refresh };
   }
 
-  getSeason(regionDto: RegionDto) {
+  getSeason(regionDto: RegionDto, refresh?: boolean) {
     this.logger.setLoggedMethod(this.getSeason.name);
     this.logger.debug();
 
-    return regionDto;
+    return { regionDto, refresh };
   }
 }
