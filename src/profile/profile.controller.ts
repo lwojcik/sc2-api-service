@@ -24,7 +24,7 @@ export class ProfileController {
     @Param('regionId') regionId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getStatic.name);
+    this.logger.setLoggedMethod(this.getStatic.name, { regionId, refresh });
     this.logger.debug();
 
     return this.profileService.getStatic({ regionId }, refresh);
@@ -41,17 +41,19 @@ export class ProfileController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getMetadata.name);
+    const profile = {
+      regionId,
+      realmId,
+      profileId,
+    };
+
+    this.logger.setLoggedMethod(this.getMetadata.name, {
+      ...profile,
+      refresh,
+    });
     this.logger.debug();
 
-    return this.profileService.getMetadata(
-      {
-        regionId,
-        realmId,
-        profileId,
-      },
-      refresh
-    );
+    return this.profileService.getMetadata(profile, refresh);
   }
 
   @Get('/profile/:regionId/:realmId/:profileId')
@@ -65,17 +67,19 @@ export class ProfileController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getProfile.name);
+    const profile = {
+      regionId,
+      realmId,
+      profileId,
+    };
+
+    this.logger.setLoggedMethod(this.getProfile.name, {
+      ...profile,
+      refresh,
+    });
     this.logger.debug();
 
-    return this.profileService.getProfile(
-      {
-        regionId,
-        realmId,
-        profileId,
-      },
-      refresh
-    );
+    return this.profileService.getProfile(profile, refresh);
   }
 
   @Get('/laddersummary/:regionId/:realmId/:profileId')
@@ -89,17 +93,19 @@ export class ProfileController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getLadderSummary.name);
+    const profile = {
+      regionId,
+      realmId,
+      profileId,
+    };
+
+    this.logger.setLoggedMethod(this.getLadderSummary.name, {
+      ...profile,
+      refresh,
+    });
     this.logger.debug();
 
-    return this.profileService[this.getLadderSummary.name](
-      {
-        regionId,
-        realmId,
-        profileId,
-      },
-      refresh
-    );
+    return this.profileService.getLadderSummary(profile, refresh);
   }
 
   @Get('/ladder/:regionId/:realmId/:profileId/:ladderId')
@@ -114,17 +120,19 @@ export class ProfileController {
     @Param('ladderId') ladderId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getPlayerLadder.name);
+    const profileOnLadder = {
+      regionId,
+      realmId,
+      profileId,
+      ladderId,
+    };
+
+    this.logger.setLoggedMethod(this.getPlayerLadder.name, {
+      ...profileOnLadder,
+      refresh,
+    });
     this.logger.debug();
 
-    return this.profileService.getPlayerLadder(
-      {
-        regionId,
-        realmId,
-        profileId,
-        ladderId,
-      },
-      refresh
-    );
+    return this.profileService.getPlayerLadder(profileOnLadder, refresh);
   }
 }

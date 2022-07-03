@@ -23,7 +23,10 @@ export class LadderController {
     @Param('regionId') regionId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getGrandmaster.name);
+    this.logger.setLoggedMethod(this.getGrandmaster.name, {
+      regionId,
+      refresh,
+    });
     this.logger.debug();
 
     return this.ladderService.getGrandmaster(
@@ -43,7 +46,7 @@ export class LadderController {
     @Param('regionId') regionId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getSeason.name);
+    this.logger.setLoggedMethod(this.getSeason.name, { regionId, refresh });
     this.logger.debug();
 
     return this.ladderService.getSeason(

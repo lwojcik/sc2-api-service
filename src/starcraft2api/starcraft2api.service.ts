@@ -38,7 +38,7 @@ export class StarCraft2ApiService {
         );
       }
 
-      const sc2ApiMethod = SC2API_METHOD_MAPPINGS[key];
+      const sc2ApiMethod = SC2API_METHOD_MAPPINGS[key] as string;
       const data = await this.starcraft2api[sc2ApiMethod](args);
 
       return {

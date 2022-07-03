@@ -1,6 +1,10 @@
 import { Sc2DataKey } from '../types/Sc2DataKey.enum';
 
-export const SC2API_METHOD_MAPPINGS = {
+type Sc2ApiMethodMappings = {
+  [key in Sc2DataKey]: string;
+};
+
+export const SC2API_METHOD_MAPPINGS: Sc2ApiMethodMappings = {
   [Sc2DataKey.getLeague]: 'queryLeagueData',
   [Sc2DataKey.getGrandmaster]: 'queryGrandmasterLeaderboard',
   [Sc2DataKey.getSeason]: 'querySeason',
