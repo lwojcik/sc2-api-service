@@ -1,7 +1,9 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
 import { LoggerService } from '../logger/logger.service';
 import { DataService } from './data.service';
+import { GetLeagueDto } from './dto/get-league.dto';
 
 @ApiTags('data')
 @Controller('data')
@@ -32,6 +34,7 @@ export class DataController {
   //   description: ApiResponse.tooManyRequests,
   //   type: TooManyRequestsError,
   // })
+  @RefreshQueryParam()
   getLeague(
     @Param('seasonId') seasonId: number,
     @Param('queueId') queueId: number,
@@ -39,23 +42,19 @@ export class DataController {
     @Param('leagueId') leagueId: number,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getLeague.name, {
+    const league: GetLeagueDto = {
       seasonId,
       queueId,
       teamType,
       leagueId,
+    };
+
+    this.logger.setLoggedMethod(this.getLeague.name, {
+      ...league,
       refresh,
     });
     this.logger.debug();
 
-    return this.dataService.getLeague(
-      {
-        seasonId,
-        queueId,
-        teamType,
-        leagueId,
-      },
-      refresh
-    );
+    return this.dataService.getLeague(league, refresh);
   }
 }

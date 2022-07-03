@@ -1,5 +1,6 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
 import { LoggerService } from '../logger/logger.service';
 import { ProfileService } from './profile.service';
 
@@ -18,6 +19,7 @@ export class ProfileController {
     summary:
       'Returns all static SC2 profile data (achievements, categories, criteria, and rewards).',
   })
+  @RefreshQueryParam()
   getStatic(
     @Param('regionId') regionId: string,
     @Query('refresh') refresh?: boolean
@@ -32,6 +34,7 @@ export class ProfileController {
   @ApiOperation({
     summary: "Returns metadata for an individual's profile.",
   })
+  @RefreshQueryParam()
   getMetadata(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
@@ -55,6 +58,7 @@ export class ProfileController {
   @ApiOperation({
     summary: 'Returns data about an individual SC2 profile.',
   })
+  @RefreshQueryParam()
   getProfile(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
@@ -78,6 +82,7 @@ export class ProfileController {
   @ApiOperation({
     summary: 'Returns a ladder summary for an individual SC2 profile.',
   })
+  @RefreshQueryParam()
   getLadderSummary(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
@@ -101,6 +106,7 @@ export class ProfileController {
   @ApiOperation({
     summary: "Returns data about an individual profile's ladder.",
   })
+  @RefreshQueryParam()
   getPlayerLadder(
     @Param('regionId') regionId: string,
     @Param('realmId') realmId: string,
