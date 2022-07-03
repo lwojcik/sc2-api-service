@@ -12,4 +12,5 @@ export const BATTLENET = {
   region: prop(BattleNetEnvVariable.region),
   clientId: prop(BattleNetEnvVariable.clientId),
   clientSecret: prop(BattleNetEnvVariable.clientSecret),
+  timeoutMs: prop(BattleNetEnvVariable.timeoutMs),
 };

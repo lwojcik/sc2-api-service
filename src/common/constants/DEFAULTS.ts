@@ -33,6 +33,9 @@ export const DEFAULTS = {
     jwtSecret: '',
     ignoreExpiration: true,
   },
+  battlenet: {
+    timeoutMs: 10000,
+  },
   https: {
     enable: false,
     keyPath: '',

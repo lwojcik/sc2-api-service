@@ -38,12 +38,12 @@ export class DataBrokerService {
   }
 
   private cacheData(key: string, value: unknown) {
-    this.logger.setLoggedMethod(this.cacheData.name, { key, value });
+    this.logger.setLoggedMethod(this.cacheData.name, { key });
     this.logger.debug();
     return this.cacheService.set(key, value);
   }
 
-  getData({ key, args }: GetDataDto, refresh = false) {
+  async getData({ key, args }: GetDataDto, refresh = false) {
     this.logger.setLoggedMethod(this.getData.name, { key, args });
     this.logger.debug();
 
@@ -52,7 +52,7 @@ export class DataBrokerService {
     const cachedData = this.getDataFromCache(dataKey);
 
     if (!cachedData || refresh) {
-      const dataFromApi = this.getDataFromBattleNet(key, args);
+      const dataFromApi = await this.getDataFromBattleNet(key, args);
       this.cacheData(dataKey, dataFromApi);
       return dataFromApi;
     }

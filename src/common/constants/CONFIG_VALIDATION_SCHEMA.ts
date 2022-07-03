@@ -55,6 +55,7 @@ const battlenetSchema = {
   [BATTLENET.region]: Joi.string().required().custom(validateRegionName),
   [BATTLENET.clientId]: Joi.string().required(),
   [BATTLENET.clientSecret]: Joi.string().required(),
+  [BATTLENET.timeoutMs]: Joi.string().optional(),
 };
 
 const throttleSchema = {
