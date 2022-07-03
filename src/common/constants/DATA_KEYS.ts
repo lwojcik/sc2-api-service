@@ -1,24 +1,32 @@
-export const DATA_KEYS = {
+import { Sc2DataKey } from '../types/Sc2DataKey.enum';
+
+type DataKeys = {
+  [key: string]: {
+    [key: string]: Sc2DataKey;
+  };
+};
+
+export const DATA_KEYS: DataKeys = {
   data: {
-    getLeague: 'data:league',
+    getLeague: Sc2DataKey.getLeague,
   },
   ladder: {
-    getGrandmaster: 'ladder:grandmaster',
-    getSeason: 'ladder:season',
-  },
-  legacy: {
-    getProfile: 'legacy:profile',
-    getLadders: 'legacy:ladders',
-    getMatches: 'legacy:matches',
-    getLadder: 'legacy:ladder',
-    getAchievements: 'legacy:achievements',
-    getRewards: 'legacy:rewards',
+    getGrandmaster: Sc2DataKey.getGrandmaster,
+    getSeason: Sc2DataKey.getSeason,
   },
   profile: {
-    getStatic: 'profile:static',
-    getMetadata: 'profile:metadata',
-    getProfile: 'profile:profile',
-    getLadderSummary: 'profile:laddersummary',
-    getPlayerLadder: 'profile:playerladder',
+    getStatic: Sc2DataKey.getStatic,
+    getMetadata: Sc2DataKey.getMetadata,
+    getProfile: Sc2DataKey.getProfile,
+    getLadderSummary: Sc2DataKey.getLadderSummary,
+    getPlayerLadder: Sc2DataKey.getPlayerLadder,
+  },
+  legacy: {
+    getProfile: Sc2DataKey.getLegacyProfile,
+    getLadders: Sc2DataKey.getLegacyLadders,
+    getMatches: Sc2DataKey.getLegacyMatches,
+    getLadder: Sc2DataKey.getLegacyLadder,
+    getAchievements: Sc2DataKey.getLegacyAchievements,
+    getRewards: Sc2DataKey.getLegacyRewards,
   },
 };

@@ -8,7 +8,7 @@ import { GetDataDto } from './dto/get-data.dto';
 export class DataBrokerService {
   constructor(
     private readonly cacheService: CacheService,
-    private readonly starcraft2apiService: StarCraft2ApiService,
+    private readonly starCraft2ApiService: StarCraft2ApiService,
     private readonly logger: LoggerService
   ) {
     this.logger.setLoggedClass(DataBrokerService.name);
@@ -34,7 +34,7 @@ export class DataBrokerService {
   private getDataFromBattleNet(key: string, args: unknown) {
     this.logger.setLoggedMethod(this.getDataFromBattleNet.name, key);
     this.logger.debug();
-    return this.starcraft2apiService.get(key, args);
+    return this.starCraft2ApiService.get(key, args);
   }
 
   private cacheData(key: string, value: unknown) {

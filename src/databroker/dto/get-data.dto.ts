@@ -1,5 +1,7 @@
+import { Sc2DataKey } from '../../common/types';
+
 export class GetDataDto {
-  key: string;
+  key: Sc2DataKey;
 
   args: unknown;
 

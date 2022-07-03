@@ -8,6 +8,8 @@ export class StarCraft2ApiService {
   }
 
   get(key: string, args: unknown) {
+    this.logger.setLoggedMethod(this.get.name, { key, args });
+
     return { key, args };
   }
 }

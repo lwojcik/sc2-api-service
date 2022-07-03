@@ -24,11 +24,12 @@ export class CacheService {
   }
 
   get(key: string) {
-    return { key };
+    console.log(key);
+    return null;
   }
 
-  set(key: string, value) {
-    return { key, value };
+  set(key: string, value: unknown, expire?: number) {
+    return { key, value, expire };
   }
 
   // saveAccessToken(accessToken: string) {

@@ -1,0 +1,16 @@
+export enum Sc2DataKey {
+  getLeague = 'data:league',
+  getGrandmaster = 'ladder:grandmaster',
+  getSeason = 'ladder:season',
+  getStatic = 'profile:static',
+  getMetadata = 'profile:metadata',
+  getProfile = 'profile:profile',
+  getLadderSummary = 'profile:laddersummary',
+  getPlayerLadder = 'profile:playerladder',
+  getLegacyProfile = 'legacy:profile',
+  getLegacyLadders = 'legacy:ladders',
+  getLegacyMatches = 'legacy:matches',
+  getLegacyLadder = 'legacy:ladder',
+  getLegacyAchievements = 'legacy:achievements',
+  getLegacyRewards = 'legacy:rewards',
+}
