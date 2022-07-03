@@ -4,7 +4,7 @@ import { ConfigType } from '@nestjs/config';
 import Redis from 'ioredis';
 import { LoggerService } from '../logger/logger.service';
 import { redisConfig } from '../config';
-import { REDIS } from '../common/constants';
+// import { REDIS } from '../common/constants';
 
 @Injectable()
 export class CacheService {
@@ -23,42 +23,50 @@ export class CacheService {
     this.logger.setLoggedClass(CacheService.name);
   }
 
-  saveAccessToken(accessToken: string) {
-    this.logger.setLoggedMethod(this.saveAccessToken.name, accessToken);
-    this.logger.debug();
-
-    if (!this.redisConf.enable) {
-      this.logger.debug(`${REDIS.enable} set to false - access key not saved`);
-    } else {
-      this.logger.debug(
-        `Using Redis key: ${this.redisConf.keyPrefix}${this.cacheKey}`
-      );
-
-      this.logger.debug(`Set TTL to ${this.redisConf.ttlSecs} seconds`);
-
-      this.cache.set(this.cacheKey, accessToken, 'EX', this.redisConf.ttlSecs);
-    }
+  get(key: string) {
+    return { key };
   }
 
-  async getAccessToken() {
-    this.logger.setLoggedMethod(this.getAccessToken.name);
-    this.logger.debug();
-
-    if (!this.redisConf.enable) {
-      this.logger.debug(
-        `${REDIS.enable} set to false - returning 'null' as access key`
-      );
-      return null;
-    }
-
-    this.logger.debug(
-      `Using Redis key: ${this.redisConf.keyPrefix}${this.cacheKey}`
-    );
-
-    const accessToken = await this.cache.get(this.cacheKey);
-
-    this.logger.debug(`Received access token: ${accessToken}`);
-
-    return accessToken;
+  set(key: string, value) {
+    return { key, value };
   }
+
+  // saveAccessToken(accessToken: string) {
+  //   this.logger.setLoggedMethod(this.saveAccessToken.name, accessToken);
+  //   this.logger.debug();
+
+  //   if (!this.redisConf.enable) {
+  //     this.logger.debug(`${REDIS.enable} set to false - access key not saved`);
+  //   } else {
+  //     this.logger.debug(
+  //       `Using Redis key: ${this.redisConf.keyPrefix}${this.cacheKey}`
+  //     );
+
+  //     this.logger.debug(`Set TTL to ${this.redisConf.ttlSecs} seconds`);
+
+  //     this.cache.set(this.cacheKey, accessToken, 'EX', this.redisConf.ttlSecs);
+  //   }
+  // }
+
+  // async getAccessToken() {
+  //   this.logger.setLoggedMethod(this.getAccessToken.name);
+  //   this.logger.debug();
+
+  //   if (!this.redisConf.enable) {
+  //     this.logger.debug(
+  //       `${REDIS.enable} set to false - returning 'null' as access key`
+  //     );
+  //     return null;
+  //   }
+
+  //   this.logger.debug(
+  //     `Using Redis key: ${this.redisConf.keyPrefix}${this.cacheKey}`
+  //   );
+
+  //   const accessToken = await this.cache.get(this.cacheKey);
+
+  //   this.logger.debug(`Received access token: ${accessToken}`);
+
+  //   return accessToken;
+  // }
 }

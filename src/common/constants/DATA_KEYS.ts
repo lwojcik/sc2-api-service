@@ -1,4 +1,4 @@
-export const CACHE_KEYS = {
+export const DATA_KEYS = {
   data: {
     getLeague: 'data:league',
   },

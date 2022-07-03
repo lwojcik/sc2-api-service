@@ -32,7 +32,7 @@ export class LoggerService {
 
   private formatArgs(args: unknown) {
     if (typeof args === 'string' && args.length > 0) {
-      return `'${args}`;
+      return `'${args}'`;
     }
     if (typeof args === 'string' && args.length === 0) {
       return '';

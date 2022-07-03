@@ -39,7 +39,13 @@ export class DataController {
     @Param('leagueId') leagueId: number,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getLeague.name);
+    this.logger.setLoggedMethod(this.getLeague.name, {
+      seasonId,
+      queueId,
+      teamType,
+      leagueId,
+      refresh,
+    });
     this.logger.debug();
 
     return this.dataService.getLeague(
