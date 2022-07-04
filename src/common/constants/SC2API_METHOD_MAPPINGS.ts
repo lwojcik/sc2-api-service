@@ -1,7 +1,7 @@
 import { Sc2DataKey } from '../types/Sc2DataKey.enum';
 
 type Sc2ApiMethodMappings = {
-  [key in Sc2DataKey]: string;
+  [key in Sc2DataKey | string]: string;
 };
 
 export const SC2API_METHOD_MAPPINGS: Sc2ApiMethodMappings = {

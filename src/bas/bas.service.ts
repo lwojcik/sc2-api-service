@@ -15,9 +15,10 @@ export class BasService {
     this.logger.setLoggedClass(BasService.name);
   }
 
-  getAccessToken() {
-    return this.httpService.axiosRef.get<string>(
-      `${this.basConf.url}/accesstoken`
-    );
+  async getAccessToken() {
+    const accessToken = await this.httpService.axiosRef.get<{
+      accessToken: string;
+    }>(`${this.basConf.url}/accesstoken`);
+    return accessToken.data.accessToken;
   }
 }

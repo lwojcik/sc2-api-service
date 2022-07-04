@@ -17,4 +17,5 @@ export * from './Source.enum';
 export * from './ThrottleEnvVariable.enum';
 export * from './Sc2DataKey.enum';
 export * from './StarCraft2ApiMethod.enum';
+export * from './StarCraft2APILibrary.interface';
 export * from './BasEnvVariable.enum';

@@ -4,7 +4,13 @@ import { RequestContext } from 'nestjs-request-context';
 import { StarCraft2API } from 'starcraft2-api';
 import { battleNetConfig } from '../config';
 import { SC2API_METHOD_MAPPINGS } from '../common/constants';
-import { ApiData, ApiErrorCode, Sc2DataKey, Source } from '../common/types';
+import {
+  ApiData,
+  ApiErrorCode,
+  Sc2DataKey,
+  Source,
+  StarCraft2APILibrary,
+} from '../common/types';
 import { LoggerService } from '../logger/logger.service';
 import { BattleNetError } from '../common/dto/battlenet-error.dto';
 import { BasService } from '../bas/bas.service';
@@ -26,8 +32,7 @@ export class StarCraft2ApiService {
 
   async setupSc2Api() {
     const accessToken = await this.basService.getAccessToken();
-    this.accessToken = accessToken.data;
-    console.log(accessToken);
+    this.accessToken = accessToken;
 
     this.starcraft2api = new StarCraft2API({
       region: this.battleNetConf.region,
@@ -56,7 +61,9 @@ export class StarCraft2ApiService {
       await this.setupSc2Api();
 
       const sc2ApiMethod = SC2API_METHOD_MAPPINGS[key] as string;
-      const data = await this.starcraft2api[sc2ApiMethod](args);
+      const data = await (
+        this.starcraft2api as unknown as StarCraft2APILibrary
+      )[sc2ApiMethod](args);
 
       return {
         statusCode: 200,
