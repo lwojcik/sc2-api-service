@@ -7,23 +7,38 @@ import { SC2API_METHOD_MAPPINGS } from '../common/constants';
 import { ApiData, ApiErrorCode, Sc2DataKey, Source } from '../common/types';
 import { LoggerService } from '../logger/logger.service';
 import { BattleNetError } from '../common/dto/battlenet-error.dto';
+import { BasService } from '../bas/bas.service';
 
 @Injectable()
 export class StarCraft2ApiService {
   private starcraft2api: StarCraft2API;
 
+  private accessToken: string;
+
   constructor(
     @Inject(battleNetConfig.KEY)
     private readonly battleNetConf: ConfigType<typeof battleNetConfig>,
+    private readonly basService: BasService,
     private readonly logger: LoggerService
   ) {
     this.logger.setLoggedClass(StarCraft2ApiService.name);
+  }
+
+  async setupSc2Api() {
+    const accessToken = await this.basService.getAccessToken();
+    this.accessToken = accessToken.data;
+    console.log(accessToken);
 
     this.starcraft2api = new StarCraft2API({
       region: this.battleNetConf.region,
       clientId: this.battleNetConf.clientId,
       clientSecret: this.battleNetConf.clientSecret,
+      accessToken: this.accessToken,
       timeoutMs: this.battleNetConf.timeoutMs,
+      refreshExpiredAccessToken: true,
+      onAccessTokenRefresh: (newAccessToken) => {
+        this.accessToken = newAccessToken;
+      },
     });
   }
 
@@ -37,6 +52,8 @@ export class StarCraft2ApiService {
           `'${key}' does not exist as a value in Sc2DataKey enum.`
         );
       }
+
+      await this.setupSc2Api();
 
       const sc2ApiMethod = SC2API_METHOD_MAPPINGS[key] as string;
       const data = await this.starcraft2api[sc2ApiMethod](args);

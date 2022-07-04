@@ -1,5 +1,13 @@
 import * as Joi from 'joi';
-import { APP, AUTH, BATTLENET, HTTPS, REDIS, THROTTLE } from './environment';
+import {
+  APP,
+  AUTH,
+  BAS,
+  BATTLENET,
+  HTTPS,
+  REDIS,
+  THROTTLE,
+} from './environment';
 import { DEFAULTS } from './DEFAULTS';
 import { validateRegionName } from '../validators/validateRegionName.validator';
 
@@ -53,8 +61,6 @@ const redisSchema = {
 
 const battlenetSchema = {
   [BATTLENET.region]: Joi.string().required().custom(validateRegionName),
-  [BATTLENET.clientId]: Joi.string().required(),
-  [BATTLENET.clientSecret]: Joi.string().required(),
   [BATTLENET.timeoutMs]: Joi.string().optional(),
 };
 
@@ -91,6 +97,12 @@ const httpsSchema = {
   }),
 };
 
+const basSchema = {
+  [BAS.url]: Joi.string().required(),
+  [BAS.clientId]: Joi.string().required(),
+  [BAS.clientSecret]: Joi.string().required(),
+};
+
 export const CONFIG_VALIDATION_SCHEMA = Joi.object({
   ...appSchema,
   ...redisSchema,
@@ -98,4 +110,5 @@ export const CONFIG_VALIDATION_SCHEMA = Joi.object({
   ...throttleSchema,
   ...authSchema,
   ...httpsSchema,
+  ...basSchema,
 });

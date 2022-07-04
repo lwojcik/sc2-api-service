@@ -1,5 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import { mainResponseWithoutCaching, statusProperties } from '../../responses';
+import { mainResponse, statusProperties } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -23,7 +23,7 @@ jest.mock(
 
 describe('Battle.net API (correct config)', () => {
   let app: NestFastifyApplication;
-  let OLD_ENV;
+  let OLD_ENV: NodeJS.ProcessEnv;
 
   beforeAll(async () => {
     OLD_ENV = process.env;
@@ -69,7 +69,7 @@ describe('Battle.net API (correct config)', () => {
       })
       .then((result) => {
         expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(mainResponseWithoutCaching);
+        expect(JSON.parse(result.payload)).toEqual(mainResponse);
       }));
 
   it('/status (GET)', () =>

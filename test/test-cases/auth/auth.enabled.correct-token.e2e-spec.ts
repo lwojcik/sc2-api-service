@@ -1,5 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import { mainResponseWithoutCaching, statusProperties } from '../../responses';
+import { mainResponse, statusProperties } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -21,7 +21,7 @@ jest.mock('blizzapi', () => ({
 
 describe('Authorization enabled (correct JWT token)', () => {
   let app: NestFastifyApplication;
-  let OLD_ENV;
+  let OLD_ENV: NodeJS.ProcessEnv;
 
   beforeAll(async () => {
     OLD_ENV = process.env;
@@ -73,7 +73,7 @@ describe('Authorization enabled (correct JWT token)', () => {
       })
       .then((result) => {
         expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(mainResponseWithoutCaching);
+        expect(JSON.parse(result.payload)).toEqual(mainResponse);
       }));
 
   it('/status (GET)', () =>

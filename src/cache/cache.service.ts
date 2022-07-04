@@ -23,7 +23,8 @@ export class CacheService {
     this.logger.setLoggedClass(CacheService.name);
   }
 
-  get(key: string) {
+  get(key: string): null {
+    // eslint-disable-next-line no-console
     console.log(key);
     return null;
   }

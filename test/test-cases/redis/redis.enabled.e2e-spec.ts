@@ -1,5 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import { mainResponseWithCaching } from '../../responses';
+import { mainResponse } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -19,7 +19,7 @@ jest.mock('blizzapi', () => ({
 
 describe('Redis enabled', () => {
   let app: NestFastifyApplication;
-  let OLD_ENV;
+  let OLD_ENV: NodeJS.ProcessEnv;
 
   beforeAll(async () => {
     OLD_ENV = process.env;
@@ -85,6 +85,6 @@ describe('Redis enabled', () => {
       })
       .then((result) => {
         expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(mainResponseWithCaching);
+        expect(JSON.parse(result.payload)).toEqual(mainResponse);
       }));
 });

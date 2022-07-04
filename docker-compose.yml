@@ -13,8 +13,14 @@ services:
     env_file: .env
     depends_on:
       - redis
+      - bnet-auth-service
 
   redis:
     image: 'redis:alpine'
     ports:
       - ${SAS_REDIS_PORT}:${SAS_REDIS_PORT}
+
+  bnet-auth-service:
+    image: 'sc2pte/bnet-auth-service:2'
+    ports:
+      - 3001:3001

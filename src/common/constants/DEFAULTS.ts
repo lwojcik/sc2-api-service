@@ -34,11 +34,14 @@ export const DEFAULTS = {
     ignoreExpiration: true,
   },
   battlenet: {
-    timeoutMs: 10000,
+    timeoutMs: 20000,
   },
   https: {
     enable: false,
     keyPath: '',
     certPath: '',
+  },
+  bas: {
+    url: 'http://localhost:3001',
   },
 };

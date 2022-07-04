@@ -1,5 +1,5 @@
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-import { statusProperties, mainResponseWithoutCaching } from '../../responses';
+import { statusProperties, mainResponse } from '../../responses';
 import {
   prepareMinimalSetup,
   setupEnvVariables,
@@ -19,7 +19,7 @@ jest.mock('blizzapi', () => ({
 
 describe('Authorization disabled', () => {
   let app: NestFastifyApplication;
-  let OLD_ENV;
+  let OLD_ENV: NodeJS.ProcessEnv;
 
   beforeAll(async () => {
     OLD_ENV = process.env;
@@ -57,7 +57,7 @@ describe('Authorization disabled', () => {
       })
       .then((result) => {
         expect(result.statusCode).toEqual(200);
-        expect(JSON.parse(result.payload)).toEqual(mainResponseWithoutCaching);
+        expect(JSON.parse(result.payload)).toEqual(mainResponse);
       }));
 
   it('/status (GET)', () =>
