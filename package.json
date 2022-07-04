@@ -65,7 +65,7 @@
     ],
     "rootDir": "src",
     "setupFilesAfterEnv": [
-      "<rootDir>/../jest.setup.redis-mock.ts"
+      "<rootDir>/../jest.setup.redis-mock.js"
     ],
     "testEnvironment": "node",
     "testRegex": ".*\\.spec\\.ts$",
