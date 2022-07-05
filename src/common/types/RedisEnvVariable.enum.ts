@@ -1,5 +1,6 @@
 export enum RedisEnvVariable {
   enable = 'ENABLE',
+  expire = 'EXPIRE',
   host = 'HOST',
   port = 'PORT',
   password = 'PASSWORD',

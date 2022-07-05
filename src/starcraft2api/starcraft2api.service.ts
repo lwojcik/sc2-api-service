@@ -8,7 +8,6 @@ import {
   ApiData,
   ApiErrorCode,
   Sc2DataKey,
-  Source,
   StarCraft2APILibrary,
 } from '../common/types';
 import { LoggerService } from '../logger/logger.service';
@@ -67,7 +66,6 @@ export class StarCraft2ApiService {
 
       return {
         statusCode: 200,
-        source: Source.battlenet,
         data,
       } as ApiData<T>;
     } catch (error) {

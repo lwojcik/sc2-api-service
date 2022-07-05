@@ -23,14 +23,15 @@ export class CacheService {
     this.logger.setLoggedClass(CacheService.name);
   }
 
-  get(key: string): null {
-    // eslint-disable-next-line no-console
-    console.log(key);
-    return null;
+  async get(key: string) {
+    return this.cache.get(key);
   }
 
-  set(key: string, value: unknown, expire?: number) {
-    return { key, value, expire };
+  set(key: string, value: string) {
+    this.cache.set(key, value as string);
+    if (this.redisConf.expire) {
+      this.cache.expire(key, this.redisConf.ttlSecs);
+    }
   }
 
   // saveAccessToken(accessToken: string) {

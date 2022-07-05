@@ -1,14 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { ConfigType } from '@nestjs/config';
 import { StarCraft2ApiService } from '../starcraft2api/starcraft2api.service';
 import { CacheService } from '../cache/cache.service';
 import { LoggerService } from '../logger/logger.service';
 import { GetDataDto } from './dto/get-data.dto';
+import { redisConfig } from '../config';
 
 @Injectable()
 export class DataBrokerService {
   constructor(
     private readonly cacheService: CacheService,
     private readonly starCraft2ApiService: StarCraft2ApiService,
+    @Inject(redisConfig.KEY)
+    private readonly redisConf: ConfigType<typeof redisConfig>,
     private readonly logger: LoggerService
   ) {
     this.logger.setLoggedClass(DataBrokerService.name);
@@ -19,7 +23,7 @@ export class DataBrokerService {
     this.logger.debug();
 
     const argString = Object.values(args).join(':');
-    const dataKey = `${key}:${argString}`;
+    const dataKey = `:${key}:${argString}`;
 
     this.logger.debug(`Generated data key: ${dataKey}`);
     return dataKey;
@@ -37,10 +41,26 @@ export class DataBrokerService {
     return this.starCraft2ApiService.get(key, args);
   }
 
-  private cacheData(key: string, value: unknown) {
+  private cacheData(key: string, value: string) {
     this.logger.setLoggedMethod(this.cacheData.name, { key });
     this.logger.debug();
     return this.cacheService.set(key, value);
+  }
+
+  private async getDataAndRefreshCache(key: string, args: unknown) {
+    const dataFromApi = await this.getDataFromBattleNet(key, args);
+    const dataKey = this.getDataKey(key, args);
+
+    if (dataFromApi.statusCode === 200) {
+      this.cacheData(
+        dataKey,
+        JSON.stringify({
+          created: Math.floor(Date.now() / 1000),
+          ...dataFromApi,
+        })
+      );
+    }
+    return dataFromApi;
   }
 
   async getData({ key, args }: GetDataDto, refresh = false) {
@@ -48,15 +68,21 @@ export class DataBrokerService {
     this.logger.debug();
 
     const dataKey = this.getDataKey(key, args);
+    const cachedObject = await this.getDataFromCache(dataKey);
 
-    const cachedData = this.getDataFromCache(dataKey);
-
-    if (!cachedData || refresh) {
-      const dataFromApi = await this.getDataFromBattleNet(key, args);
-      this.cacheData(dataKey, dataFromApi);
-      return dataFromApi;
+    if (!cachedObject || refresh) {
+      return this.getDataAndRefreshCache(key, args);
     }
 
-    return cachedData;
+    const parsedData = JSON.parse(cachedObject);
+    const now = Math.floor(Date.now() / 1000);
+    const staleData =
+      now - Number(parsedData?.created) >= this.redisConf.ttlSecs;
+
+    if (staleData) {
+      this.getDataAndRefreshCache(key, args);
+    }
+
+    return cachedObject;
   }
 }

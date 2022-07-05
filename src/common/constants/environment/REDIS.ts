@@ -10,6 +10,7 @@ const prop = (name: string) =>
 
 export const REDIS = {
   enable: prop(RedisEnvVariable.enable),
+  expire: prop(RedisEnvVariable.expire),
   host: prop(RedisEnvVariable.host),
   port: prop(RedisEnvVariable.port),
   password: prop(RedisEnvVariable.password),

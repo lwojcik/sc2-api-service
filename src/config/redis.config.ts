@@ -7,6 +7,7 @@ const defaultValue = DEFAULTS.redis;
 
 export const redisConfig = registerAs('redis', () => ({
   enable: trueStringToBoolean({ value: env[REDIS.enable] }),
+  expire: trueStringToBoolean({ value: env[REDIS.expire] }),
   host: env[REDIS.host] || defaultValue.host,
   port: parseInt(env[REDIS.port], 10) || defaultValue.port,
   password: env[REDIS.password] || defaultValue.password,

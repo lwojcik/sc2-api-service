@@ -13,7 +13,6 @@ export * from './HttpsEnvVariable.enum';
 export * from './LogLevel.enum';
 export * from './LogLevelValue.enum';
 export * from './RedisEnvVariable.enum';
-export * from './Source.enum';
 export * from './ThrottleEnvVariable.enum';
 export * from './Sc2DataKey.enum';
 export * from './StarCraft2ApiMethod.enum';
