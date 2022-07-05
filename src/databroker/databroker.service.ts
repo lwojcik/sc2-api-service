@@ -48,10 +48,16 @@ export class DataBrokerService {
   }
 
   private async getDataAndRefreshCache(key: string, args: unknown) {
+    this.logger.setLoggedMethod(this.getDataAndRefreshCache.name);
+    this.logger.debug();
+    this.logger.debug('Getting data from Battle.net...');
+
     const dataFromApi = await this.getDataFromBattleNet(key, args);
     const dataKey = this.getDataKey(key, args);
+    this.logger.debug(`Using data key: ${dataKey}`);
 
     if (dataFromApi.statusCode === 200) {
+      this.logger.debug('Caching data...');
       this.cacheData(
         dataKey,
         JSON.stringify({
@@ -68,9 +74,14 @@ export class DataBrokerService {
     this.logger.debug();
 
     const dataKey = this.getDataKey(key, args);
+    this.logger.debug(`Using data key: ${dataKey}`);
+
     const cachedObject = await this.getDataFromCache(dataKey);
 
     if (!cachedObject || refresh) {
+      this.logger.debug(
+        'No cached data or refresh was triggered - getting fresh data...'
+      );
       return this.getDataAndRefreshCache(key, args);
     }
 
@@ -80,6 +91,7 @@ export class DataBrokerService {
       now - Number(parsedData?.created) >= this.redisConf.ttlSecs;
 
     if (staleData) {
+      this.logger.debug('Cached data is stale - getting fresh data...');
       this.getDataAndRefreshCache(key, args);
     }
 
