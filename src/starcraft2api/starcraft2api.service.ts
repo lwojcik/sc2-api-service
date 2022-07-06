@@ -35,7 +35,7 @@ export class StarCraft2ApiService {
       region: this.battleNetConf.region,
       clientId: this.battleNetConf.clientId,
       clientSecret: this.battleNetConf.clientSecret,
-      accessToken: this.accessToken,
+      accessToken: this.accessToken, // await this.basService.getAccessToken()?
       timeoutMs: this.battleNetConf.timeoutMs,
       refreshExpiredAccessToken: true,
       onAccessTokenRefresh: (newAccessToken) => {
