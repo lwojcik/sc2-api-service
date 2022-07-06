@@ -4,42 +4,7 @@ import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 
 @Injectable()
 export class LoggerService {
-  private loggedClass: string;
-
-  private loggedMethod: string;
-
   constructor(@InjectPinoLogger() private readonly pinoLogger: PinoLogger) {}
-
-  private getPrefix() {
-    return `${this.loggedClass}${
-      this.loggedMethod ? `.${this.loggedMethod}` : ''
-    }`;
-  }
-
-  private isPrefixSet() {
-    return this.loggedClass || this.loggedMethod;
-  }
-
-  private formatArgs(args: unknown) {
-    if (typeof args === 'string' && args.length > 0) {
-      return `'${args}'`;
-    }
-    if (typeof args === 'string' && args.length === 0) {
-      return '';
-    }
-    if (typeof args === 'object' && Object.values(args).length > 0) {
-      return JSON.stringify(args);
-    }
-    return '';
-  }
-
-  public setLoggedClass(className: string) {
-    this.loggedClass = className;
-  }
-
-  public setLoggedMethod(methodName: string, args?: unknown) {
-    this.loggedMethod = `${methodName}(${this.formatArgs(args)})`;
-  }
 
   public error(obj: unknown) {
     return this.pinoLogger.error(obj);

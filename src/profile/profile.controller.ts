@@ -1,16 +1,12 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
-import { LoggerService } from '../logger/logger.service';
 import { ProfileService } from './profile.service';
 
 @ApiTags('profile')
 @Controller('profile')
 export class ProfileController {
-  constructor(
-    private readonly profileService: ProfileService,
-    private readonly logger: LoggerService
-  ) {}
+  constructor(private readonly profileService: ProfileService) {}
 
   @Get('/static/:regionId')
   @ApiOperation({
@@ -100,18 +96,14 @@ export class ProfileController {
     @Param('ladderId') ladderId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profileOnLadder = {
-      regionId,
-      realmId,
-      profileId,
-      ladderId,
-    };
-
-    this.logger.setLoggedMethod(this.getPlayerLadder.name, {
-      ...profileOnLadder,
-      refresh,
-    });
-
-    return this.profileService.getPlayerLadder(profileOnLadder, refresh);
+    return this.profileService.getPlayerLadder(
+      {
+        regionId,
+        realmId,
+        profileId,
+        ladderId,
+      },
+      refresh
+    );
   }
 }

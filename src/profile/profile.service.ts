@@ -3,17 +3,11 @@ import { DATA_KEYS } from '../common/constants';
 import { DataBrokerService } from '../databroker/databroker.service';
 import { ProfileDto } from '../common/dto/profile.dto';
 import { RegionDto } from '../common/dto/region.dto';
-import { LoggerService } from '../logger/logger.service';
 import { IndividualLadderDto } from './dto/individual-ladder.dto';
 
 @Injectable()
 export class ProfileService {
-  constructor(
-    private readonly dataBroker: DataBrokerService,
-    private readonly logger: LoggerService
-  ) {
-    this.logger.setLoggedClass(ProfileService.name);
-  }
+  constructor(private readonly dataBroker: DataBrokerService) {}
 
   getStatic(regionDto: RegionDto, refresh?: boolean) {
     return { regionDto, refresh };
@@ -24,8 +18,6 @@ export class ProfileService {
   }
 
   getProfile(profileDto: ProfileDto, refresh?: boolean) {
-    this.logger.setLoggedMethod(this.getProfile.name, { profileDto, refresh });
-
     return this.dataBroker.getData({
       key: DATA_KEYS.profile.getProfile,
       args: profileDto,
