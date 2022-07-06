@@ -1,68 +1,71 @@
 import { RedisService } from '@liaoliaots/nestjs-redis';
 import { ConfigModule, registerAs } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
-import { LoggerService } from '../logger/logger.service';
+import { ModuleMocker } from 'jest-mock';
 import { CacheService } from './cache.service';
 
+const moduleMocker = new ModuleMocker(global);
+
 describe('CacheService', () => {
-  let serviceWithRedisEnabled: CacheService;
+  let serviceWithExpireSet: CacheService;
+  let serviceWithExpireUnset: CacheService;
   // let serviceWithRedisDisabled: CacheService;
 
   beforeEach(async () => {
-    const moduleFactory: (redisEnabled: boolean) => Promise<TestingModule> = (
-      redisEnabled: boolean
+    const moduleFactory: (expire?: boolean) => Promise<TestingModule> = (
+      expire
     ) =>
       Test.createTestingModule({
         imports: [
           ConfigModule.forFeature(
             registerAs('redis', () => ({
-              enable: redisEnabled,
-              host: 'test-redis-host',
-              port: '1234',
-              password: 'test-password',
-              ttlSecs: 10,
-              db: 0,
-              keyName: 'testkeyname',
-              keyPrefix: 'testkeyprefix',
+              expire,
             }))
           ),
         ],
-        providers: [
-          {
-            provide: RedisService,
-            useValue: {
+        providers: [CacheService],
+      })
+        .useMocker((token) => {
+          if (token === RedisService) {
+            return {
               getClient: () => ({
-                get: jest.fn().mockImplementation(() => ({
-                  statusCode: 200,
-                  data: 'sample_mocked_data',
-                })),
-                set: jest.fn(),
+                get: () => 'sample_key_value_from_mocked_redis_client',
+                set: () => jest.fn(),
+                expire: () => jest.fn(),
               }),
-            },
-          },
-          {
-            provide: LoggerService,
-            useValue: {
-              debug: jest.fn(),
-              log: jest.fn(),
-              setLoggedClass: jest.fn(),
-              setLoggedMethod: jest.fn(),
-            },
-          },
-          CacheService,
-        ],
-      }).compile();
+            };
+          }
+          if (typeof token === 'function') {
+            const mockMetadata = moduleMocker.getMetadata(token);
+            const Mock = moduleMocker.generateFromMetadata(mockMetadata);
+            return new Mock();
+          }
+          return jest.fn();
+        })
+        .compile();
 
-    serviceWithRedisEnabled = (await moduleFactory(true)).get<CacheService>(
+    serviceWithExpireSet = (await moduleFactory(true)).get<CacheService>(
       CacheService
     );
 
-    // serviceWithRedisDisabled = (await moduleFactory(false)).get<CacheService>(
-    //   CacheService
-    // );
+    serviceWithExpireUnset = (await moduleFactory()).get<CacheService>(
+      CacheService
+    );
   });
 
   it('should be defined', () => {
-    expect(serviceWithRedisEnabled).toBeDefined();
+    expect(serviceWithExpireUnset).toBeDefined();
+  });
+
+  it('should get cached value by key', async () => {
+    expect(await serviceWithExpireUnset.get('key')).toMatchSnapshot();
+  });
+
+  it('should set key', async () => {
+    expect(() => serviceWithExpireUnset.set('key', 'foo')).not.toThrow();
+  });
+
+  it('should set expiration if enabled in config', () => {
+    expect(() => serviceWithExpireSet.set('key', 'foo')).not.toThrow();
   });
 });

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CacheService should get cached value by key 1`] = `"sample_key_value_from_mocked_redis_client"`;

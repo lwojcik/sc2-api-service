@@ -9,7 +9,7 @@ import { CacheService } from './cache.service';
   imports: [
     ConfigModule.forFeature(redisConfig),
     RedisModule.forRootAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule.forFeature(redisConfig)],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         readyLog: true,

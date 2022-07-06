@@ -11,11 +11,11 @@ export class BasService {
     private readonly httpService: HttpService
   ) {}
 
-  async getAccessToken() {
+  async getAccessToken(refresh?: boolean) {
     // TODO: consider using Observable here
     const accessToken = await this.httpService.axiosRef.get<{
       accessToken: string;
-    }>(`${this.basConf.url}/accesstoken`);
+    }>(`${this.basConf.url}/accesstoken${refresh ? '?refresh=true' : ''}`);
     return accessToken.data.accessToken;
   }
 }
