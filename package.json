@@ -123,6 +123,7 @@
     "ioredis": "^5.1.0",
     "ioredis-mock": "^8.2.2",
     "jest": "^28.1.2",
+    "jest-mock": "^28.1.1",
     "lint-staged": "^13.0.3",
     "make-cert": "^1.2.1",
     "module-alias": "^2.2.2",

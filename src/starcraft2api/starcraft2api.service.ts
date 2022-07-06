@@ -1,4 +1,4 @@
-import { Inject, Injectable, Scope } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { RequestContext } from 'nestjs-request-context';
 import { StarCraft2API } from 'starcraft2-api';
@@ -14,7 +14,7 @@ import { LoggerService } from '../logger/logger.service';
 import { BattleNetError } from '../common/dto/battlenet-error.dto';
 import { BasService } from '../bas/bas.service';
 
-@Injectable({ scope: Scope.REQUEST })
+@Injectable()
 export class StarCraft2ApiService {
   private starcraft2api: StarCraft2API;
 

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`CacheService should get access token 1`] = `"sample_access_token_from_mocked_redis_cache"`;

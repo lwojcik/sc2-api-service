@@ -14,10 +14,14 @@ Object {
     "jwtSecret": "SAS_AUTH_JWT_SECRET",
     "username": "SAS_AUTH_USERNAME",
   },
+  "BAS": Object {
+    "url": "SAS_BAS_URL",
+  },
   "BATTLENET": Object {
     "clientId": "SAS_BATTLENET_CLIENT_ID",
     "clientSecret": "SAS_BATTLENET_CLIENT_SECRET",
     "region": "SAS_BATTLENET_REGION",
+    "timeoutMs": "SAS_BATTLENET_TIMEOUT_MS",
   },
   "HTTPS": Object {
     "certPath": "SAS_HTTPS_CERT_PATH",
@@ -27,6 +31,7 @@ Object {
   "REDIS": Object {
     "db": "SAS_REDIS_DB",
     "enable": "SAS_REDIS_ENABLE",
+    "expire": "SAS_REDIS_EXPIRE",
     "host": "SAS_REDIS_HOST",
     "keyName": "SAS_REDIS_KEY_NAME",
     "keyPrefix": "SAS_REDIS_KEY_PREFIX",

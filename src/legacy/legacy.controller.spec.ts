@@ -1,5 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { ModuleMocker } from 'jest-mock';
 import { LegacyController } from './legacy.controller';
+
+const moduleMocker = new ModuleMocker(global);
 
 describe('LegacyController', () => {
   let controller: LegacyController;
@@ -7,7 +10,16 @@ describe('LegacyController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [LegacyController],
-    }).compile();
+    })
+      .useMocker((token) => {
+        if (typeof token === 'function') {
+          const mockMetadata = moduleMocker.getMetadata(token);
+          const Mock = moduleMocker.generateFromMetadata(mockMetadata);
+          return new Mock();
+        }
+        return jest.fn();
+      })
+      .compile();
 
     controller = module.get<LegacyController>(LegacyController);
   });

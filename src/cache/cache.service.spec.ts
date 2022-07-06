@@ -6,7 +6,7 @@ import { CacheService } from './cache.service';
 
 describe('CacheService', () => {
   let serviceWithRedisEnabled: CacheService;
-  let serviceWithRedisDisabled: CacheService;
+  // let serviceWithRedisDisabled: CacheService;
 
   beforeEach(async () => {
     const moduleFactory: (redisEnabled: boolean) => Promise<TestingModule> = (
@@ -32,11 +32,10 @@ describe('CacheService', () => {
             provide: RedisService,
             useValue: {
               getClient: () => ({
-                get: jest
-                  .fn()
-                  .mockImplementation(
-                    () => 'sample_access_token_from_mocked_redis_cache'
-                  ),
+                get: jest.fn().mockImplementation(() => ({
+                  statusCode: 200,
+                  data: 'sample_mocked_data',
+                })),
                 set: jest.fn(),
               }),
             },
@@ -58,37 +57,12 @@ describe('CacheService', () => {
       CacheService
     );
 
-    serviceWithRedisDisabled = (await moduleFactory(false)).get<CacheService>(
-      CacheService
-    );
+    // serviceWithRedisDisabled = (await moduleFactory(false)).get<CacheService>(
+    //   CacheService
+    // );
   });
 
   it('should be defined', () => {
     expect(serviceWithRedisEnabled).toBeDefined();
-  });
-
-  it('should get access token', async () => {
-    expect.assertions(1);
-    const accessToken = await serviceWithRedisEnabled.getAccessToken();
-    expect(accessToken).toMatchSnapshot();
-  });
-
-  it('should save access token', async () => {
-    expect.assertions(1);
-    expect(async () => {
-      await serviceWithRedisEnabled.saveAccessToken('sample_access_token');
-    }).not.toThrow();
-  });
-
-  it('should not save access token if Redis is disabled', () => {
-    expect(() => {
-      serviceWithRedisDisabled.saveAccessToken('sample_access_token');
-    }).not.toThrow();
-  });
-
-  it('should get "null" as access token if Redis is disabled', async () => {
-    expect.assertions(1);
-    const accessToken = await serviceWithRedisDisabled.getAccessToken();
-    expect(accessToken).toBeNull();
   });
 });
