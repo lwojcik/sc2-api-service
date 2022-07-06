@@ -10,11 +10,19 @@ export class ProfileService {
   constructor(private readonly dataBroker: DataBrokerService) {}
 
   getStatic(regionDto: RegionDto, refresh?: boolean) {
-    return { regionDto, refresh };
+    return this.dataBroker.getData({
+      key: DATA_KEYS.profile.getStatic,
+      args: regionDto,
+      refresh,
+    });
   }
 
   getMetadata(profileDto: ProfileDto, refresh?: boolean) {
-    return { profileDto, refresh };
+    return this.dataBroker.getData({
+      key: DATA_KEYS.profile.getMetadata,
+      args: profileDto,
+      refresh,
+    });
   }
 
   getProfile(profileDto: ProfileDto, refresh?: boolean) {
@@ -26,10 +34,18 @@ export class ProfileService {
   }
 
   getLadderSummary(profileDto: ProfileDto, refresh?: boolean) {
-    return { profileDto, refresh };
+    return this.dataBroker.getData({
+      key: DATA_KEYS.profile.getLadderSummary,
+      args: profileDto,
+      refresh,
+    });
   }
 
   getPlayerLadder(individualLadderDto: IndividualLadderDto, refresh?: boolean) {
-    return { individualLadderDto, refresh };
+    return this.dataBroker.getData({
+      key: DATA_KEYS.profile.getPlayerLadder,
+      args: individualLadderDto,
+      refresh,
+    });
   }
 }

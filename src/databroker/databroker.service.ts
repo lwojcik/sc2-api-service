@@ -33,10 +33,13 @@ export class DataBrokerService {
     return this.cacheService.set(key, value);
   }
 
-  private async getDataAndRefreshCache(key: string, args: unknown) {
+  private async getDataAndRefreshCache<T = unknown>(
+    key: string,
+    args: unknown
+  ) {
     this.logger.debug('Getting data from Battle.net...');
 
-    const dataFromApi = await this.starCraft2ApiService.get(key, args);
+    const dataFromApi = await this.starCraft2ApiService.get<T>(key, args);
     const dataKey = this.getDataKey(key, args);
 
     this.logger.debug(`Using data key: ${dataKey}`);
@@ -54,10 +57,10 @@ export class DataBrokerService {
       );
       this.logger.debug('New data cached!');
     }
-    return dataFromApi;
+    return dataFromApi as unknown as T;
   }
 
-  async getData({ key, args }: GetDataDto, refresh = false) {
+  async getData<T = unknown>({ key, args }: GetDataDto, refresh = false) {
     const dataKey = this.getDataKey(key, args);
     this.logger.debug(`Using data key: ${dataKey}`);
 
@@ -67,7 +70,7 @@ export class DataBrokerService {
       this.logger.debug(
         'No cached data or refresh was triggered - getting fresh data...'
       );
-      return this.getDataAndRefreshCache(key, args);
+      return this.getDataAndRefreshCache<T>(key, args);
     }
 
     const parsedData = JSON.parse(cachedObject);
@@ -77,9 +80,12 @@ export class DataBrokerService {
 
     if (staleData) {
       this.logger.debug('Cached data is stale - getting fresh data...');
-      this.getDataAndRefreshCache(key, args);
+      this.getDataAndRefreshCache<T>(key, args);
     }
 
-    return cachedObject;
+    return {
+      statusCode: parsedData.statusCode,
+      data: parsedData.data,
+    } as unknown as T;
   }
 }
