@@ -45,7 +45,6 @@ export class DataBrokerService {
       dataFromApi.statusCode === 200 &&
       !((dataFromApi as ApiData).data as unknown as { error: string }).error
     ) {
-      this.logger.debug('Caching data...');
       this.cacheData(
         dataKey,
         JSON.stringify({
@@ -53,6 +52,7 @@ export class DataBrokerService {
           ...dataFromApi,
         })
       );
+      this.logger.debug('New data cached!');
     }
     return dataFromApi;
   }
