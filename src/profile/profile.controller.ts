@@ -10,9 +10,7 @@ export class ProfileController {
   constructor(
     private readonly profileService: ProfileService,
     private readonly logger: LoggerService
-  ) {
-    this.logger.setLoggedClass(ProfileController.name);
-  }
+  ) {}
 
   @Get('/static/:regionId')
   @ApiOperation({
@@ -24,9 +22,6 @@ export class ProfileController {
     @Param('regionId') regionId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getStatic.name, { regionId, refresh });
-    this.logger.debug();
-
     return this.profileService.getStatic({ regionId }, refresh);
   }
 
@@ -41,19 +36,14 @@ export class ProfileController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profile = {
-      regionId,
-      realmId,
-      profileId,
-    };
-
-    this.logger.setLoggedMethod(this.getMetadata.name, {
-      ...profile,
-      refresh,
-    });
-    this.logger.debug();
-
-    return this.profileService.getMetadata(profile, refresh);
+    return this.profileService.getMetadata(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/profile/:regionId/:realmId/:profileId')
@@ -67,19 +57,14 @@ export class ProfileController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profile = {
-      regionId,
-      realmId,
-      profileId,
-    };
-
-    this.logger.setLoggedMethod(this.getProfile.name, {
-      ...profile,
-      refresh,
-    });
-    this.logger.debug();
-
-    return this.profileService.getProfile(profile, refresh);
+    return this.profileService.getProfile(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/laddersummary/:regionId/:realmId/:profileId')
@@ -93,19 +78,14 @@ export class ProfileController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profile = {
-      regionId,
-      realmId,
-      profileId,
-    };
-
-    this.logger.setLoggedMethod(this.getLadderSummary.name, {
-      ...profile,
-      refresh,
-    });
-    this.logger.debug();
-
-    return this.profileService.getLadderSummary(profile, refresh);
+    return this.profileService.getLadderSummary(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/ladder/:regionId/:realmId/:profileId/:ladderId')
@@ -131,7 +111,6 @@ export class ProfileController {
       ...profileOnLadder,
       refresh,
     });
-    this.logger.debug();
 
     return this.profileService.getPlayerLadder(profileOnLadder, refresh);
   }

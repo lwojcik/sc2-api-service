@@ -5,6 +5,7 @@ import { CacheService } from '../cache/cache.service';
 import { LoggerService } from '../logger/logger.service';
 import { GetDataDto } from './dto/get-data.dto';
 import { redisConfig } from '../config';
+import { ApiData } from '../common/types';
 
 @Injectable()
 export class DataBrokerService {
@@ -14,14 +15,9 @@ export class DataBrokerService {
     @Inject(redisConfig.KEY)
     private readonly redisConf: ConfigType<typeof redisConfig>,
     private readonly logger: LoggerService
-  ) {
-    this.logger.setLoggedClass(DataBrokerService.name);
-  }
+  ) {}
 
   private getDataKey(key: string, args: unknown) {
-    this.logger.setLoggedMethod(this.getDataKey.name, { key, args });
-    this.logger.debug();
-
     const argString = Object.values(args).join(':');
     const dataKey = `:${key}:${argString}`;
 
@@ -30,33 +26,25 @@ export class DataBrokerService {
   }
 
   private getDataFromCache(key: string) {
-    this.logger.setLoggedMethod(this.getDataFromCache.name, key);
-    this.logger.debug();
     return this.cacheService.get(key);
   }
 
-  private getDataFromBattleNet(key: string, args: unknown) {
-    this.logger.setLoggedMethod(this.getDataFromBattleNet.name, key);
-    this.logger.debug();
-    return this.starCraft2ApiService.get(key, args);
-  }
-
   private cacheData(key: string, value: string) {
-    this.logger.setLoggedMethod(this.cacheData.name, { key });
-    this.logger.debug();
     return this.cacheService.set(key, value);
   }
 
   private async getDataAndRefreshCache(key: string, args: unknown) {
-    this.logger.setLoggedMethod(this.getDataAndRefreshCache.name);
-    this.logger.debug();
     this.logger.debug('Getting data from Battle.net...');
 
-    const dataFromApi = await this.getDataFromBattleNet(key, args);
+    const dataFromApi = await this.starCraft2ApiService.get(key, args);
     const dataKey = this.getDataKey(key, args);
+
     this.logger.debug(`Using data key: ${dataKey}`);
 
-    if (dataFromApi.statusCode === 200) {
+    if (
+      dataFromApi.statusCode === 200 &&
+      !((dataFromApi as ApiData).data as unknown as { error: string }).error
+    ) {
       this.logger.debug('Caching data...');
       this.cacheData(
         dataKey,
@@ -70,9 +58,6 @@ export class DataBrokerService {
   }
 
   async getData({ key, args }: GetDataDto, refresh = false) {
-    this.logger.setLoggedMethod(this.getData.name, { key, args });
-    this.logger.debug();
-
     const dataKey = this.getDataKey(key, args);
     this.logger.debug(`Using data key: ${dataKey}`);
 

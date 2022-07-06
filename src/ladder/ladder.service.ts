@@ -1,24 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { DataBrokerService } from '../databroker/databroker.service';
+import { DATA_KEYS } from '../common/constants';
 import { RegionDto } from '../common/dto/region.dto';
-import { LoggerService } from '../logger/logger.service';
 
 @Injectable()
 export class LadderService {
-  constructor(private readonly logger: LoggerService) {
-    this.logger.setLoggedClass(LadderService.name);
-  }
+  constructor(private readonly dataBroker: DataBrokerService) {}
 
   getGrandmaster(regionDto: RegionDto, refresh?: boolean) {
-    this.logger.setLoggedMethod(this.getGrandmaster.name);
-    this.logger.debug();
-
-    return { regionDto, refresh };
+    return this.dataBroker.getData({
+      key: DATA_KEYS.ladder.getGrandmaster,
+      args: regionDto.regionId,
+      refresh,
+    });
   }
 
   getSeason(regionDto: RegionDto, refresh?: boolean) {
-    this.logger.setLoggedMethod(this.getSeason.name);
-    this.logger.debug();
-
-    return { regionDto, refresh };
+    return this.dataBroker.getData({
+      key: DATA_KEYS.ladder.getSeason,
+      args: regionDto.regionId,
+      refresh,
+    });
   }
 }

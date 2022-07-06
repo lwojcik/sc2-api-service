@@ -1,18 +1,12 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
-import { LoggerService } from '../logger/logger.service';
 import { LegacyService } from './legacy.service';
 
 @ApiTags('legacy')
 @Controller('legacy')
 export class LegacyController {
-  constructor(
-    private readonly legacyService: LegacyService,
-    private readonly logger: LoggerService
-  ) {
-    this.logger.setLoggedClass(LegacyController.name);
-  }
+  constructor(private readonly legacyService: LegacyService) {}
 
   @Get('/profile/:regionId/:realmId/:profileId')
   @ApiOperation({
@@ -25,18 +19,14 @@ export class LegacyController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profile = {
-      regionId,
-      realmId,
-      profileId,
-    };
-
-    this.logger.setLoggedMethod(this.getProfile.name, {
-      ...profile,
-      refresh,
-    });
-
-    return this.legacyService.getProfile(profile, refresh);
+    return this.legacyService.getProfile(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/ladders/:regionId/:realmId/:profileId')
@@ -50,18 +40,14 @@ export class LegacyController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profile = {
-      regionId,
-      realmId,
-      profileId,
-    };
-
-    this.logger.setLoggedMethod(this.getLadders.name, {
-      ...profile,
-      refresh,
-    });
-
-    return this.legacyService.getLadders(profile, refresh);
+    return this.legacyService.getLadders(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/matches/:regionId/:realmId/:profileId')
@@ -75,18 +61,14 @@ export class LegacyController {
     @Param('profileId') profileId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    const profile = {
-      regionId,
-      realmId,
-      profileId,
-    };
-
-    this.logger.setLoggedMethod(this.getMatches.name, {
-      ...profile,
-      refresh,
-    });
-
-    return this.legacyService.getMatches(profile, refresh);
+    return this.legacyService.getMatches(
+      {
+        regionId,
+        realmId,
+        profileId,
+      },
+      refresh
+    );
   }
 
   @Get('/ladder/:ladderId')
@@ -98,8 +80,6 @@ export class LegacyController {
     @Param('ladderId') ladderId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getLadder.name, { ladderId, refresh });
-
     return this.legacyService.getLadder({ ladderId }, refresh);
   }
 
@@ -112,11 +92,6 @@ export class LegacyController {
     @Param('regionId') regionId: string,
     @Query('refresh') refresh?: boolean
   ) {
-    this.logger.setLoggedMethod(this.getAchievements.name, {
-      regionId,
-      refresh,
-    });
-
     return this.legacyService.getAchievements({ regionId }, refresh);
   }
 }

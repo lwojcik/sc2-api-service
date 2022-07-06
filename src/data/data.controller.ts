@@ -1,19 +1,12 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
-import { LoggerService } from '../logger/logger.service';
 import { DataService } from './data.service';
-import { GetLeagueDto } from './dto/get-league.dto';
 
 @ApiTags('data')
 @Controller('data')
 export class DataController {
-  constructor(
-    private readonly dataService: DataService,
-    private readonly logger: LoggerService
-  ) {
-    this.logger.setLoggedClass(DataController.name);
-  }
+  constructor(private readonly dataService: DataService) {}
 
   @Get('/league/:seasonId/:queueId/:teamType/:leagueId')
   @ApiOperation({
@@ -42,19 +35,14 @@ export class DataController {
     @Param('leagueId') leagueId: number,
     @Query('refresh') refresh?: boolean
   ) {
-    const league: GetLeagueDto = {
-      seasonId,
-      queueId,
-      teamType,
-      leagueId,
-    };
-
-    this.logger.setLoggedMethod(this.getLeague.name, {
-      ...league,
-      refresh,
-    });
-    this.logger.debug();
-
-    return this.dataService.getLeague(league, refresh);
+    return this.dataService.getLeague(
+      {
+        seasonId,
+        queueId,
+        teamType,
+        leagueId,
+      },
+      refresh
+    );
   }
 }

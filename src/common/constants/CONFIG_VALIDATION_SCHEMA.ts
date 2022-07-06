@@ -62,6 +62,8 @@ const redisSchema = {
 const battlenetSchema = {
   [BATTLENET.region]: Joi.string().required().custom(validateRegionName),
   [BATTLENET.timeoutMs]: Joi.string().optional(),
+  [BATTLENET.clientId]: Joi.string().required(),
+  [BATTLENET.clientSecret]: Joi.string().required(),
 };
 
 const throttleSchema = {
@@ -99,8 +101,6 @@ const httpsSchema = {
 
 const basSchema = {
   [BAS.url]: Joi.string().required(),
-  [BAS.clientId]: Joi.string().required(),
-  [BAS.clientSecret]: Joi.string().required(),
 };
 
 export const CONFIG_VALIDATION_SCHEMA = Joi.object({

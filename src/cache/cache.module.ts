@@ -4,12 +4,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { redisConfig } from '../config';
 import { REDIS } from '../common/constants';
 import { CacheService } from './cache.service';
-import { LoggerModule } from '../logger/logger.module';
 
 @Module({
   imports: [
     ConfigModule.forFeature(redisConfig),
-    LoggerModule,
     RedisModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

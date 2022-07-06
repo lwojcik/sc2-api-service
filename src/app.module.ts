@@ -5,7 +5,6 @@ import { APP_GUARD } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AUTH, CONFIG_VALIDATION_SCHEMA, THROTTLE } from './common/constants';
 import { StatusModule } from './status/status.module';
-import { LoggerModule } from './logger/logger.module';
 import { MainModule } from './main/main.module';
 import { endpointsConfig, redisConfig } from './config';
 import { AuthModule } from './auth/auth.module';
@@ -35,7 +34,6 @@ import { LegacyModule } from './legacy/legacy.module';
       }),
     }),
     AuthModule,
-    LoggerModule,
     MainModule,
     StatusModule,
     ProfileModule,

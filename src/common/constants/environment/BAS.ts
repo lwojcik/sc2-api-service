@@ -10,6 +10,4 @@ const prop = (name: string) =>
 
 export const BAS = {
   url: prop(BasEnvVariable.url),
-  clientId: prop(BasEnvVariable.clientId),
-  clientSecret: prop(BasEnvVariable.clientSecret),
 };

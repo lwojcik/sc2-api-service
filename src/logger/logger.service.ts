@@ -1,18 +1,8 @@
 /* istanbul ignore file */
-import { Injectable, Scope } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
-import { APP } from '../common/constants';
-import { Environment } from '../common/types';
 
-@Injectable({
-  scope:
-    // eslint-disable-next-line no-nested-ternary
-    process.env[APP.environment] !== Environment.production
-      ? process.env[APP.environment] === Environment.test
-        ? Scope.DEFAULT
-        : Scope.TRANSIENT
-      : Scope.DEFAULT,
-})
+@Injectable()
 export class LoggerService {
   private loggedClass: string;
 
@@ -55,13 +45,8 @@ export class LoggerService {
     return this.pinoLogger.error(obj);
   }
 
-  public debug(msg?: unknown, ...args: unknown[]) {
-    if (this.isPrefixSet()) {
-      this.pinoLogger.debug(
-        `${this.getPrefix()}${msg ? `: ${msg}` : ''}`,
-        args
-      );
-    }
+  public debug(msg: string) {
+    this.pinoLogger.debug(msg);
   }
 
   public warn(msg: unknown) {

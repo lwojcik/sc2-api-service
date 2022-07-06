@@ -5,6 +5,4 @@ const { env } = process;
 
 export const basConfig = registerAs('bas', () => ({
   url: env[BAS.url],
-  clientId: env[BAS.clientId],
-  clientSecret: env[BAS.clientSecret],
 }));

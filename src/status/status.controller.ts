@@ -7,7 +7,6 @@ import {
   ApiTooManyRequestsResponse,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { LoggerService } from '../logger/logger.service';
 import { ApiResponse } from '../common/types';
 import { StatusResponse } from './dto/status-response.dto';
 import { StatusService } from './status.service';
@@ -17,12 +16,7 @@ import { UnauthorizedError } from '../common/dto/unauthorized-error.dto';
 @ApiTags('status')
 @Controller('status')
 export class StatusController {
-  constructor(
-    private readonly statusService: StatusService,
-    private readonly logger: LoggerService
-  ) {
-    this.logger.setLoggedClass(StatusController.name);
-  }
+  constructor(private readonly statusService: StatusService) {}
 
   @Get()
   @ApiOperation({ summary: 'Check app health and uptime' })
@@ -42,8 +36,6 @@ export class StatusController {
     type: TooManyRequestsError,
   })
   getStatus() {
-    this.logger.setLoggedMethod(this.getStatus.name);
-    this.logger.debug();
     return this.statusService.getStatus();
   }
 }
