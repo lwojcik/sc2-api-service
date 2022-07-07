@@ -24,7 +24,7 @@ services:
 
   bas:
     image: 'sc2pte/bnet-auth-service:2'
-    restart: on-failure
+    restart: on-failure:5
     ports:
       - 3001:3001
     environment:
