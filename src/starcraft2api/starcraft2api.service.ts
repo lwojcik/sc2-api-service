@@ -27,19 +27,20 @@ export class StarCraft2ApiService {
     private readonly logger: LoggerService
   ) {}
 
-  async setupSc2Api() {
-    const accessToken = await this.basService.getAccessToken();
-    this.accessToken = accessToken;
+  private refreshAccessToken(newAccessToken: string) {
+    this.accessToken = newAccessToken;
+  }
 
+  private async setupSc2Api() {
     this.starcraft2api = new StarCraft2API({
       region: this.battleNetConf.region,
       clientId: this.battleNetConf.clientId,
       clientSecret: this.battleNetConf.clientSecret,
-      accessToken: this.accessToken, // await this.basService.getAccessToken()?
+      accessToken: await this.basService.getAccessToken(),
       timeoutMs: this.battleNetConf.timeoutMs,
       refreshExpiredAccessToken: true,
       onAccessTokenRefresh: (newAccessToken) => {
-        this.accessToken = newAccessToken;
+        this.refreshAccessToken(newAccessToken);
       },
     });
   }

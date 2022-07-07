@@ -12,7 +12,6 @@ export class BasService {
   ) {}
 
   async getAccessToken(refresh?: boolean) {
-    // TODO: consider using Observable here
     const accessToken = await this.httpService.axiosRef.get<{
       accessToken: string;
     }>(`${this.basConf.url}/accesstoken${refresh ? '?refresh=true' : ''}`);
