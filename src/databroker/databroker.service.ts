@@ -76,7 +76,7 @@ export class DataBrokerService {
     const parsedData = JSON.parse(cachedObject);
     const now = Math.floor(Date.now() / 1000);
     const staleData =
-      now - Number(parsedData?.created) >= this.redisConf.ttlSecs;
+      now - Number(parsedData.created) >= this.redisConf.ttlSecs;
 
     if (staleData) {
       this.logger.debug('Cached data is stale - getting fresh data...');

@@ -18,13 +18,16 @@ describe('DataBrokerService', () => {
         if (token === CacheService) {
           return {
             get: () =>
-              Promise.resolve({
-                statusCode: 200,
-                created: 1,
-                data: {
-                  foo: 'sample_data_from_cache',
-                },
-              }),
+              Promise.resolve(
+                JSON.stringify({
+                  statusCode: 200,
+                  created: 1,
+                  data: {
+                    foo: 'sample_data_from_cache',
+                  },
+                })
+              ),
+            set: () => true,
           };
         }
         if (token === StarCraft2ApiService) {
