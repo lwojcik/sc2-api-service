@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataService should get league data 1`] = `
+Object {
+  "data": Object {
+    "prop": "sample_league_data_from_mock",
+  },
+  "status": 200,
+}
+`;
