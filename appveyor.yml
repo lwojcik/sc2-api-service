@@ -9,6 +9,7 @@ environment:
   SAS_BATTLENET_REGION: us
   SAS_BATTLENET_CLIENT_ID: test-client-id
   SAS_BATTLENET_CLIENT_SECRET: test-client-secret
+  SAS_BAS_URL: http://sampleurl
 
 skip_tags: true
 
