@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataController should get league data 1`] = `
+Object {
+  "data": Object {
+    "foo": "sample_getleague_data_from_mock",
+  },
+  "status": 200,
+}
+`;
