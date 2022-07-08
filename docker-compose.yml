@@ -1,0 +1,38 @@
+services:
+  sc2-api-service:
+    container_name: sc2-api-service
+    restart: on-failure:5
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - ${SAS_APP_PORT}:${SAS_APP_PORT}
+    command: npm run start:dev
+    env_file: .env
+    depends_on:
+      - redis
+      - bas
+
+  redis:
+    image: 'redis:alpine'
+    restart: on-failure:5
+    ports:
+      - ${SAS_REDIS_PORT}:${SAS_REDIS_PORT}
+
+  bas:
+    image: 'sc2pte/bnet-auth-service:2'
+    restart: on-failure:5
+    ports:
+      - 3001:3001
+    environment:
+      - NODE_ENV=production
+      - BAS_APP_PORT=3001
+      - BAS_BATTLENET_REGION=${SAS_BATTLENET_REGION}
+      - BAS_BATTLENET_CLIENT_ID=${SAS_BATTLENET_CLIENT_ID}
+      - BAS_BATTLENET_CLIENT_SECRET=${SAS_BATTLENET_CLIENT_SECRET}
+      - BAS_REDIS_ENABLE=true
+      - BAS_REDIS_HOST=${SAS_REDIS_HOST}
+      - BAS_REDIS_DB=1

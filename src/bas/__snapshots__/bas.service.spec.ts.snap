@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasService should get access token 1`] = `"sample_access_token_from_httpservice_mock"`;
+
+exports[`BasService should get refreshed access token 1`] = `"sample_access_token_from_httpservice_mock"`;

@@ -1,0 +1,17 @@
+export enum StarCraft2ApiMethod {
+  queryStaticProfileData = 'queryStaticProfileData',
+  queryProfileMetadata = 'queryProfileMetadata',
+  queryProfile = 'queryProfile',
+  queryLadderSummary = 'queryLadderSummary',
+  queryPlayerLadder = 'queryPlayerLadder',
+  queryGrandmasterLeaderboard = 'queryGrandmasterLeaderboard',
+  queryLeagueData = 'queryLeagueData',
+  querySeason = 'querySeason',
+  queryPlayerAccount = 'queryPlayerAccount',
+  queryLegacyProfile = 'queryLegacyProfile',
+  queryLegacyLadders = 'queryLegacyLadders',
+  queryLegacyMatchHistory = 'queryLegacyMatchHistory',
+  queryLegacyLadder = 'queryLegacyLadder',
+  queryLegacyAchievements = 'queryLegacyAchievements',
+  queryLegacyRewards = 'queryLegacyRewards',
+}

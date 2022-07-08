@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`environment constants should be defined 1`] = `
+Object {
+  "APP": Object {
+    "corsOrigin": "SAS_APP_CORS_ORIGIN",
+    "enableCors": "SAS_APP_CORS_ENABLE",
+    "environment": "NODE_ENV",
+    "host": "SAS_APP_HOST",
+    "port": "SAS_APP_PORT",
+  },
+  "AUTH": Object {
+    "enable": "SAS_AUTH_ENABLE",
+    "jwtSecret": "SAS_AUTH_JWT_SECRET",
+    "username": "SAS_AUTH_USERNAME",
+  },
+  "BAS": Object {
+    "url": "SAS_BAS_URL",
+  },
+  "BATTLENET": Object {
+    "clientId": "SAS_BATTLENET_CLIENT_ID",
+    "clientSecret": "SAS_BATTLENET_CLIENT_SECRET",
+    "region": "SAS_BATTLENET_REGION",
+    "timeoutMs": "SAS_BATTLENET_TIMEOUT_MS",
+  },
+  "HTTPS": Object {
+    "certPath": "SAS_HTTPS_CERT_PATH",
+    "enable": "SAS_HTTPS_ENABLE",
+    "keyPath": "SAS_HTTPS_KEY_PATH",
+  },
+  "REDIS": Object {
+    "db": "SAS_REDIS_DB",
+    "enable": "SAS_REDIS_ENABLE",
+    "expire": "SAS_REDIS_EXPIRE",
+    "host": "SAS_REDIS_HOST",
+    "keyName": "SAS_REDIS_KEY_NAME",
+    "keyPrefix": "SAS_REDIS_KEY_PREFIX",
+    "password": "SAS_REDIS_PASSWORD",
+    "port": "SAS_REDIS_PORT",
+    "ttlSecs": "SAS_REDIS_TTL_SECS",
+  },
+  "THROTTLE": Object {
+    "enable": "SAS_THROTTLE_ENABLE",
+    "limit": "SAS_THROTTLE_LIMIT",
+    "ttlSecs": "SAS_THROTTLE_TTL_SECS",
+  },
+}
+`;

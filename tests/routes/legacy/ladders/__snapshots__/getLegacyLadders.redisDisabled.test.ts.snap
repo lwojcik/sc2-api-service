@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/legacy/ladders/:regionId/:realmId/:profileId (Redis disabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"currentSeason\\":[{\\"ladder\\":[{\\"ladderName\\":\\"sample legacy ladders object\\",\\"ladderId\\":\\"\\",\\"division\\":\\"\\",\\"rank\\":\\"\\",\\"wins\\":\\"\\",\\"losses\\":\\"\\"}]}]}}"`;

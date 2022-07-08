@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`/legacy/achievements/:regionId (Redis enabled) response is cached correctly 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"title\\":\\"sample legacy achievement\\"}]}}"`;
-
-exports[`/legacy/achievements/:regionId (Redis enabled) returns correct response 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"title\\":\\"sample legacy achievement\\",\\"description\\":\\"\\",\\"achievementId\\":\\"\\",\\"categoryId\\":\\"\\",\\"points\\":\\"\\"}]}}"`;
-
-exports[`/legacy/achievements/:regionId (Redis enabled) returns correct response when refresh is set to true 1`] = `"{\\"status\\":200,\\"data\\":{\\"achievements\\":[{\\"title\\":\\"sample legacy achievement\\",\\"description\\":\\"\\",\\"achievementId\\":\\"\\",\\"categoryId\\":\\"\\",\\"points\\":\\"\\"}]}}"`;
