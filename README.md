@@ -149,10 +149,10 @@ If wrong credentials are used, the service will return 200 OK response with the 
 
 All endpoints return data in a following format:
 
-```
+```json
 {
-  status:200,
-  data: {
+  "statusCode": 200,
+  "data": {
     // data from Battle.net API
   }
 }
