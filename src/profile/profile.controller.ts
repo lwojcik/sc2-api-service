@@ -1,7 +1,9 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiResponse } from '../common/types';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
 import { ProfileService } from './profile.service';
+import { UseCommonErrorResponses } from '../common/decorators/common-error-responses.decorator';
 
 @ApiTags('profile')
 @Controller('profile')
@@ -13,6 +15,10 @@ export class ProfileController {
     summary:
       'Returns all static SC2 profile data (achievements, categories, criteria, and rewards).',
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getStatic(
     @Param('regionId') regionId: string,
@@ -25,6 +31,10 @@ export class ProfileController {
   @ApiOperation({
     summary: "Returns metadata for an individual's profile.",
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getMetadata(
     @Param('regionId') regionId: string,
@@ -46,6 +56,10 @@ export class ProfileController {
   @ApiOperation({
     summary: 'Returns data about an individual SC2 profile.',
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getProfile(
     @Param('regionId') regionId: string,
@@ -67,6 +81,10 @@ export class ProfileController {
   @ApiOperation({
     summary: 'Returns a ladder summary for an individual SC2 profile.',
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getLadderSummary(
     @Param('regionId') regionId: string,
@@ -88,6 +106,10 @@ export class ProfileController {
   @ApiOperation({
     summary: "Returns data about an individual profile's ladder.",
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getPlayerLadder(
     @Param('regionId') regionId: string,

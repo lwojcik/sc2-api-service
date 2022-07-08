@@ -1,5 +1,7 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiResponse } from '../common/types';
+import { UseCommonErrorResponses } from '../common/decorators/common-error-responses.decorator';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
 import { DataService } from './data.service';
 
@@ -12,21 +14,10 @@ export class DataController {
   @ApiOperation({
     summary: 'Get data for the specified season, queue, team, and league.',
   })
-  // @ApiOkResponse({
-  //   description: ApiResponse.ok,
-  //   type: StatusResponse,
-  // })
-  // @ApiBadRequestResponse({
-  //   description: ApiResponse.badRequest,
-  // })
-  // @ApiUnauthorizedResponse({
-  //   description: ApiResponse.unauthorized,
-  //   type: UnauthorizedError,
-  // })
-  // @ApiTooManyRequestsResponse({
-  //   description: ApiResponse.tooManyRequests,
-  //   type: TooManyRequestsError,
-  // })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getLeague(
     @Param('seasonId') seasonId: number,

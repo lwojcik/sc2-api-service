@@ -5,11 +5,11 @@
 
 **This is version 2 of the project and it's incompatible with previous version. If you're looking for the previous version, head to [v1 branch](https://github.com/sc2pte/sc2-api-service/tree/v1).**
 
-REST microservice retrieving and caching OAuth access tokens from [Blizzard Battle.net API](https://develop.battle.net/).
+REST API service retrieving and caching data objects from [StarCraft II Community APIs](https://develop.battle.net/documentation/starcraft-2/community-apis) and [StarCraft II Game Data APIs](https://develop.battle.net/documentation/starcraft-2/game-data-apis).
 
 Under the hood it uses [NestJS](https://nestjs.com/), [Fastify](https://www.fastify.io/) and [BlizzAPI](https://www.npmjs.com/package/blizzapi).
 
-While the primary purpose for this service is to be run inside secure API infrastructure, it can be configured to run standalone and be exposed to the public internet with modest level of security. However, be informed that access tokens are intimate parts of OAuth authentication process and they should not run in the wild. It is your responsibility to keep your service as secure as possible. :)
+While the primary purpose for this service is to be run inside secure API infrastructure, it can be configured to run standalone and be exposed to the public internet with modest level of security. However, be informed that it is your responsibility to keep your service as secure as possible. :)
 
 ## Setup
 
@@ -57,13 +57,14 @@ General app setup necessary to launch the service.
 - `SAS_APP_CORS_ENABLE` - enable CORS (default: `false`)
 - `SAS_APP_CORS_ORIGIN` - allowed CORS origin if CORS is enabled, optional
 
-### Battle.net setup
+### Battle.net and bnet-auth-service setup
 
 This part of setup is mandatory. To obtain Battle.net API credentials log in to [Blizzard Battle.net Developer Portal](https://develop.battle.net/access/).and [create a new client](https://develop.battle.net/access/clients/create).
 
 - `SAS_BATTLENET_REGION` - Battle.net API region to authorize against (`'us'`, `'eu'`, `'kr'` or `'ch'`, required). API credentials and generated access tokens are valid across all regions.
-- `SAS_BATTLENET_CLIENT_ID` = Battle.net API application key
+- `SAS_BATTLENET_CLIENT_ID` - Battle.net API application key
 - `SAS_BATTLENET_CLIENT_SECRET` - Battle.net API application secret
+- `SAS_BAS_URL` - URL to [bnet-auth-service](https://github.com/sc2pte/bnet-auth-service) instance used for rotating OAuth access tokens
 
 ### Redis setup
 
@@ -125,62 +126,11 @@ Service can run in HTTPS mode using provided key and certificate.
 - `SAS_HTTPS_KEY_PATH` - path to HTTPS signing key (example: `certs/localhost.key`)
 - `SAS_HTTPS_CERT_PATH` - path to HTTPS certificate (example: `certs/localhost.pem`)
 
-## Available endpoints
-
-### `GET /`
-
-General information about the service.
-
-```json
-{
-  "name": "sc2-api-service",
-  "version": "2.0.0",
-  "caching": true,
-  "endpoints": {
-    "status": {
-      "url": "/status"
-      "method": "GET"
-    },
-    "accesstoken": {
-      "url": "/accesstoken",
-      "method": "GET"
-    },
-    "accesstokenrefresh": {
-      "url": "/accesstoken?refresh=true",
-      "method": "GET"
-      }
-    }
-  }
-```
-
-### `GET /status`
-
-Information on service health.
-
-```json
-{
-  "status": "ok",
-  "uptime": "00:05:05.313",
-  "timestamp": "2022-07-01T18:39:06.828Z"
-}
-```
-
-### `GET /accessToken`
-
-Get access token either (1) from Redis cache if there is cached access token available or (2) directly from Battle.net API and cache it in Redis store.
+### Caching mechanism
 
 If `SAS_REDIS_ENABLE` is set to `false`, this endpoint always queries Battle.net API for a new access token.
 
 If `SAS_REDIS_ENABLE` is set to `true`, each access token obtained from Battle.net API is cached in Redis store.
-
-`source` property returns one of two values: `battlenet` or `cache`, depending on where the access token was obtained from.
-
-```json
-{
-  "accessToken": "<access token here>",
-  "source": "cache"
-}
-```
 
 If wrong credentials are used, the service will return 200 OK response with the following body:
 
@@ -195,18 +145,76 @@ If wrong credentials are used, the service will return 200 OK response with the 
 
 `id` is the request identifier than can be used to find the error in service logs.
 
-### `GET /accessToken?refresh=true`
+## Available endpoints
 
-Get access token from Battle.net API regardless of Redis cache state and cache it.
+All endpoints return data in a following format:
 
-This method is meant as a fallback for service consumers to use when access token returned from previous request turns out to be invalid or expired.
-
-```json
+```
 {
-  "accessToken": "<access token here>",
-  "source": "battlenet"
+  status:200,
+  data: {
+    // data from Battle.net API
+  }
 }
 ```
+
+Adding `refresh=true` to endpoint URL (example: `/profile/static/?refresh=true`) forces the service to query and cache new data from Battle.net API regardless of cache state.
+
+### `GET /status`
+
+Returns `{ status: 200, message: "ok" }` if the service is up and running.
+
+### `GET /profile/static/:regionId`
+
+Returns all static SC2 profile data (achievements, categories, criteria, and rewards).
+
+### `GET /profile/metadata/:regionId/:realmId/:profileId`
+
+Returns metadata for an individual's profile.
+
+### `GET /profile/profile/:regionId/:realmId/:profileId`
+
+Returns data about an individual SC2 profile.
+
+### `GET /profile/ladderSummary/:regionId/:realmId/:profileId`
+
+Returns a ladder summary for an individual SC2 profile.
+
+### `GET /profile/ladder/:regionId/:realmId/:profileId/:ladderId`
+
+Returns data about an individual profile's ladder.
+
+### `GET /ladder/grandmaster/:regionId`
+
+Returns ladder data for the current season's grandmaster leaderboard.
+
+### `GET /data/league/:seasonId/:queueId/:teamType/:leagueId`
+
+Returns data for the specified season, queue, team, and league.
+
+### `GET /legacy/profile/:regionId/:realmId/:profileId`
+
+Retrieves data about an individual SC2 profile (legacy).
+
+### `GET /legacy/ladders/:regionId/:realmId/:profileId`
+
+Retrieves data about an individual SC2 profile's ladders (legacy).
+
+### `GET /legacy/matches/:regionId/:realmId/:profileId`
+
+Returns data about an individual SC2 profile's match history (legacy).
+
+### `GET /legacy/ladder/:ladderId`
+
+Returns data about an individual SC2 ladder (legacy).
+
+### `GET /legacy/achievements/:ladderId`
+
+Returns data about the achievements available in SC2 (legacy).
+
+### `GET /legacy/rewards/:ladderId`
+
+Returns data about the rewards available in SC2 (legacy).
 
 ## Swagger
 

@@ -1,7 +1,9 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiResponse } from '../common/types';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
 import { LegacyService } from './legacy.service';
+import { UseCommonErrorResponses } from '../common/decorators/common-error-responses.decorator';
 
 @ApiTags('legacy')
 @Controller('legacy')
@@ -12,6 +14,10 @@ export class LegacyController {
   @ApiOperation({
     summary: 'Returns data about an individual SC2 profile',
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getProfile(
     @Param('regionId') regionId: string,
@@ -33,6 +39,10 @@ export class LegacyController {
   @ApiOperation({
     summary: "Returns data about an individual SC2 profile's ladders",
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getLadders(
     @Param('regionId') regionId: string,
@@ -54,6 +64,10 @@ export class LegacyController {
   @ApiOperation({
     summary: "Returns data about an individual SC2 profile's match history.",
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getMatches(
     @Param('regionId') regionId: string,
@@ -75,6 +89,10 @@ export class LegacyController {
   @ApiOperation({
     summary: 'Returns data about an individual SC2 ladder.',
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getLadder(
     @Param('ladderId') ladderId: string,
@@ -87,6 +105,10 @@ export class LegacyController {
   @ApiOperation({
     summary: 'Returns data about the achievements available in SC2.',
   })
+  @ApiOkResponse({
+    description: ApiResponse.ok,
+  })
+  @UseCommonErrorResponses()
   @RefreshQueryParam()
   getAchievements(
     @Param('regionId') regionId: string,
