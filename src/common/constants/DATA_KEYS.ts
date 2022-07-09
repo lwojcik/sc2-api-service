@@ -1,12 +1,6 @@
 import { Sc2DataKey } from '../types/Sc2DataKey.enum';
 
-type DataKeys = {
-  [key: string]: {
-    [key: string]: Sc2DataKey;
-  };
-};
-
-export const DATA_KEYS: DataKeys = {
+export const DATA_KEYS = {
   data: {
     getLeague: Sc2DataKey.getLeague,
   },
