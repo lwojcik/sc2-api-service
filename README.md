@@ -176,7 +176,7 @@ Returns metadata for an individual's profile.
 
 Returns data about an individual SC2 profile.
 
-### `GET /profile/ladderSummary/:regionId/:realmId/:profileId`
+### `GET /profile/laddersummary/:regionId/:realmId/:profileId`
 
 Returns a ladder summary for an individual SC2 profile.
 
