@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { RequestContext } from 'nestjs-request-context';
-import { StarCraft2API } from 'starcraft2-api';
+import { PlayerObject, StarCraft2API } from 'starcraft2-api';
 import { battleNetConfig } from '../config';
 import { SC2API_METHOD_MAPPINGS } from '../common/constants';
 import {
@@ -13,6 +13,10 @@ import {
 import { LoggerService } from '../logger/logger.service';
 import { BattleNetError } from '../common/dto/battlenet-error.dto';
 import { BasService } from '../bas/bas.service';
+
+interface PlayerLadderObject extends PlayerObject {
+  ladderId: string;
+}
 
 @Injectable()
 export class StarCraft2ApiService {
@@ -56,6 +60,22 @@ export class StarCraft2ApiService {
       await this.setupSc2Api();
 
       const sc2ApiMethod = SC2API_METHOD_MAPPINGS[key] as string;
+
+      if (sc2ApiMethod === 'queryPlayerLadder') {
+        const playerLadderdata = await this.starcraft2api.queryPlayerLadder(
+          {
+            regionId: (args as PlayerLadderObject).regionId,
+            realmId: (args as PlayerLadderObject).realmId,
+            profileId: (args as PlayerLadderObject).profileId,
+          },
+          (args as PlayerLadderObject).ladderId
+        );
+        return {
+          statusCode: 200,
+          data: playerLadderdata,
+        } as unknown as ApiData<T>;
+      }
+
       const data = await (
         this.starcraft2api as unknown as StarCraft2APILibrary
       )[sc2ApiMethod](args);
