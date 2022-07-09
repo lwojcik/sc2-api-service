@@ -27,7 +27,7 @@ export class LegacyService {
 
   getMatches(profileDto: ProfileDto, refresh?: boolean) {
     return this.dataBroker.getData({
-      key: DATA_KEYS.legacy.getLadders,
+      key: DATA_KEYS.legacy.getMaches,
       args: profileDto,
       refresh,
     });
