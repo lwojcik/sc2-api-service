@@ -39,9 +39,7 @@ export class LegacyController {
   @ApiOperation({
     summary: "Returns data about an individual SC2 profile's ladders",
   })
-  @ApiOkResponse({
-    description: ApiResponse.ok,
-  })
+  @ApiOkResponse()
   @UseCommonErrorResponses()
   @RefreshQueryParam()
   getLadders(
@@ -89,9 +87,7 @@ export class LegacyController {
   @ApiOperation({
     summary: 'Returns data about an individual SC2 ladder.',
   })
-  @ApiOkResponse({
-    description: ApiResponse.ok,
-  })
+  @ApiOkResponse()
   @UseCommonErrorResponses()
   @RefreshQueryParam()
   getLadder(

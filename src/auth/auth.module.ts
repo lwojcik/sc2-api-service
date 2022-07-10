@@ -2,21 +2,19 @@ import { Module, Provider } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { authConfig } from '../config';
-import { AUTH } from '../common/constants';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { trueStringToBoolean } from '../utils/trueStringToBoolean';
 
 const imports = [ConfigModule.forFeature(authConfig)];
 const providers: Provider[] = [];
 
 // istanbul ignore next
-if (trueStringToBoolean({ value: process.env[AUTH.enable] })) {
+if (process.env.SAS_AUTH_ENABLE === 'true') {
   imports.push(
     JwtModule.registerAsync({
       imports: [ConfigModule.forFeature(authConfig)],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        secret: config.get(AUTH.jwtSecret),
+        secret: config.get('auth.jwtSecret'),
         verifyOptions: {
           ignoreExpiration: true,
         },

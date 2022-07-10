@@ -17,13 +17,13 @@ services:
       - bas
 
   redis:
-    image: 'redis:alpine'
+    image: redis:alpine
     restart: on-failure:5
     ports:
       - ${SAS_REDIS_PORT}:${SAS_REDIS_PORT}
 
   bas:
-    image: 'sc2pte/bnet-auth-service:2'
+    image: sc2pte/bnet-auth-service:2
     restart: on-failure:5
     ports:
       - 3001:3001

@@ -3,15 +3,61 @@
 exports[`MainService should get status 1`] = `
 Object {
   "endpoints": Object {
-    "testEndpoint1": Object {
-      "method": "TEST_METHOD_1",
-      "name": "testEndpoint1",
-      "url": "/testEndpoint1",
+    "getGrandmaster": Object {
+      "method": "GET",
+      "url": "/ladder/grandmaster/:regionId",
     },
-    "testEndpoint2": Object {
-      "method": "TEST_METHOD_2",
-      "name": "testEndpoint2",
-      "url": "/testEndpoint2",
+    "getLadderSummary": Object {
+      "method": "GET",
+      "url": "/profile/laddersummary/:regionId/:realmId/:profileId",
+    },
+    "getLeague": Object {
+      "method": "GET",
+      "url": "/data/league/:seasonId/:queueId/:teamType/:leagueId",
+    },
+    "getLegacyAchievements": Object {
+      "method": "GET",
+      "url": "/achievements/:regionId",
+    },
+    "getLegacyLadder": Object {
+      "method": "GET",
+      "url": "/legacy/ladder/:ladderId",
+    },
+    "getLegacyLadders": Object {
+      "method": "GET",
+      "url": "/legacy/ladders/:regionId/:realmId/:profileId",
+    },
+    "getLegacyMatches": Object {
+      "method": "GET",
+      "url": "/legacy/matches/:regionId/:realmId/:profileId",
+    },
+    "getLegacyProfile": Object {
+      "method": "GET",
+      "url": "/legacy/profile/:regionId/:realmId/:profileId",
+    },
+    "getMetadata": Object {
+      "method": "GET",
+      "url": "/profile/metadata/:regionId/:realmId/:profileId",
+    },
+    "getPlayerLadder": Object {
+      "method": "GET",
+      "url": "/profile/ladder/:regionId/:realmId/:profileId/:ladderId",
+    },
+    "getProfile": Object {
+      "method": "GET",
+      "url": "/profile/profile/:regionId/:realmId/:profileId",
+    },
+    "getSeason": Object {
+      "method": "GET",
+      "url": "/ladder/season/:regionId",
+    },
+    "getStatic": Object {
+      "method": "GET",
+      "url": "/profile/static/:regionId",
+    },
+    "status": Object {
+      "method": "GET",
+      "url": "/status",
     },
   },
   "name": "sc2-api-service",

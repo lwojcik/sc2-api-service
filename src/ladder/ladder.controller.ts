@@ -1,6 +1,5 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { ApiResponse } from '../common/types';
 import { UseCommonErrorResponses } from '../common/decorators/common-error-responses.decorator';
 import { RefreshQueryParam } from '../common/decorators/RefreshQueryParam.decorator';
 import { LadderService } from './ladder.service';
@@ -15,7 +14,7 @@ export class LadderController {
     summary: "Get data for the current season's grandmaster leaderboard.",
   })
   @ApiOkResponse({
-    description: ApiResponse.ok,
+    description: 'ok',
   })
   @UseCommonErrorResponses()
   @RefreshQueryParam()
@@ -35,9 +34,7 @@ export class LadderController {
   @ApiOperation({
     summary: "Get data for the current season's grandmaster leaderboard.",
   })
-  @ApiOkResponse({
-    description: ApiResponse.ok,
-  })
+  @ApiOkResponse()
   @UseCommonErrorResponses()
   @RefreshQueryParam()
   getSeason(
