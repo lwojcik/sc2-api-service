@@ -4,12 +4,7 @@ import { RequestContext } from 'nestjs-request-context';
 import { PlayerObject, StarCraft2API } from 'starcraft2-api';
 import { battleNetConfig } from '../config';
 import { SC2API_METHOD_MAPPINGS } from '../common/constants';
-import {
-  ApiData,
-  ApiErrorCode,
-  Sc2DataKey,
-  StarCraft2APILibrary,
-} from '../common/types';
+import { ApiData, ApiErrorCode, Sc2DataKey } from '../common/types';
 import { LoggerService } from '../logger/logger.service';
 import { BattleNetError } from '../common/dto/battlenet-error.dto';
 import { BasService } from '../bas/bas.service';
@@ -49,7 +44,7 @@ export class StarCraft2ApiService {
     });
   }
 
-  async get<T = unknown>(key: string, args: unknown) {
+  async get<T = unknown>(key: Sc2DataKey, args: unknown) {
     try {
       if (!Object.values(Sc2DataKey).includes(key as Sc2DataKey)) {
         throw new RangeError(
@@ -77,7 +72,9 @@ export class StarCraft2ApiService {
       }
 
       const data = await (
-        this.starcraft2api as unknown as StarCraft2APILibrary
+        this.starcraft2api as unknown as {
+          [key: string]: (args?: unknown) => unknown;
+        }
       )[sc2ApiMethod](args);
 
       return {

@@ -5,7 +5,6 @@ Object {
   "appConfig": [Function],
   "authConfig": [Function],
   "battleNetConfig": [Function],
-  "endpointsConfig": [Function],
   "redisConfig": [Function],
   "throttleConfig": [Function],
 }

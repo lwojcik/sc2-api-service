@@ -6,44 +6,40 @@ import {
 import fs from 'fs';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
-import { APP, APP_INFO, HTTPS } from './common/constants';
-import { Environment } from './common/types';
-import { trueStringToBoolean } from './utils/trueStringToBoolean';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(
-      trueStringToBoolean({ value: process.env[HTTPS.enable] })
+      process.env.SAS_HTTPS_ENABLE === 'true'
         ? {
             https: {
-              key: fs.readFileSync(process.env[HTTPS.keyPath]),
-              cert: fs.readFileSync(process.env[HTTPS.certPath]),
+              key: fs.readFileSync(process.env.SAS_HTTPS_KEY_PATH),
+              cert: fs.readFileSync(process.env.SAS_HTTPS_CERT_PATH),
             },
           }
         : undefined
     )
   );
-  const configService = app.get(ConfigService);
-  const port = configService.get<string>(APP.port);
-  const host = configService.get<string>(APP.host);
 
-  if (trueStringToBoolean({ value: process.env[APP.enableCors] })) {
-    const corsConfig = process.env[APP.corsOrigin]
-      ? {
-          origin: process.env[APP.corsOrigin],
-          methods: ['GET'],
-        }
-      : undefined;
+  if (process.env.SAS_APP_CORS_ENABLE) {
+    const corsConfig =
+      process.env.SAS_APP_CORS_ORIGIN.length > 0
+        ? {
+            origin: process.env.SAS_APP_CORS_ORIGIN,
+            methods: ['GET'],
+          }
+        : undefined;
     app.enableCors(corsConfig);
   }
 
-  if (process.env[APP.environment] !== Environment.production) {
+  if (process.env.NODE_ENV !== 'production') {
     const swaggerConfig = new DocumentBuilder()
-      .setTitle(APP_INFO.name)
-      .setDescription(APP_INFO.description)
+      .setTitle('sc2-api-service')
+      .setDescription(
+        'REST microservice for retrieving and caching data from StarCraft II Community and Game Data APIs'
+      )
       .build();
     const document = SwaggerModule.createDocument(app, swaggerConfig);
     SwaggerModule.setup('api', app, document);
@@ -55,6 +51,6 @@ async function bootstrap() {
     })
   );
 
-  await app.listen(port, host);
+  await app.listen(process.env.SAS_APP_PORT, process.env.SAS_APP_HOST);
 }
 bootstrap();

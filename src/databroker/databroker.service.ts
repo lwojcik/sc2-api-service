@@ -5,7 +5,7 @@ import { CacheService } from '../cache/cache.service';
 import { LoggerService } from '../logger/logger.service';
 import { GetDataDto } from './dto/get-data.dto';
 import { redisConfig } from '../config';
-import { ApiData } from '../common/types';
+import { ApiData, Sc2DataKey } from '../common/types';
 
 @Injectable()
 export class DataBrokerService {
@@ -34,7 +34,7 @@ export class DataBrokerService {
   }
 
   private async getDataAndRefreshCache<T = unknown>(
-    key: string,
+    key: Sc2DataKey,
     args: unknown
   ) {
     this.logger.debug('Getting data from Battle.net...');
