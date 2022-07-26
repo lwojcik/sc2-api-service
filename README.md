@@ -3,8 +3,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/5lunfkv0ot8rh3yt/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/sc2-api-service/branch/master)
 [![codecov](https://codecov.io/gh/sc2pte/sc2-api-service/branch/master/graph/badge.svg?token=sFEmFjKiRo)](https://codecov.io/gh/sc2pte/sc2-api-service)
 
-**This is version 2 of the project and it's incompatible with previous version. If you're looking for the previous version, head to [v1 branch](https://github.com/sc2pte/sc2-api-service/tree/v1).**
-
 REST API service retrieving and caching data objects from [StarCraft II Community APIs](https://develop.battle.net/documentation/starcraft-2/community-apis) and [StarCraft II Game Data APIs](https://develop.battle.net/documentation/starcraft-2/game-data-apis).
 
 Under the hood it uses [NestJS](https://nestjs.com/), [Fastify](https://www.fastify.io/) and [BlizzAPI](https://www.npmjs.com/package/blizzapi).
