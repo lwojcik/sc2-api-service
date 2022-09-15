@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`constants should be defined 1`] = `
-Object {
-  "DATA_KEYS": Object {
-    "data": Object {
+{
+  "DATA_KEYS": {
+    "data": {
       "getLeague": "data:league",
     },
-    "ladder": Object {
+    "ladder": {
       "getGrandmaster": "ladder:grandmaster",
       "getSeason": "ladder:season",
     },
-    "legacy": Object {
+    "legacy": {
       "getAchievements": "legacy:achievements",
       "getLadder": "legacy:ladder",
       "getLadders": "legacy:ladders",
@@ -18,7 +18,7 @@ Object {
       "getProfile": "legacy:profile",
       "getRewards": "legacy:rewards",
     },
-    "profile": Object {
+    "profile": {
       "getLadderSummary": "profile:laddersummary",
       "getMetadata": "profile:metadata",
       "getPlayerLadder": "profile:playerladder",
@@ -26,7 +26,7 @@ Object {
       "getStatic": "profile:static",
     },
   },
-  "SC2API_METHOD_MAPPINGS": Object {
+  "SC2API_METHOD_MAPPINGS": {
     "data:league": "queryLeagueData",
     "ladder:grandmaster": "queryGrandmasterLeaderboard",
     "ladder:season": "querySeason",
