@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ModuleMocker } from 'jest-mock';
+import { MockedClass, ModuleMocker } from 'jest-mock';
+import { Type } from '@nestjs/common';
 import { StarCraft2ApiService } from '../starcraft2api/starcraft2api.service';
 import { Sc2DataKey } from '../common/types';
 import { DataBrokerService } from './databroker.service';
@@ -45,7 +46,7 @@ describe('DataBrokerService', () => {
         if (typeof token === 'function') {
           const mockMetadata = moduleMocker.getMetadata(token);
           const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-          return new Mock();
+          return new (Mock as MockedClass<Type<unknown>>)();
         }
         return jest.fn();
       })
