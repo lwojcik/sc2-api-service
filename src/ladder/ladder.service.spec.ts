@@ -1,5 +1,6 @@
+import { Type } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ModuleMocker } from 'jest-mock';
+import { MockedClass, ModuleMocker } from 'jest-mock';
 import { LadderService } from './ladder.service';
 
 const moduleMocker = new ModuleMocker(global);
@@ -14,7 +15,7 @@ describe('LadderService', () => {
       .useMocker((token) => {
         const mockMetadata = moduleMocker.getMetadata(token);
         const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-        return new Mock();
+        return new (Mock as MockedClass<Type<unknown>>)();
       })
       .compile();
 
