@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataBrokerService should get data by key 1`] = `
-Object {
-  "data": Object {
+{
+  "data": {
     "foo": "sample_data_from_cache",
   },
   "statusCode": 200,
@@ -10,9 +10,9 @@ Object {
 `;
 
 exports[`DataBrokerService should get data if refresh is forced 1`] = `
-Object {
+{
   "created": 2000,
-  "data": Object {
+  "data": {
     "foo": "sample_data_from_sc2api_service_mock",
   },
   "statusCode": 200,

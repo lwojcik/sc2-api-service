@@ -1,6 +1,7 @@
-import { ModuleMocker } from 'jest-mock';
+import { MockedClass, ModuleMocker } from 'jest-mock';
 import { Test, TestingModule } from '@nestjs/testing';
 import { HttpService } from '@nestjs/axios';
+import { Type } from '@nestjs/common';
 import { BasService } from './bas.service';
 
 const moduleMocker = new ModuleMocker(global);
@@ -29,7 +30,7 @@ describe('BasService', () => {
         if (typeof token === 'function') {
           const mockMetadata = moduleMocker.getMetadata(token);
           const Mock = moduleMocker.generateFromMetadata(mockMetadata);
-          return new Mock();
+          return new (Mock as MockedClass<Type<unknown>>)();
         }
         return jest.fn();
       })
