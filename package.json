@@ -74,7 +74,7 @@
     }
   },
   "dependencies": {
-    "@fastify/swagger": "^7.5.1",
+    "@fastify/swagger": "^8.0.0",
     "@liaoliaots/nestjs-redis": "^9.0.2",
     "@nestjs/axios": "^0.1.0",
     "@nestjs/common": "^9.0.11",
