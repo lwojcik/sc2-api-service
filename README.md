@@ -1,7 +1,6 @@
 # sc2-api-service (SAS)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/5lunfkv0ot8rh3yt/branch/master?svg=true)](https://ci.appveyor.com/project/lwojcik/sc2-api-service/branch/master)
-[![codecov](https://codecov.io/gh/sc2pte/sc2-api-service/branch/master/graph/badge.svg?token=sFEmFjKiRo)](https://codecov.io/gh/sc2pte/sc2-api-service)
+> **As of 15 March 2023 this project is no longer updated or maintained.**
 
 REST API service retrieving and caching data objects from [StarCraft II Community APIs](https://develop.battle.net/documentation/starcraft-2/community-apis) and [StarCraft II Game Data APIs](https://develop.battle.net/documentation/starcraft-2/game-data-apis).
 
